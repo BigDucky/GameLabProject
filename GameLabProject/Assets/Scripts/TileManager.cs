@@ -8,6 +8,7 @@ public class TileManager : MonoBehaviour {
     public GameObject tile;
     public int mapLength, mapWidth;
     public Material tileMaterial;
+
     [HideInInspector]
     public List<GameObject> tileList = new List<GameObject>();
     [HideInInspector]
