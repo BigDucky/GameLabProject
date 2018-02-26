@@ -26,6 +26,8 @@ public class TileManager : MonoBehaviour {
         tile.name = "tileNR" + widthNR + lengthNR;
         tileList.Add(tile);
         tile.transform.SetParent(mapPos);
+        tile.tag = "Tile";
+        tile.layer = 8;
         if(tileMaterial == null) {
             Debug.Log("No Material Inserted (Default Material is Applied)");
         }

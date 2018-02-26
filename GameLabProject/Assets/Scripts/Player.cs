@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public GameLogic gameLogic;
     private GameObject tempBuilding;
     private int BuildingType;
+    private Vector3 mousPos;
 	// Use this for initialization
 	void Start () {
         buildingList = gameLogic.Obuildings;
@@ -17,9 +18,9 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(isPlacing) {
-            PlayerInteractions(BuildingType);
-            tempBuilding.transform.position = Input.mousePosition;
+            PlayerInteractions(BuildingType);// waiting for player to do something
         }
+       
 	}
 
     /// <summary>
@@ -29,10 +30,30 @@ public class Player : MonoBehaviour {
     void PlayerInteractions(int buildingType) {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray,out hit, 100f)) {
-                PlaceBuilding(buildingType);
-                isPlacing = false;
+            if(Physics.Raycast(ray,out hit, 100f,1 << LayerMask.NameToLayer("Tile"))) {
+                Debug.Log(hit.collider.name);
+                if(hit.collider.tag != "Tile") {
+                    //Invalid 
+                    //Message that it is not on a tile
+                    return;
+                }
+                else {
+                    PlaceBuilding(buildingType);
+                    Destroy(tempBuilding);
+                    isPlacing = false;
+                }
             }
+        }
+        else {
+            MoveTempBuilding(hit);
+        }
+        
+    }
+
+    void MoveTempBuilding(RaycastHit hit) {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, 100f)) {
+            tempBuilding.transform.position = hit.collider.transform.position;
         }
     }
 
@@ -44,7 +65,11 @@ public class Player : MonoBehaviour {
         isPlacing = true;
         BuildingType = type;
         tempBuilding = buildingList[type];
-        Instantiate(tempBuilding);
+        TempBuilding();
+    }
+
+    public void TempBuilding() {
+        tempBuilding = Instantiate(tempBuilding, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
 }
