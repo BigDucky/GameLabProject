@@ -39,7 +39,8 @@ public class Player : MonoBehaviour {
                 }
                 else {
                     PlaceBuilding(buildingType);
-                    Destroy(tempBuilding);
+                    TileManager.DisableTile(tempBuilding.GetComponent<BuildingInfo>().buildData.width, tempBuilding.GetComponent<BuildingInfo>().buildData.length, hit.collider.gameObject);
+                    Destroy(tempBuilding);                   
                     isPlacing = false;
                 }
             }
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour {
 
     void MoveTempBuilding(RaycastHit hit) {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 100f)) {
+        if (Physics.Raycast(ray, out hit, 100f, 1<< LayerMask.NameToLayer("Tile"))) {
             tempBuilding.transform.position = hit.collider.transform.position;
         }
     }

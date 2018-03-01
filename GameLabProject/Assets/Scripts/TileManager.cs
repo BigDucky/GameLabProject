@@ -8,16 +8,23 @@ public class TileManager : MonoBehaviour {
     public GameObject tile;
     public int mapLength, mapWidth;
     public Material tileMaterial;
+    public Material disabledTile;
+
+
 
     [HideInInspector]
-    public List<GameObject> tileList = new List<GameObject>();
+    public static List<GameObject> tileList = new List<GameObject>();
     [HideInInspector]
     public Transform mapPos;
 
     // Use this for initialization
     void Start () {
         SpawnTile();
-	}
+    }
+
+    void Update() {
+
+    }
 
     /// <summary>
     /// Gives it the propper name and adds them to the list + material
@@ -28,6 +35,8 @@ public class TileManager : MonoBehaviour {
         tile.transform.SetParent(mapPos);
         tile.tag = "Tile";
         tile.layer = 8;
+        tile.gameObject.AddComponent<TileData>().xPos = widthNR;
+        tile.gameObject.GetComponent<TileData>().yPos = lengthNR;
         if(tileMaterial == null) {
             Debug.Log("No Material Inserted (Default Material is Applied)");
         }
@@ -35,8 +44,29 @@ public class TileManager : MonoBehaviour {
             tile.gameObject.GetComponent<Renderer>().material = material;
         }
     }
+    public static void DisableTile(int width, int lenght,GameObject tile) {
+        
+        int widthTile = (width - 1) / 2;
+        int lenghtTile = (lenght - 1) / 2;
+        int middleIndex;
+        int lenghtTileUp;
+        int lenghtTileDown;
+        for (int i = 0; i < TileManager.tileList.Count; i++) {
+            if(TileManager.tileList[i].name == tile.name) {
+                tileList[i].GetComponent<Renderer>().material = null;
+                middleIndex =i;
 
-
+                tileList[i + lenghtTile * 10].GetComponent<Renderer>().material = null;
+                tileList[i - lenghtTile * 10].GetComponent<Renderer>().material = null;
+                tileList[i + widthTile].GetComponent<Renderer>().material = null;
+                tileList[i - widthTile].GetComponent<Renderer>().material = null;
+                lenghtTileUp = i + lenghtTile * 10;
+                lenghtTileDown = i - lenghtTile * 10;
+                int widthTileLeft = i + widthTile;
+                int widthTileRight = i - widthTile;
+            }
+        }
+    }
     /// <summary>
     /// Spawns the tile in a square, and adds things to the tiles
     /// </summary>
