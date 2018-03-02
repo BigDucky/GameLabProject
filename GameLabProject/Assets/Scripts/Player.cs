@@ -8,10 +8,14 @@ public class Player : MonoBehaviour {
     public RaycastHit hit;
     public GameLogic gameLogic;
     private GameObject tempBuilding;
+    private int buildingWidth;
+    private int buildingLength;
     private int BuildingType;
     private Vector3 mousPos;
-	// Use this for initialization
-	void Start () {
+    private bool ableToBuild = true;
+    private Vector3 buildingRotation = new Vector3 (0,90,0);
+    // Use this for initialization
+    void Start () {
         buildingList = gameLogic.Obuildings;
 	}
 	
@@ -24,7 +28,7 @@ public class Player : MonoBehaviour {
 	}
 
     /// <summary>
-    /// Checks which tile is clicked
+    /// Checks which tile is clicked and places thje building on the riht pos
     /// </summary>
     /// 
     void PlayerInteractions(int buildingType) {
@@ -38,31 +42,58 @@ public class Player : MonoBehaviour {
                     return;
                 }
                 else {
-                    PlaceBuilding(buildingType);
-                    TileManager.DisableTile(tempBuilding.GetComponent<BuildingInfo>().buildData.width, tempBuilding.GetComponent<BuildingInfo>().buildData.length, hit.collider.gameObject);
+                    buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
+                    buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
+                    PlaceBuilding(buildingType);                   
+                    TileManager.DisableTile(buildingWidth,buildingLength, hit.collider.gameObject);
                     Destroy(tempBuilding);                   
                     isPlacing = false;
                 }
             }
         }
+        else if (Input.GetKeyDown(KeyCode.E)) {
+           tempBuilding.transform.Rotate(buildingRotation);
+        }
         else {
-            MoveTempBuilding(hit);
+            if(tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
+                MoveTempBuilding(hit, tempBuilding.GetComponent<BuildingInfo>().buildData.even);
+            }
+            MoveTempBuilding(hit, tempBuilding.GetComponent<BuildingInfo>().buildData.even);
         }
         
     }
 
-    void MoveTempBuilding(RaycastHit hit) {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 100f, 1<< LayerMask.NameToLayer("Tile"))) {
-            tempBuilding.transform.position = hit.collider.transform.position;
+    //Moves the temporary building to the mouse position.
+    void MoveTempBuilding(RaycastHit hit, bool even) {
+        if( even) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
+                tempBuilding.transform.position = hit.collider.transform.position;
+            }
         }
+        else {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
+                tempBuilding.transform.position = new Vector3(hit.collider.transform.position.x, 0, hit.collider.transform.position.z);
+            }
+        }
+     
     }
 
+    //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-        Instantiate(buildingList[buildingType], hit.transform.position, Quaternion.identity);
+        if (!ableToBuild) { 
+            Debug.Log("Not Able To Build (something is in the way)");
+        }
+        else {
+            Instantiate(buildingList[buildingType], hit.transform.position, Quaternion.Euler(buildingRotation));
+        }
+        
     }
 
+    //Selecting stage where it determites which building is selected ( also makes the temp building for visualization ) 
     public void SelectBuilding(int type) {
+        Destroy(tempBuilding);
         isPlacing = true;
         BuildingType = type;
         tempBuilding = buildingList[type];

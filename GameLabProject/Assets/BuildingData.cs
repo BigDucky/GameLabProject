@@ -6,4 +6,5 @@ using UnityEngine;
 public class BuildingData:ScriptableObject{
     public int width;
     public int length;
+    public bool even;
 }
