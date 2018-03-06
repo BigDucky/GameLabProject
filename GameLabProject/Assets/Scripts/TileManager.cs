@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class TileManager : MonoBehaviour {
 
-    public GameObject tile;
+    public GameObject tilePrefab;
     public int mapLength, mapWidth;
     public Material tileMaterial;
     public Material disabledTile;
@@ -14,6 +14,8 @@ public class TileManager : MonoBehaviour {
 
     [HideInInspector]
     public static List<GameObject> tileList = new List<GameObject>();
+    [HideInInspector]
+    public static List<GameObject> disabledTilesList = new List<GameObject>();
     [HideInInspector]
     public Transform mapPos;
 
@@ -54,7 +56,11 @@ public class TileManager : MonoBehaviour {
                     tileList[i - widthTile + w + lenghtTile*mapWidth].GetComponent<Renderer>().material = disabled;                   
                     tileList[i - widthTile + w].GetComponent<Renderer>().material = disabled;
                     tileList[i - widthTile + w - lenghtTile*mapLength].GetComponent<Renderer>().material = disabled;
-                }         
+
+                    TileManager.disabledTilesList.Add(tileList[i - widthTile + w + lenghtTile * mapWidth]);
+                    TileManager.disabledTilesList.Add(tileList[i - widthTile + w]);
+                    TileManager.disabledTilesList.Add(tileList[i - widthTile + w - lenghtTile * mapLength]);
+                }
             }
         }
     }
@@ -63,13 +69,13 @@ public class TileManager : MonoBehaviour {
     /// Spawns the tile in a square, and adds things to the tiles
     /// </summary>
     void SpawnTile(){
-        if (tile == null) {
+        if (tilePrefab == null) {
             Debug.Log("No Tile Prefab Inserted");
         }
         else {
             for (int i = 0; i < mapWidth; i++) {
                 for (int j = 0; j < mapLength; j++) {
-                    GameObject tileNr = Instantiate(tile, new Vector3(mapPos.position.x + 1 * j, 0, mapPos.position.z + 1 * i), Quaternion.identity,this.transform.parent);
+                    GameObject tileNr = Instantiate(tilePrefab, new Vector3(mapPos.position.x + 1 * j, 0, mapPos.position.z + 1 * i), Quaternion.identity,this.transform.parent);
                     TileSetup(tileMaterial, "tileNR", i, j, tileNr);
                 }
             }

@@ -5,16 +5,23 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     public bool isPlacing = false;
     private List<GameObject> buildingList = new List<GameObject>();
-    public RaycastHit hit;
-    public GameLogic gameLogic;
+
     private GameObject tempBuilding;
     private int buildingWidth;
     private int buildingLength;
     private int BuildingType;
-    private Vector3 mousPos;
-    private bool ableToBuild = true;
 
-    public TileManager tileManager; 
+    Collider[] hitColliders;
+
+    public RaycastHit hit;
+    public GameLogic gameLogic;
+
+    private Vector3 mousPos;
+    private bool canBuild = true;
+
+    public TileManager tileManager;
+
+    public Light testlight;
 
     // Use this for initialization
     void Start () {
@@ -37,19 +44,27 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray,out hit, 100f,1 << LayerMask.NameToLayer("Tile"))) {
-                Debug.Log(hit.collider.name);
+                Debug.Log("Tile Selected = " + hit.collider.name);
                 if(hit.collider.tag != "Tile") {
                     //Invalid 
                     //Message that it is not on a tile
                     return;
                 }
                 else {
-                    buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
-                    buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
-                    PlaceBuilding(buildingType);
-                    TileManager.DisableTile(buildingWidth, buildingLength, hit.collider.gameObject,tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
-                    Destroy(tempBuilding);                   
-                    isPlacing = false;
+                    BuildCheck();
+                    if(!canBuild) {
+                        Debug.Log("CANT BUILD JEZUS CHRIST");
+                        Invoke("BuildingTimer", 0.1f);
+                        testlight.color = Color.red;
+                    }
+                    else {
+                        buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
+                        buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
+                        PlaceBuilding(buildingType);
+                        TileManager.DisableTile(buildingWidth, buildingLength, hit.collider.gameObject, tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
+                        Destroy(tempBuilding);
+                        isPlacing = false;
+                    }
                 }
             }
         }
@@ -62,12 +77,28 @@ public class Player : MonoBehaviour {
         
     }
 
+    void BuildingTimer() {
+        canBuild = true;
+        testlight.color = Color.white;
+    }
+
+    void BuildCheck() {
+         hitColliders = Physics.OverlapBox(tempBuilding.transform.position, tempBuilding.transform.localScale, Quaternion.identity);
+        for (int i = 0; i < TileManager.disabledTilesList.Count; i++) {
+            for (int j = 0; j < hitColliders.Length; j++) {
+                if(hitColliders[j].name == TileManager.disabledTilesList[i].name) {
+                    canBuild = false;
+                }
+            }
+        }
+    }
+
     //Moves the temporary building to the mouse position.
     void MoveTempBuilding(RaycastHit hit, bool even ) {
-        if( even) {
+        if(even) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
-                tempBuilding.transform.position = hit.collider.transform.position;
+                tempBuilding.transform.position.Set(hit.collider.transform.position.x,hit.collider.transform.position.y, hit.collider.transform.position.z);
             }
         }
         else {
@@ -81,13 +112,7 @@ public class Player : MonoBehaviour {
 
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-        if (!ableToBuild) { 
-            Debug.Log("Not Able To Build (something is in the way)");
-        }
-        else {
-            Instantiate(buildingList[buildingType], hit.transform.position, Quaternion.identity);
-        }
-        
+            Instantiate(buildingList[buildingType], hit.transform.position, Quaternion.identity); 
     }
 
     //Selecting stage where it determites which building is selected ( also makes the temp building for visualization ) 
@@ -101,6 +126,7 @@ public class Player : MonoBehaviour {
 
     public void TempBuilding() {
         tempBuilding = Instantiate(tempBuilding, new Vector3(0, 0, 0), Quaternion.identity);
+
     }
 
 }

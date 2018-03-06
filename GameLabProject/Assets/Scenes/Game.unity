@@ -892,6 +892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlacing: 0
   gameLogic: {fileID: 11400000, guid: c22273eab2f9f2c4dabd84be2fabe68c, type: 2}
+  tileManager: {fileID: 1218749481}
+  testlight: {fileID: 1587169549}
 --- !u!4 &967529324
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,7 +1056,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1166118382}
   m_LocalRotation: {x: 0.68777937, y: -0, z: -0, w: 0.72591984}
-  m_LocalPosition: {x: 4.72, y: 10.42, z: 3.74}
+  m_LocalPosition: {x: 8.9, y: 19.67, z: 8.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1163,11 +1165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa65b9df90fca74fbaeda15f78a80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 1803912693379974, guid: 3ef47777192bae246adab806eb794226, type: 2}
-  mapLength: 19
-  mapWidth: 19
+  tilePrefab: {fileID: 1803912693379974, guid: 3ef47777192bae246adab806eb794226, type: 2}
+  mapLength: 25
+  mapWidth: 25
   tileMaterial: {fileID: 2100000, guid: a797152bba750ec428dc290e87137fb4, type: 2}
-  disabledTile: {fileID: 0}
+  disabledTile: {fileID: 2100000, guid: 5b4f3388fd859964c885debf6c952ebe, type: 2}
   mapPos: {fileID: 1119379244}
 --- !u!4 &1218749482
 Transform:
