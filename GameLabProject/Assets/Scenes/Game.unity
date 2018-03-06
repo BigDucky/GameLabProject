@@ -1164,8 +1164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 1803912693379974, guid: 3ef47777192bae246adab806eb794226, type: 2}
-  mapLength: 10
-  mapWidth: 10
+  mapLength: 19
+  mapWidth: 19
   tileMaterial: {fileID: 2100000, guid: a797152bba750ec428dc290e87137fb4, type: 2}
   disabledTile: {fileID: 0}
   mapPos: {fileID: 1119379244}

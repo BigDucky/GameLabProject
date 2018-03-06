@@ -13,7 +13,9 @@ public class Player : MonoBehaviour {
     private int BuildingType;
     private Vector3 mousPos;
     private bool ableToBuild = true;
-    private Vector3 buildingRotation = new Vector3 (0,90,0);
+
+    public TileManager tileManager; 
+
     // Use this for initialization
     void Start () {
         buildingList = gameLogic.Obuildings;
@@ -44,15 +46,12 @@ public class Player : MonoBehaviour {
                 else {
                     buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
                     buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
-                    PlaceBuilding(buildingType);                   
-                    TileManager.DisableTile(buildingWidth,buildingLength, hit.collider.gameObject);
+                    PlaceBuilding(buildingType);
+                    TileManager.DisableTile(buildingWidth, buildingLength, hit.collider.gameObject,tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
                     Destroy(tempBuilding);                   
                     isPlacing = false;
                 }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.E)) {
-           tempBuilding.transform.Rotate(buildingRotation);
         }
         else {
             if(tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
@@ -64,7 +63,7 @@ public class Player : MonoBehaviour {
     }
 
     //Moves the temporary building to the mouse position.
-    void MoveTempBuilding(RaycastHit hit, bool even) {
+    void MoveTempBuilding(RaycastHit hit, bool even ) {
         if( even) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
@@ -86,7 +85,7 @@ public class Player : MonoBehaviour {
             Debug.Log("Not Able To Build (something is in the way)");
         }
         else {
-            Instantiate(buildingList[buildingType], hit.transform.position, Quaternion.Euler(buildingRotation));
+            Instantiate(buildingList[buildingType], hit.transform.position, Quaternion.identity);
         }
         
     }

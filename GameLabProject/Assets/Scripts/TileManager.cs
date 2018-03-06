@@ -45,16 +45,16 @@ public class TileManager : MonoBehaviour {
         }
     }
  
-    public static void DisableTile(int width, int lenght,GameObject tile) {
+    public static void DisableTile(int width, int lenght,GameObject tile, Material disabled, int mapWidth, int mapLength) {
         int widthTile = (width - 1) / 2;
-        int lenghtTile = (lenght - 1) / 2;
+        int lenghtTile = (lenght - 1) / 2; 
         for (int i = 0; i < TileManager.tileList.Count; i++) {
             if (TileManager.tileList[i].name == tile.name) {
                 for (int w = 0; w < width; w++) {
-                    tileList[i - widthTile + w + lenghtTile* 10].GetComponent<Renderer>().material = null;
-                    tileList[i - widthTile + w + 0 * 10].GetComponent<Renderer>().material = null;
-                    tileList[i - widthTile + w - lenghtTile * 10].GetComponent<Renderer>().material = null;
-                }            
+                    tileList[i - widthTile + w + lenghtTile*mapWidth].GetComponent<Renderer>().material = disabled;                   
+                    tileList[i - widthTile + w].GetComponent<Renderer>().material = disabled;
+                    tileList[i - widthTile + w - lenghtTile*mapLength].GetComponent<Renderer>().material = disabled;
+                }         
             }
         }
     }
