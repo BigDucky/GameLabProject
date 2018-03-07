@@ -44,18 +44,18 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray,out hit, 100f,1 << LayerMask.NameToLayer("Tile"))) {
-                Debug.Log("Tile Selected = " + hit.collider.name);
+                //Debug.Log("Tile Selected = " + hit.collider.name);
                 if(hit.collider.tag != "Tile") {
                     //Invalid 
                     //Message that it is not on a tile
-                    return;
+                   
                 }
                 else {
                     BuildCheck();
                     if(!canBuild) {
-                        Debug.Log("CANT BUILD JEZUS CHRIST");
-                        Invoke("BuildingTimer", 0.1f);
                         testlight.color = Color.red;
+                        Invoke("BuildingTimer", 0.1f);
+                        
                     }
                     else {
                         buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour {
     }
 
     void BuildCheck() {
-         hitColliders = Physics.OverlapBox(tempBuilding.transform.position, tempBuilding.transform.localScale, Quaternion.identity);
+        hitColliders = Physics.OverlapBox(tempBuilding.transform.position, tempBuilding.transform.localScale, Quaternion.identity);
         for (int i = 0; i < TileManager.disabledTilesList.Count; i++) {
             for (int j = 0; j < hitColliders.Length; j++) {
                 if(hitColliders[j].name == TileManager.disabledTilesList[i].name) {

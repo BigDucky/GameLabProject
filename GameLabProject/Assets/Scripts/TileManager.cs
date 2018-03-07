@@ -10,7 +10,7 @@ public class TileManager : MonoBehaviour {
     public Material tileMaterial;
     public Material disabledTile;
 
-
+    public static int test = 0;
 
     [HideInInspector]
     public static List<GameObject> tileList = new List<GameObject>();
@@ -26,13 +26,18 @@ public class TileManager : MonoBehaviour {
 
     void Update() {
 
+        //for (int i = 0; i < disabledTilesList.Count; i++) {
+        //  Debug.Log(disabledTilesList[i].name);
+        //}
+
+        Debug.Log(disabledTilesList.Count);
     }
 
     /// <summary>
     /// Gives it the propper name and adds them to the list + material
     /// </summary>
     void TileSetup(Material material, string name,int widthNR,int lengthNR,GameObject tile) {
-        tile.name = "tileNR" + widthNR + lengthNR;
+        tile.name = "tileNR=" + "W:" + widthNR + "L:"+ lengthNR;
         tileList.Add(tile);
         tile.transform.SetParent(mapPos);
         tile.tag = "Tile";
