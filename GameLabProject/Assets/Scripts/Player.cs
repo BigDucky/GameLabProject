@@ -47,15 +47,13 @@ public class Player : MonoBehaviour {
                 //Debug.Log("Tile Selected = " + hit.collider.name);
                 if(hit.collider.tag != "Tile") {
                     //Invalid 
-                    //Message that it is not on a tile
-                   
+                    //Message that it is not on a tile                
                 }
                 else {
                     BuildCheck();
                     if(!canBuild) {
-                        testlight.color = Color.red;
                         Invoke("BuildingTimer", 0.1f);
-                        
+                        testlight.color = Color.red;
                     }
                     else {
                         buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
@@ -83,9 +81,12 @@ public class Player : MonoBehaviour {
     }
 
     void BuildCheck() {
-        hitColliders = Physics.OverlapBox(tempBuilding.transform.position, tempBuilding.transform.localScale, Quaternion.identity);
-        for (int i = 0; i < TileManager.disabledTilesList.Count; i++) {
-            for (int j = 0; j < hitColliders.Length; j++) {
+        hitColliders = Physics.OverlapBox(tempBuilding.transform.position, new Vector3(0.8f,1,0.8f), Quaternion.identity);
+        for (int i = 0; i < hitColliders.Length; i++) {
+            Debug.Log(hitColliders[i].name);
+        }
+        for (int j = 0; j < hitColliders.Length; j++) {
+            for (int i = 0; i < TileManager.disabledTilesList.Count; i++) {         
                 if(hitColliders[j].name == TileManager.disabledTilesList[i].name) {
                     canBuild = false;
                 }
@@ -126,7 +127,6 @@ public class Player : MonoBehaviour {
 
     public void TempBuilding() {
         tempBuilding = Instantiate(tempBuilding, new Vector3(0, 0, 0), Quaternion.identity);
-
     }
 
 }

@@ -10,7 +10,6 @@ public class TileManager : MonoBehaviour {
     public Material tileMaterial;
     public Material disabledTile;
 
-    public static int test = 0;
 
     [HideInInspector]
     public static List<GameObject> tileList = new List<GameObject>();
@@ -26,11 +25,6 @@ public class TileManager : MonoBehaviour {
 
     void Update() {
 
-        //for (int i = 0; i < disabledTilesList.Count; i++) {
-        //  Debug.Log(disabledTilesList[i].name);
-        //}
-
-        Debug.Log(disabledTilesList.Count);
     }
 
     /// <summary>
