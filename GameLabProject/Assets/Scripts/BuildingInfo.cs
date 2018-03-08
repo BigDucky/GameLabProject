@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuildingInfo : MonoBehaviour {
     public int size;
     public BuildingData buildData;
+    
 	// Use this for initialization
 	void Start () {
    

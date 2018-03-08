@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 
     Collider[] hitColliders;
 
+
     public RaycastHit hit;
     public GameLogic gameLogic;
 
@@ -22,6 +23,8 @@ public class Player : MonoBehaviour {
     public TileManager tileManager;
 
     public Light testlight;
+
+    GameObject tempthingie;
 
     // Use this for initialization
     void Start () {
@@ -33,7 +36,6 @@ public class Player : MonoBehaviour {
         if(isPlacing) {
             PlayerInteractions(BuildingType);// waiting for player to do something
         }
-       
 	}
 
     /// <summary>
@@ -49,10 +51,10 @@ public class Player : MonoBehaviour {
                     //Invalid 
                     //Message that it is not on a tile                
                 }
-                else {
+                else {                  
                     BuildCheck();
                     if(!canBuild) {
-                        Invoke("BuildingTimer", 0.1f);
+                        Invoke("BuildingTimer", 1f);
                         testlight.color = Color.red;
                     }
                     else {
@@ -81,12 +83,10 @@ public class Player : MonoBehaviour {
     }
 
     void BuildCheck() {
-        hitColliders = Physics.OverlapBox(tempBuilding.transform.position, new Vector3(0.8f,1,0.8f), Quaternion.identity);
-        for (int i = 0; i < hitColliders.Length; i++) {
-            Debug.Log(hitColliders[i].name);
-        }
+        hitColliders = Physics.OverlapBox(tempBuilding.transform.position,new Vector3(tempBuilding.transform.lossyScale.x * 0.3f,1, tempBuilding.transform.lossyScale.z * 0.3f), Quaternion.identity);
+        tempthingie = tempBuilding;
         for (int j = 0; j < hitColliders.Length; j++) {
-            for (int i = 0; i < TileManager.disabledTilesList.Count; i++) {         
+            for (int i = 0; i < TileManager.disabledTilesList.Count; i++) {              
                 if(hitColliders[j].name == TileManager.disabledTilesList[i].name) {
                     canBuild = false;
                 }
@@ -96,18 +96,18 @@ public class Player : MonoBehaviour {
 
     //Moves the temporary building to the mouse position.
     void MoveTempBuilding(RaycastHit hit, bool even ) {
-        if(even) {
+        /*if(even) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
                 tempBuilding.transform.position.Set(hit.collider.transform.position.x,hit.collider.transform.position.y, hit.collider.transform.position.z);
             }
-        }
-        else {
+        }*/
+       //lse {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
                 tempBuilding.transform.position = new Vector3(hit.collider.transform.position.x, 0, hit.collider.transform.position.z);
             }
-        }
+      //  }
      
     }
 

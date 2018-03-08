@@ -24,7 +24,9 @@ public class TileManager : MonoBehaviour {
     }
 
     void Update() {
-
+        for (int i = 0; i < disabledTilesList.Count; i++) {
+            Debug.Log(disabledTilesList[i].name);
+        }
     }
 
     /// <summary>
@@ -52,13 +54,14 @@ public class TileManager : MonoBehaviour {
         for (int i = 0; i < TileManager.tileList.Count; i++) {
             if (TileManager.tileList[i].name == tile.name) {
                 for (int w = 0; w < width; w++) {
-                    tileList[i - widthTile + w + lenghtTile*mapWidth].GetComponent<Renderer>().material = disabled;                   
+                    tileList[i - widthTile + w + lenghtTile * mapWidth].GetComponent<Renderer>().material = disabled;                   
                     tileList[i - widthTile + w].GetComponent<Renderer>().material = disabled;
-                    tileList[i - widthTile + w - lenghtTile*mapLength].GetComponent<Renderer>().material = disabled;
-
+                    tileList[i - widthTile + w - lenghtTile * mapLength].GetComponent<Renderer>().material = disabled;
+                    
                     TileManager.disabledTilesList.Add(tileList[i - widthTile + w + lenghtTile * mapWidth]);
                     TileManager.disabledTilesList.Add(tileList[i - widthTile + w]);
-                    TileManager.disabledTilesList.Add(tileList[i - widthTile + w - lenghtTile * mapLength]);
+                    TileManager.disabledTilesList.Add(tileList[i - widthTile + w - lenghtTile * mapLength]);                    
+
                 }
             }
         }
