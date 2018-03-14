@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
     public bool isPlacing = false;
@@ -13,7 +14,6 @@ public class Player : MonoBehaviour {
 
     Collider[] hitColliders;
 
-
     public RaycastHit hit;
     public GameLogic gameLogic;
 
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
 
     public Light testlight;
 
-    GameObject tempthingie;
+    GameObject tempthingie; // Delete maybe
 
     // Use this for initialization
     void Start () {
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour {
     /// Checks which tile is clicked and places thje building on the riht pos
     /// </summary>
     /// 
-    void PlayerInteractions(int buildingType) {
+	void PlayerInteractions(int buildingType) {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray,out hit, 100f,1 << LayerMask.NameToLayer("Tile"))) {
@@ -58,12 +58,16 @@ public class Player : MonoBehaviour {
                         testlight.color = Color.red;
                     }
                     else {
-                        buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
-                        buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
-                        PlaceBuilding(buildingType);
-                        TileManager.DisableTile(buildingWidth, buildingLength, hit.collider.gameObject, tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
-                        Destroy(tempBuilding);
-                        isPlacing = false;
+						UpdateGrid (buildingType);
+						//Updates the amount of Cash
+						PlayerInfo.UpdateMoney (tempBuilding.GetComponent<BuildingInfo>().buildData.buildingCost, tempBuilding.GetComponent<BuildingInfo>().buildData.income);
+						if (buildingType != 0) {
+							PlayerInfo.UpdatePolution (tempBuilding.GetComponent<BuildingInfo> ().buildData.polution);
+						} else {
+							
+							PlayerInfo.UpdatePolution (-tempBuilding.GetComponent<BuildingInfo> ().buildData.polution);
+							//PlayerInfo.totalMoney = PlayerInfo.totalMoney + tempBuilding.GetComponent<BuildingInfo> ().buildData.polution;
+						}
                     }
                 }
             }
@@ -77,21 +81,35 @@ public class Player : MonoBehaviour {
         
     }
 
-    void BuildingTimer() {
+	void BuildingTimer() {
         canBuild = true;
         testlight.color = Color.white;
     }
 
+	void UpdateGrid(int buildingType){
+		buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
+		buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
+		PlaceBuilding(buildingType);
+		//Updates the used up tiles
+		TileManager.DisableTile(buildingWidth, buildingLength, hit.collider.gameObject, tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
+		Destroy(tempBuilding);
+		isPlacing = false;
+	}
+
     void BuildCheck() {
         hitColliders = Physics.OverlapBox(tempBuilding.transform.position,new Vector3(tempBuilding.transform.lossyScale.x * 0.3f,1, tempBuilding.transform.lossyScale.z * 0.3f), Quaternion.identity);
         tempthingie = tempBuilding;
-        for (int j = 0; j < hitColliders.Length; j++) {
-            for (int i = 0; i < TileManager.disabledTilesList.Count; i++) {              
-                if(hitColliders[j].name == TileManager.disabledTilesList[i].name) {
-                    canBuild = false;
-                }
-            }
-        }
+		if (PlayerInfo.totalMoney < tempBuilding.GetComponent<BuildingInfo> ().buildData.buildingCost) {
+			canBuild = false;
+		} else {			
+			for (int j = 0; j < hitColliders.Length; j++) {
+				for (int i = 0; i < TileManager.disabledTilesList.Count; i++) {              
+					if (hitColliders [j].name == TileManager.disabledTilesList [i].name) {
+						canBuild = false;
+					}
+				}
+			}
+		}
     }
 
     //Moves the temporary building to the mouse position.

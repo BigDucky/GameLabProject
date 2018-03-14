@@ -7,4 +7,7 @@ public class BuildingData:ScriptableObject{
     public int width;
     public int length;
     public bool even;
+	public float buildingCost;
+	public float income;
+	public float polution;
 }
