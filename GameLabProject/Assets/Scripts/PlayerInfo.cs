@@ -29,9 +29,8 @@ public class PlayerInfo : MonoBehaviour {
 
 	void UpdateText(){
 		totalMoney = totalMoney + totalIncome*Time.deltaTime*0.1f;
-		totalMonetTxt.text ="Total Money: " + System.Math.Round(totalMoney + totalIncome * Time.deltaTime * 0.1f,1);
-
-		totalPolTxt.text = "Total Pol: " + totalPol;
+		totalMonetTxt.text = ""+ System.Math.Round(totalMoney + totalIncome * Time.deltaTime * 0.1f,1);
+		totalPolTxt.text = "" + totalPol;
 	}
 	public static void  UpdateMoney(float cost, float income){
 		totalMoney = totalMoney - cost;
