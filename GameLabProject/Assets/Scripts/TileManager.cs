@@ -15,7 +15,6 @@ public class TileManager : MonoBehaviour {
     public static List<GameObject> tileList = new List<GameObject>();
     [HideInInspector]
     public static List<GameObject> disabledTilesList = new List<GameObject>();
-    [HideInInspector]
     public Transform mapPos;
 
     // Use this for initialization
