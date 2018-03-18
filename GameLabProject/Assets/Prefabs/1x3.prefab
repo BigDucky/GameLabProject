@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23577079288727106}
   - component: {fileID: 114966711186502232}
   m_Layer: 0
-  m_Name: BuildingRect
+  m_Name: 1x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,5 +107,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedd6be63d27ae64e9fd5ce4260994ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 0
   buildData: {fileID: 11400000, guid: 2fe9ddf6279c2854c84f0e0246a76ec3, type: 2}
+  even: 0
