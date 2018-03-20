@@ -10,14 +10,11 @@ public class TileManager : MonoBehaviour {
     public Material tileMaterial;
     public Material disabledTile;
 
-    private float height = 0.105f;
-
 
     [HideInInspector]
     public static List<GameObject> tileList = new List<GameObject>();
     [HideInInspector]
     public static List<GameObject> disabledTilesList = new List<GameObject>();
-
     public Transform mapPos;
 
     // Use this for initialization
@@ -26,6 +23,9 @@ public class TileManager : MonoBehaviour {
     }
 
     void Update() {
+        for (int i = 0; i < disabledTilesList.Count; i++) {
+            Debug.Log(disabledTilesList[i].name);
+        }
     }
 
     /// <summary>
@@ -47,44 +47,20 @@ public class TileManager : MonoBehaviour {
         }
     }
  
-    /*public static void DisableTile(int width, int lenght,GameObject tile, Material disabled, int mapWidth, int mapLength) {
-
+    public static void DisableTile(int width, int lenght,GameObject tile, Material disabled, int mapWidth, int mapLength) {
         int widthTile = (width - 1) / 2;
-        int lenghtTile = (lenght - 1) / 2;
+        int lenghtTile = (lenght - 1) / 2; 
         for (int i = 0; i < TileManager.tileList.Count; i++) {
             if (TileManager.tileList[i].name == tile.name) {
                 for (int w = 0; w < width; w++) {
-                    for (int l = 0; l < lenght; l++) {
-                        tileList[i - widthTile * w + lenghtTile* l* mapWidth].GetComponent<Renderer>().material = disabled;
-
-                        // tileList[i - widthTile + w].GetComponent<Renderer>().material = disabled;
-                        // tileList[i - widthTile + w - lenghtTile * mapLength].GetComponent<Renderer>().material = disabled;
-                        TileManager.disabledTilesList.Add(tileList[i - widthTile + w + lenghtTile * l * mapWidth]);
-                    }
+                    tileList[i - widthTile + w + lenghtTile * mapWidth].GetComponent<Renderer>().material = disabled;                   
+                    tileList[i - widthTile + w].GetComponent<Renderer>().material = disabled;
+                    tileList[i - widthTile + w - lenghtTile * mapLength].GetComponent<Renderer>().material = disabled;
                     
-                    //TODO change material into a bool that is disabled;
-                                       
-                    //TileManager.disabledTilesList.Add(tileList[i - widthTile + w + lenghtTile * mapWidth]);
-                   // TileManager.disabledTilesList.Add(tileList[i - widthTile + w]);
-                    //TileManager.disabledTilesList.Add(tileList[i - widthTile + w - lenghtTile * mapLength]);                    
+                    TileManager.disabledTilesList.Add(tileList[i - widthTile + w + lenghtTile * mapWidth]);
+                    TileManager.disabledTilesList.Add(tileList[i - widthTile + w]);
+                    TileManager.disabledTilesList.Add(tileList[i - widthTile + w - lenghtTile * mapLength]);                    
 
-                }
-            }
-        }
-    }*/
-
-    public static void NewDisabledTiles(Collider[] hitcollider, Material disabled) {
-        for (int i = 0; i < hitcollider.Length; i++) {
-            if (hitcollider[i].gameObject.tag == "Tile") {
-                GameObject disabledTile = new GameObject();
-                disabledTile.name = hitcollider[i].name;
-                disabledTilesList.Add(disabledTile);
-            }          
-        }
-        for (int j = 0; j < TileManager.tileList.Count; j++) {
-            for (int k = 0; k < disabledTilesList.Count; k++) {
-                if (tileList[j].name == disabledTilesList[k].name) {
-                    tileList[j].GetComponent<Renderer>().material = disabled;
                 }
             }
         }
@@ -100,7 +76,7 @@ public class TileManager : MonoBehaviour {
         else {
             for (int i = 0; i < mapWidth; i++) {
                 for (int j = 0; j < mapLength; j++) {
-                    GameObject tileNr = Instantiate(tilePrefab, new Vector3(mapPos.position.x + 1 * j, -height, mapPos.position.z + 1 * i), Quaternion.identity,this.transform.parent);
+                    GameObject tileNr = Instantiate(tilePrefab, new Vector3(mapPos.position.x + 1 * j, 0, mapPos.position.z + 1 * i), Quaternion.identity,this.transform.parent);
                     TileSetup(tileMaterial, "tileNR", i, j, tileNr);
                 }
             }

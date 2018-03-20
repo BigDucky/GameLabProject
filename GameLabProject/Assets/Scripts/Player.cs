@@ -8,8 +8,8 @@ public class Player : MonoBehaviour {
     private List<GameObject> buildingList = new List<GameObject>();
 
     private GameObject tempBuilding;
-   // private int buildingWidth;
-    //private int buildingLength;
+    private int buildingWidth;
+    private int buildingLength;
     private int BuildingType;
 
     Collider[] hitColliders;
@@ -20,16 +20,11 @@ public class Player : MonoBehaviour {
     private Vector3 mousPos;
     private bool canBuild = true;
 
-    public Transform buildingOwned;
-
     public TileManager tileManager;
 
     public Light testlight;
 
     GameObject tempthingie; // Delete maybe
-
-    public float currentRotation;
-    private bool rotated = false;
 
     // Use this for initialization
     void Start () {
@@ -38,7 +33,6 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       
         if(isPlacing) {
             PlayerInteractions(BuildingType);// waiting for player to do something
         }
@@ -78,27 +72,13 @@ public class Player : MonoBehaviour {
                 }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.E)){
-            RotateBuilding();
-        }
         else {
-            if (tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
+            if(tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
                 MoveTempBuilding(hit, tempBuilding.GetComponent<BuildingInfo>().buildData.even);
-                Debug.Log("123");
             }
-            else {
-                MoveTempBuilding(hit, tempBuilding.GetComponent<BuildingInfo>().buildData.even);
-
-            }
-        }       
-    }
-
-    void RotateBuilding() {
-        if(isPlacing) {
-            tempBuilding.transform.Rotate(0, +90, 0);
-            currentRotation = tempBuilding.transform.eulerAngles.y;
-            rotated = !rotated;
+            MoveTempBuilding(hit, tempBuilding.GetComponent<BuildingInfo>().buildData.even);
         }
+        
     }
 
 	void BuildingTimer() {
@@ -107,32 +87,19 @@ public class Player : MonoBehaviour {
     }
 
 	void UpdateGrid(int buildingType){
-		//buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
-		//buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
+		buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
+		buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
 		PlaceBuilding(buildingType);
-        TileManager.NewDisabledTiles(hitColliders,tileManager.disabledTile);
-        //Updates the used up tiles
-       /* if (!rotated) {
-            TileManager.DisableTile(buildingWidth, buildingLength, hit.collider.gameObject, tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
-        }
-        else {
-            TileManager.DisableTile(buildingLength, buildingWidth, hit.collider.gameObject, tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
-        }*/
-        Destroy(tempBuilding);
-        currentRotation = 0;
-        rotated = false;
-        isPlacing = false;
+		//Updates the used up tiles
+		TileManager.DisableTile(buildingWidth, buildingLength, hit.collider.gameObject, tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
+		Destroy(tempBuilding);
+		isPlacing = false;
 	}
 
     void BuildCheck() {
-        if (rotated) {
-            hitColliders = Physics.OverlapBox(tempBuilding.transform.position, new Vector3(tempBuilding.GetComponent<BuildingInfo>().buildData.length * 0.3f, 1, tempBuilding.GetComponent<BuildingInfo>().buildData.width * 0.3f), Quaternion.identity);
-        }
-        else {
-            hitColliders = Physics.OverlapBox(tempBuilding.transform.position, new Vector3(tempBuilding.GetComponent<BuildingInfo>().buildData.width * 0.3f, 1, tempBuilding.GetComponent<BuildingInfo>().buildData.length * 0.3f), Quaternion.identity);
-        }
+        hitColliders = Physics.OverlapBox(tempBuilding.transform.position,new Vector3(tempBuilding.transform.lossyScale.x * 0.3f,1, tempBuilding.transform.lossyScale.z * 0.3f), Quaternion.identity);
         tempthingie = tempBuilding;
-        if (PlayerInfo.totalMoney < tempBuilding.GetComponent<BuildingInfo> ().buildData.buildingCost) {
+		if (PlayerInfo.totalMoney < tempBuilding.GetComponent<BuildingInfo> ().buildData.buildingCost) {
 			canBuild = false;
 		} else {			
 			for (int j = 0; j < hitColliders.Length; j++) {
@@ -147,45 +114,24 @@ public class Player : MonoBehaviour {
 
     //Moves the temporary building to the mouse position.
     void MoveTempBuilding(RaycastHit hit, bool even ) {
-        if(even) {
+        /*if(even) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
-                if (rotated) {
-                    tempBuilding.transform.position = new Vector3(hit.collider.transform.position.x + tempBuilding.GetComponent<BuildingInfo>().placementFixX, 0, hit.collider.transform.position.z + tempBuilding.GetComponent<BuildingInfo>().placementFixY);
-                }
-                else {
-                    tempBuilding.transform.position = new Vector3(hit.collider.transform.position.x + tempBuilding.GetComponent<BuildingInfo>().placementFixY, 0, hit.collider.transform.position.z + tempBuilding.GetComponent<BuildingInfo>().placementFixX);
-                }
+                tempBuilding.transform.position.Set(hit.collider.transform.position.x,hit.collider.transform.position.y, hit.collider.transform.position.z);
             }
-        }
-       else {
+        }*/
+       //lse {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
                 tempBuilding.transform.position = new Vector3(hit.collider.transform.position.x, 0, hit.collider.transform.position.z);
             }
-        }
+      //  }
      
     }
 
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-        //0.105f = heigth fix
-        if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
-            GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
-            placedBuilding.transform.SetParent(buildingOwned);
-        }
-        else {
-            if (rotated) {
-                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + tempBuilding.GetComponent<BuildingInfo>().placementFixX, hit.transform.position.y + 0.105f,
-                    hit.transform.position.z + tempBuilding.GetComponent<BuildingInfo>().placementFixY), 
-                    Quaternion.Euler(0, currentRotation, 0));
-                placedBuilding.transform.SetParent(buildingOwned);
-            }
-            else {
-                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + tempBuilding.GetComponent<BuildingInfo>().placementFixY, hit.transform.position.y + 0.105f, hit.transform.position.z + tempBuilding.GetComponent<BuildingInfo>().placementFixX), Quaternion.Euler(0, currentRotation, 0));
-                placedBuilding.transform.SetParent(buildingOwned);
-            }
-        }
+            Instantiate(buildingList[buildingType], hit.transform.position, Quaternion.identity); 
     }
 
     //Selecting stage where it determites which building is selected ( also makes the temp building for visualization ) 
