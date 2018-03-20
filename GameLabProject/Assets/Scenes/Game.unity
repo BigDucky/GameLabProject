@@ -752,34 +752,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &309923784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 309923785}
-  m_Layer: 0
-  m_Name: DisabledTiles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &309923785
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 309923784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1218749482}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &331168953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,7 +2030,7 @@ MonoBehaviour:
   mapWidth: 25
   tileMaterial: {fileID: 2100000, guid: a797152bba750ec428dc290e87137fb4, type: 2}
   disabledTile: {fileID: 2100000, guid: 5b4f3388fd859964c885debf6c952ebe, type: 2}
-  mapPos: {fileID: 0}
+  mapPos: {fileID: 1119379244}
   disabledPos: {fileID: 0}
 --- !u!4 &1218749482
 Transform:
@@ -2071,7 +2043,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1119379244}
-  - {fileID: 309923785}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

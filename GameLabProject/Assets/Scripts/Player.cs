@@ -65,7 +65,7 @@ public class Player : MonoBehaviour {
                     else {
 						UpdateGrid (buildingType);
 						//Updates the amount of Cash
-						PlayerInfo.UpdateMoney (buildingData.buildingCost, buildingData.income);
+						//PlayerInfo.UpdateMoney (buildingData.buildingCost, buildingData.income);
 						if (buildingType != 0) {
 							PlayerInfo.UpdatePolution (buildingData.polution);
 						} else {
@@ -174,13 +174,17 @@ public class Player : MonoBehaviour {
         }
         else {
             if (rotated) {
-                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixX, hit.transform.position.y + 0.105f,
-                    hit.transform.position.z + buildingData.placementFixY), 
-                    Quaternion.Euler(0, currentRotation, 0));
+                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixX, 
+                hit.transform.position.y + 0.105f,
+                hit.transform.position.z + buildingData.placementFixY), 
+                Quaternion.Euler(0, currentRotation, 0));
                 placedBuilding.transform.SetParent(buildingOwned);
             }
             else {
-                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixY, hit.transform.position.y + 0.105f, hit.transform.position.z + buildingData.placementFixX), Quaternion.Euler(0, currentRotation, 0));
+                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixY,
+                hit.transform.position.y + 0.105f,
+                hit.transform.position.z + buildingData.placementFixX),
+                Quaternion.Euler(0, currentRotation, 0));
                 placedBuilding.transform.SetParent(buildingOwned);
             }
         }

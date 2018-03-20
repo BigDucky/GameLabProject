@@ -4,7 +4,6 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSettings",menuName = "Settings")]
 public class GameLogic : ScriptableObject {
-    public List<GameObject> Obuildings = new List<GameObject>();
 	public float startMoney;
-
+    public List<GameObject> Obuildings = new List<GameObject>();
 }
