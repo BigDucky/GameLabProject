@@ -107,7 +107,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedd6be63d27ae64e9fd5ce4260994ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildData: {fileID: 11400000, guid: 68ebc4e4f9ed3dd4db3607866696f507, type: 2}
-  even: 0
-  placementFixX: 0
-  placementFixY: 0
+  buildData: {fileID: 11400000, guid: acf4029b97b224f4e84b5041a166e3ac, type: 2}

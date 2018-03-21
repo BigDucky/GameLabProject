@@ -11,7 +11,6 @@ public class UiManager : MonoBehaviour {
     public Text totalMonetTxt;
     public Text totalPolTxt;
 
-
     // Use this for initialization
     void Start () {
 		

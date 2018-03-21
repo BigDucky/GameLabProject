@@ -16,12 +16,11 @@ public class BuildingData : ScriptableObject {
     public int width;
     [Range (0,5)]
     public int length;
+    public float buildingCost;
 
     //Factory Propperties
     [HideInInspector]
     public float aoeSize;
-    [HideInInspector]
-    public float buildingCost;
     [HideInInspector]
     public float production;
     [HideInInspector]
@@ -30,6 +29,16 @@ public class BuildingData : ScriptableObject {
     public float waste;
     [HideInInspector]
     public float rawMaterialsNeeded;
+
+    //Housing Properties
+    [HideInInspector]
+    public float happiness;
+
+    //Recycle Facility Properties
+    [HideInInspector]
+    public float maxCapacity;
+    [HideInInspector]
+    public float rf_happinessIncrease;
 
     [HideInInspector]
     public float placementFixX;

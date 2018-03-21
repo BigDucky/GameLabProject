@@ -11,6 +11,8 @@ public class PlayerInfo : MonoBehaviour {
 	public static float totalMoney;
 	public static float totalIncome;
 	public static float totalPol;
+    public static float taxes;
+    public static float populationGrowth;
 
 	GameLogic gamelogic;
 

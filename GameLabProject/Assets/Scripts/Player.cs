@@ -68,8 +68,7 @@ public class Player : MonoBehaviour {
 						//PlayerInfo.UpdateMoney (buildingData.buildingCost, buildingData.income);
 						if (buildingType != 0) {
 							PlayerInfo.UpdatePolution (buildingData.polution);
-						} else {
-							
+						} else {						
 							PlayerInfo.UpdatePolution (-buildingData.polution);
 							//PlayerInfo.totalMoney = PlayerInfo.totalMoney + tempBuilding.GetComponent<BuildingInfo> ().buildData.polution;
 						}
@@ -87,7 +86,6 @@ public class Player : MonoBehaviour {
             }
             else {
                 MoveTempBuilding(hit, buildingData.even);
-
             }
         }       
     }
