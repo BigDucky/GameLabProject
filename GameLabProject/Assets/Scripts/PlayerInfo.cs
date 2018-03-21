@@ -32,13 +32,16 @@ public class PlayerInfo : MonoBehaviour {
 		totalMoney = totalMoney + totalIncome*Time.deltaTime*0.1f;
 	}
 
-	public static void  UpdateMoney(float cost, float income){
+	public static void  UpdateMoneyCost(float cost){
 		totalMoney = totalMoney - cost;
-		totalIncome = totalIncome + income;
 	}
 
 	public static void UpdatePolution(float polation){
 		totalPol += polation;
-
 	}
+
+    public static void UpdateTotalProduction(float production) {
+
+    }
+
 }

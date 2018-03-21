@@ -64,14 +64,7 @@ public class Player : MonoBehaviour {
                     }
                     else {
 						UpdateGrid (buildingType);
-						//Updates the amount of Cash
-						//PlayerInfo.UpdateMoney (buildingData.buildingCost, buildingData.income);
-						if (buildingType != 0) {
-							PlayerInfo.UpdatePolution (buildingData.polution);
-						} else {						
-							PlayerInfo.UpdatePolution (-buildingData.polution);
-							//PlayerInfo.totalMoney = PlayerInfo.totalMoney + tempBuilding.GetComponent<BuildingInfo> ().buildData.polution;
-						}
+                        UpdatePlayerInfo();
                     }
                 }
             }
@@ -88,6 +81,11 @@ public class Player : MonoBehaviour {
                 MoveTempBuilding(hit, buildingData.even);
             }
         }       
+    }
+
+    void UpdatePlayerInfo() {
+        PlayerInfo.UpdatePolution(buildingData.polution);
+        PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
     }
 
     void RotateBuilding() {

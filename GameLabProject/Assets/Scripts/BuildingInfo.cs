@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BuildingInfo : MonoBehaviour {
 
-    public BuildingData buildData;   
+    public string buildingName;
+    public BuildingData buildData;
 
     private void Start() {
         EvenFix();
