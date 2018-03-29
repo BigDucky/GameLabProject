@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR 
 using UnityEditor;
+#endif 
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(BuildingData))]
 public class OverrideGUI : Editor {
 
@@ -54,3 +57,4 @@ public class OverrideGUI : Editor {
         data.rf_happinessIncrease = EditorGUILayout.FloatField("Max Happiness Increase", data.rf_happinessIncrease);
     }
 }
+#endif

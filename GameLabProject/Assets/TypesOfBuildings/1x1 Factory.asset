@@ -11,9 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1b7f32b65508d458cab40671e9c60d, type: 3}
   m_Name: 1x1 Factory
   m_EditorClassIdentifier: 
+  factory: 0
+  recycleFacility: 0
+  housing: 0
   width: 1
   length: 1
-  even: 0
   buildingCost: 1
-  income: 1
+  aoeSize: 0
+  production: 0
   polution: 5
+  waste: 0
+  rawMaterialsNeeded: 0
+  happiness: 0
+  maxCapacity: 0
+  rf_happinessIncrease: 0
+  placementFixX: 0
+  placementFixY: 0
+  even: 0
