@@ -20,7 +20,7 @@ public class BuildingData : ScriptableObject {
     public int length;
     public float buildingCost;
 
-    //Factory Propperties
+    //Factory Propperties F = FACTORY
     [HideInInspector]
     public float F_Employess;
     [HideInInspector]
@@ -44,9 +44,11 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public float G_AOE;
     
-    //Facility Poperties
+    //Facility Poperties FA = FACILITY
     [HideInInspector]
     public float FA_Employees;
+
+
 
     [HideInInspector]
     public float placementFixX;

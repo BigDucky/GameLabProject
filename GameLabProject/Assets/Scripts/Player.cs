@@ -75,13 +75,12 @@ public class Player : MonoBehaviour {
             RotateBuilding();
         }
         else {
-            if (buildingData.even) {
-                MoveTempBuilding(hit, buildingData.even);
-                Debug.Log("123");
-            }
-            else {
-                MoveTempBuilding(hit, buildingData.even);
-            }
+           // if (buildingData.even) {
+                MoveTempBuilding(/*hit,*/buildingData.even);
+          //  }
+         //   else {
+              //  MoveTempBuilding(hit, buildingData.even);
+          //  }
         }       
     }
 
@@ -141,7 +140,7 @@ public class Player : MonoBehaviour {
     }
 
     //Moves the temporary building to the mouse position.
-    void MoveTempBuilding(RaycastHit hit, bool even ) {
+    void MoveTempBuilding( /*RaycastHit hit,*/ bool even ) {
         if(even) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
@@ -189,7 +188,7 @@ public class Player : MonoBehaviour {
 
     //Selecting stage where it determites which building is selected ( also makes the temp building for visualization ) 
     public void SelectBuilding(int type) {
-        Destroy(tempBuilding);
+  		Destroy(tempBuilding);
         isPlacing = true;
         BuildingType = type;
         tempBuilding = buildingList[type];

@@ -92,5 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedd6be63d27ae64e9fd5ce4260994ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 0
+  buildingName: 
   buildData: {fileID: 11400000, guid: a911e19b40bc88c4e8f9ff6c1afd0710, type: 2}

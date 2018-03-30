@@ -9,6 +9,7 @@ public class BuildingInfo : MonoBehaviour {
 
     private void Start() {
         EvenFix();
+		//GameLogic.totalBuildings = 10;
     }
 
     void EvenFix() {

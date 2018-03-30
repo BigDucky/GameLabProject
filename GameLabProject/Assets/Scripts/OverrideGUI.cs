@@ -23,8 +23,8 @@ public class OverrideGUI : Editor {
         serializedObject.Update();
         data.factory = GUILayout.Toggle(data.factory, "Factory");
         data.housing = GUILayout.Toggle(data.housing, "Housing");
-        data.garbage = GUILayout.Toggle(data.garbage, "Garbage");
-
+		data.garbage = GUILayout.Toggle(data.garbage, "Garbage");
+		data.facility = GUILayout.Toggle (data.facility, "Facility");
 
         Display();
     }
@@ -46,7 +46,7 @@ public class OverrideGUI : Editor {
 
 
     public void DisplayFactorySettings() {
-        data.F_Employess = EditorGUILayout.FloatField("Employees Needed", data.FA_Employees);
+		data.F_Employess = EditorGUILayout.FloatField("Employees Needed", data.F_Employess);
         data.F_AOE = EditorGUILayout.FloatField("Area of Effect",data.F_AOE);
         data.production = EditorGUILayout.FloatField("Production",data.production);
         data.polution = EditorGUILayout.FloatField("Polution",data.polution);
