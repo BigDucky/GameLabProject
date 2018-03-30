@@ -102,17 +102,8 @@ public class Player : MonoBehaviour {
     }
 
 	void UpdateGrid(int buildingType){
-		//buildingWidth = tempBuilding.GetComponent<BuildingInfo>().buildData.width;
-		//buildingLength = tempBuilding.GetComponent<BuildingInfo>().buildData.length;
 		PlaceBuilding(buildingType);
         TileManager.NewDisabledTiles(hitColliders,tileManager.disabledTile);
-        //Updates the used up tiles
-       /* if (!rotated) {
-            TileManager.DisableTile(buildingWidth, buildingLength, hit.collider.gameObject, tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
-        }
-        else {
-            TileManager.DisableTile(buildingLength, buildingWidth, hit.collider.gameObject, tileManager.disabledTile, tileManager.mapWidth, tileManager.mapLength);
-        }*/
         Destroy(tempBuilding);
         currentRotation = 0;
         rotated = false;
@@ -164,6 +155,9 @@ public class Player : MonoBehaviour {
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
         //0.105f = heigth fix
+        if (TutorialManager.inTutorial) {
+            TutorialManager.TutorialLevelUp();
+        }
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
             GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
             placedBuilding.transform.SetParent(buildingOwned);

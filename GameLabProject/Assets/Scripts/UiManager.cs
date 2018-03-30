@@ -5,41 +5,78 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour {
 
+    public GameObject buildPanel;
+    public static List<Transform> allButtons = new List<Transform>();
+
+    public static Transform dialogTxt;
+    public GameObject dialogUI;
+
+
     public Canvas buildCanvas;
     public Canvas UIinterface;
-	public Canvas mainCanvas;
-	public Canvas pauseCanvas;
+    public Canvas mainCanvas;
+    public Canvas pauseCanvas;
 
-
-    public Text totalMonetTxt;
+    public Text totalMoneyTxt;
     public Text totalPolTxt;
+    public Text circularity;
+    public Text population;
+    public Text happiness;
+    public Text taxes;
 
-    // Use this for initialization
-    void Start () {
-		pauseCanvas.gameObject.SetActive (false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        UpdateText();
-	}
+    void Start() {
+
+        for (int i = 0; i < buildPanel.transform.childCount; i++) {
+            allButtons.Add(buildPanel.transform.GetChild(i));
+        }
+
+        dialogTxt = dialogUI.transform.GetChild(1);
+        Debug.Log(dialogTxt.name);
+
+        //pauseCanvas.gameObject.SetActive(false);
+        buildCanvas.gameObject.SetActive(false);
+    }
+    // Update is called once per frame
+    void Update() {
+        UpdateText();       
+    }
 
     public void DisableCurrentCanvas(Canvas currentCanvas) {
         currentCanvas.gameObject.SetActive(false);
     }
 
     void UpdateText() {
-        totalMonetTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
+        totalMoneyTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
         totalPolTxt.text = "" + PlayerInfo.totalPol;
+        circularity.text = "" + PlayerInfo.totalCircularity + " %";
+        population.text = "" + PlayerInfo.totalPopulation;
+        happiness.text = "" + PlayerInfo.totalHappiness + " %";
+        taxes.text = "" + PlayerInfo.taxes + " %";
     }
 
     public void OpenCanvas(Canvas toBeOpenedCanvas) {
-
+        if(TutorialManager.tutorialStep == 0) {
+            TutorialManager.TutorialLevelUp();
+        }
         if(toBeOpenedCanvas.gameObject.activeSelf == true) {
             toBeOpenedCanvas.gameObject.SetActive(false);
         }
         else {
             toBeOpenedCanvas.gameObject.SetActive(true);
         }       
+    }
+
+    public static void DisableAllButtons() {
+        for (int i = 0; i <UiManager.allButtons.Count; i++) {
+            allButtons[i].gameObject.SetActive(false);
+        }
+    }
+
+    public static void EnableButtons(int buttonInList) {
+        allButtons[buttonInList].gameObject.SetActive(true);
+    }
+
+    public static void ChangeText(string text) {
+        dialogTxt.GetComponent<Text>().text = text;
     }
 }

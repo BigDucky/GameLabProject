@@ -47,32 +47,6 @@ public class TileManager : MonoBehaviour {
             tile.gameObject.GetComponent<Renderer>().material = material;
         }
     }
- 
-    /*public static void DisableTile(int width, int lenght,GameObject tile, Material disabled, int mapWidth, int mapLength) {
-
-        int widthTile = (width - 1) / 2;
-        int lenghtTile = (lenght - 1) / 2;
-        for (int i = 0; i < TileManager.tileList.Count; i++) {
-            if (TileManager.tileList[i].name == tile.name) {
-                for (int w = 0; w < width; w++) {
-                    for (int l = 0; l < lenght; l++) {
-                        tileList[i - widthTile * w + lenghtTile* l* mapWidth].GetComponent<Renderer>().material = disabled;
-
-                        // tileList[i - widthTile + w].GetComponent<Renderer>().material = disabled;
-                        // tileList[i - widthTile + w - lenghtTile * mapLength].GetComponent<Renderer>().material = disabled;
-                        TileManager.disabledTilesList.Add(tileList[i - widthTile + w + lenghtTile * l * mapWidth]);
-                    }
-                    
-                    //TODO change material into a bool that is disabled;
-                                       
-                    //TileManager.disabledTilesList.Add(tileList[i - widthTile + w + lenghtTile * mapWidth]);
-                   // TileManager.disabledTilesList.Add(tileList[i - widthTile + w]);
-                    //TileManager.disabledTilesList.Add(tileList[i - widthTile + w - lenghtTile * mapLength]);                    
-
-                }
-            }
-        }
-    }*/
 
     public static void NewDisabledTiles(Collider[] hitcollider, Material disabled) {
         for (int i = 0; i < hitcollider.Length; i++) {

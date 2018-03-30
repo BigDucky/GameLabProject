@@ -17,6 +17,7 @@ MonoBehaviour:
   population: 40
   taxes: 40
   recycable: 0
+  polution: 3
   Obuildings:
   - {fileID: 1326837870835532, guid: 60a2b03879a14354b984014d114736cd, type: 2}
   - {fileID: 1449715379252672, guid: 4f1b99e7ff06b0f4bab2922157f00c28, type: 2}
