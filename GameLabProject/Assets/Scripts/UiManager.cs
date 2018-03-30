@@ -7,13 +7,16 @@ public class UiManager : MonoBehaviour {
 
     public Canvas buildCanvas;
     public Canvas UIinterface;
+	public Canvas mainCanvas;
+	public Canvas pauseCanvas;
+
 
     public Text totalMonetTxt;
     public Text totalPolTxt;
 
     // Use this for initialization
     void Start () {
-		
+		pauseCanvas.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -37,8 +40,6 @@ public class UiManager : MonoBehaviour {
         }
         else {
             toBeOpenedCanvas.gameObject.SetActive(true);
-        }
-        
-
+        }       
     }
 }
