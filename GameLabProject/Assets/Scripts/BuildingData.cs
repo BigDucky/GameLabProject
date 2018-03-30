@@ -8,9 +8,11 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public bool factory;
     [HideInInspector]
-    public bool recycleFacility;
+    public bool garbage;
     [HideInInspector]
     public bool housing;
+    [HideInInspector]
+    public bool facility;
 
     [Range (0,5)]
     public int width;
@@ -20,25 +22,31 @@ public class BuildingData : ScriptableObject {
 
     //Factory Propperties
     [HideInInspector]
-    public float aoeSize;
+    public float F_Employess;
+    [HideInInspector]
+    public float F_AOE;
     [HideInInspector]
     public float production;
     [HideInInspector]
     public float polution;
     [HideInInspector]
-    public float waste;
+    public float totalWaste;
     [HideInInspector]
-    public float rawMaterialsNeeded;
+    public float recyclableWaste;
 
     //Housing Properties
     [HideInInspector]
-    public float happiness;
+    public float houseCap;
 
-    //Recycle Facility Properties
+    //Garbage Properties
     [HideInInspector]
-    public float maxCapacity;
+    public float G_Cap;
     [HideInInspector]
-    public float rf_happinessIncrease;
+    public float G_AOE;
+    
+    //Facility Poperties
+    [HideInInspector]
+    public float FA_Employees;
 
     [HideInInspector]
     public float placementFixX;

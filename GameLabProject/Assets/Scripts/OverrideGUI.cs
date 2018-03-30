@@ -21,10 +21,11 @@ public class OverrideGUI : Editor {
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
         serializedObject.Update();
-        //EditorGUILayout.PropertyField();
         data.factory = GUILayout.Toggle(data.factory, "Factory");
         data.housing = GUILayout.Toggle(data.housing, "Housing");
-        data.recycleFacility = GUILayout.Toggle(data.recycleFacility, "Recycle Factory");
+        data.garbage = GUILayout.Toggle(data.garbage, "Garbage");
+
+
         Display();
     }
 
@@ -33,28 +34,38 @@ public class OverrideGUI : Editor {
             DisplayFactorySettings();
         }
         else if(data.housing == true) {
-
+            DisplayHousingSettings();
         }
-        else if(data.recycleFacility == true) {
-            DisplayRecycleFacilitySettings();
+        else if(data.garbage == true) {
+            DisplayGarbageSettings();
+        }
+        else if (data.facility == true) {
+            DisplayFacilitySettings();
         }
     }
 
+
     public void DisplayFactorySettings() {
-        data.aoeSize = EditorGUILayout.FloatField("AOESize",data.aoeSize);
+        data.F_Employess = EditorGUILayout.FloatField("Employees Needed", data.FA_Employees);
+        data.F_AOE = EditorGUILayout.FloatField("Area of Effect",data.F_AOE);
         data.production = EditorGUILayout.FloatField("Production",data.production);
         data.polution = EditorGUILayout.FloatField("Polution",data.polution);
-        data.waste = EditorGUILayout.FloatField("Waste",data.waste);
-        data.rawMaterialsNeeded = EditorGUILayout.FloatField("Material Needed",data.rawMaterialsNeeded);
+        data.totalWaste = EditorGUILayout.FloatField("TotalWaste",data.totalWaste);
+        data.recyclableWaste = EditorGUILayout.FloatField("RycyclableWaste", data.recyclableWaste);
     }
 
     public void DisplayHousingSettings() {
-
+        data.houseCap = EditorGUILayout.FloatField("House Cappacity", data.houseCap);
     }
 
-    public void DisplayRecycleFacilitySettings() {
-        data.maxCapacity = EditorGUILayout.FloatField("Max Capacity", data.maxCapacity);
-        data.rf_happinessIncrease = EditorGUILayout.FloatField("Max Happiness Increase", data.rf_happinessIncrease);
+    public void DisplayGarbageSettings() {
+        data.G_Cap = EditorGUILayout.FloatField("Garbage Cappacity", data.G_Cap);
+        data.G_AOE = EditorGUILayout.FloatField("Area of effect", data.G_AOE);
     }
+
+    public void DisplayFacilitySettings() {
+        data.FA_Employees = EditorGUILayout.FloatField("Employees Needed", data.FA_Employees);
+    }
+
 }
 #endif

@@ -14,13 +14,10 @@ public class PlayerInfo : MonoBehaviour {
     public static float taxes;
     public static float populationGrowth;
 
-	GameLogic gamelogic;
 
 	// Use this for initialization
 	void Start () {
-		totalMoney = 50;
-		totalIncome = 0;
-		totalPol = 0;
+		totalMoney = Player.playerInfo.startMoney;
 	}
 	
 	// Update is called once per frame
@@ -29,19 +26,12 @@ public class PlayerInfo : MonoBehaviour {
 	}
 
 	void UpdateValues(){
-		totalMoney = totalMoney + totalIncome*Time.deltaTime*0.1f;
+		//totalMoney = totalMoney + totalIncome*Time.deltaTime* gamelogic.timeSpeed;
 	}
 
 	public static void  UpdateMoneyCost(float cost){
 		totalMoney = totalMoney - cost;
 	}
 
-	public static void UpdatePolution(float polation){
-		totalPol += polation;
-	}
-
-    public static void UpdateTotalProduction(float production) {
-
-    }
 
 }

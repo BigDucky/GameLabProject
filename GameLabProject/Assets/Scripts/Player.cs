@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
 
     public RaycastHit hit;
     public GameLogic gameLogic;
+    public static GameLogic playerInfo;
 
     private Vector3 mousPos;
     private bool canBuild = true;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         buildingList = gameLogic.Obuildings;
+        playerInfo = gameLogic;
 	}
 	
 	// Update is called once per frame
@@ -84,7 +86,6 @@ public class Player : MonoBehaviour {
     }
 
     void UpdatePlayerInfo() {
-        PlayerInfo.UpdatePolution(buildingData.polution);
         PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
     }
 

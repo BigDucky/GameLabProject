@@ -26,7 +26,7 @@ public class UiManager : MonoBehaviour {
     }
 
     void UpdateText() {
-        totalMonetTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney + PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
+        totalMonetTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
         totalPolTxt.text = "" + PlayerInfo.totalPol;
     }
 

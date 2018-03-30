@@ -9,8 +9,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef1b7f32b65508d458cab40671e9c60d, type: 3}
-  m_Name: 1x2
+  m_Name: 1x2 RecycleFacility
   m_EditorClassIdentifier: 
+  factory: 0
+  garbage: 0
+  housing: 0
+  facility: 0
   width: 1
   length: 2
+  buildingCost: 0
+  F_Employess: 0
+  F_AOE: 0
+  production: 0
+  polution: 0
+  totalWaste: 0
+  recyclableWaste: 0
+  houseCap: 0
+  G_Cap: 0
+  G_AOE: 0
+  FA_Employees: 0
+  placementFixX: 0
+  placementFixY: 0
   even: 1
