@@ -12,6 +12,19 @@ public class PlayerInfo : MonoBehaviour {
     public static float totalHappiness;
     public static float taxes;
 
+    public static float totalProductionPerTimeF;
+    public static float totalWaste;
+    public static float recyclableWaste;
+
+    public static float wasteIndex;
+    public static float polutionIndex;
+    public static float taxIndex;
+    public static float aoeIndex = 5;
+
+
+    public static int amountOfFactories;
+    public static int amountOfHouses;
+
 
 	// Use this for initialization
 	void Start () {
@@ -21,15 +34,32 @@ public class PlayerInfo : MonoBehaviour {
         totalHappiness = Player.playerInfo.hapiness;
         totalPol = Player.playerInfo.polution;
         taxes = Player.playerInfo.taxes;
-        
+        //TODO add the waste, Also visualize it
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		UpdateValues ();
-	}
+        Debug.Log("wasteIndex " + wasteIndex);
+        Debug.Log("polutionIndex " + polutionIndex);
+        Debug.Log("taxIndex " + taxIndex);
 
-	void UpdateValues(){
+
+        Debug.Log("total Money "+ totalMoney);
+        Debug.Log("total Circularity "+ totalCircularity);
+        Debug.Log("total population "+ totalPopulation);
+        Debug.Log("total Happiness " + totalHappiness);
+        Debug.Log("total Polution " + totalPol);
+        Debug.Log("total ProductionPerTimeX " + totalProductionPerTimeF);
+        Debug.Log("total Waste " + totalWaste);
+        Debug.Log("total RecycableWaste " + recyclableWaste);
+        Debug.Log("total Factories " + amountOfFactories);
+        Debug.Log("total Houses " + amountOfHouses);
+    }
+
+    void UpdateValues(){
 		//totalMoney = totalMoney + totalIncome*Time.deltaTime* gamelogic.timeSpeed;
 	}
 

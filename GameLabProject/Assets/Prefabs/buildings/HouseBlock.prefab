@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4296787784881816}
   - component: {fileID: 114351122414139030}
+  - component: {fileID: 114863404481934100}
   m_Layer: 0
   m_Name: HouseBlock
   m_TagString: Untagged
@@ -383,3 +384,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: 
   buildData: {fileID: 11400000, guid: 2fe9ddf6279c2854c84f0e0246a76ec3, type: 2}
+--- !u!114 &114863404481934100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850471599463958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ac01ad9c3be604fb8fd340427e3a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

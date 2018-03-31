@@ -10,6 +10,7 @@ public class UiManager : MonoBehaviour {
 
     public static Transform dialogTxt;
     public GameObject dialogUI;
+    public static GameObject dialogUII;
 
 
     public Canvas buildCanvas;
@@ -31,8 +32,7 @@ public class UiManager : MonoBehaviour {
         }
 
         dialogTxt = dialogUI.transform.GetChild(1);
-        Debug.Log(dialogTxt.name);
-
+        dialogUII = dialogUI;
         //pauseCanvas.gameObject.SetActive(false);
         buildCanvas.gameObject.SetActive(false);
     }
@@ -68,15 +68,20 @@ public class UiManager : MonoBehaviour {
 
     public static void DisableAllButtons() {
         for (int i = 0; i <UiManager.allButtons.Count; i++) {
-            allButtons[i].gameObject.SetActive(false);
+            allButtons[i].gameObject.GetComponent<Button>().interactable = false;
         }
     }
 
     public static void EnableButtons(int buttonInList) {
-        allButtons[buttonInList].gameObject.SetActive(true);
+        allButtons[buttonInList].gameObject.GetComponent<Button>().interactable = true;
     }
 
     public static void ChangeText(string text) {
         dialogTxt.GetComponent<Text>().text = text;
+    }
+
+    public static void CloseDialog() {
+        dialogUII.gameObject.SetActive(false);
+
     }
 }

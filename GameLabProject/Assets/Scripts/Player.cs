@@ -9,8 +9,7 @@ public class Player : MonoBehaviour {
 
     private GameObject tempBuilding;
     private BuildingData buildingData;
-   // private int buildingWidth;
-    //private int buildingLength;
+
     private int BuildingType;
 
     Collider[] hitColliders;
@@ -65,8 +64,7 @@ public class Player : MonoBehaviour {
                         testlight.color = Color.red;
                     }
                     else {
-						UpdateGrid (buildingType);
-                        UpdatePlayerInfo();
+						UpdateGrid (buildingType);                      
                     }
                 }
             }
@@ -84,9 +82,7 @@ public class Player : MonoBehaviour {
         }       
     }
 
-    void UpdatePlayerInfo() {
-        PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
-    }
+
 
     void RotateBuilding() {
         if(isPlacing) {
@@ -154,10 +150,12 @@ public class Player : MonoBehaviour {
 
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-        //0.105f = heigth fix
         if (TutorialManager.inTutorial) {
             TutorialManager.TutorialLevelUp();
         }
+        UpdatePlayerInfo(buildingType);
+
+        //0.105f = heigth fix
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
             GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
             placedBuilding.transform.SetParent(buildingOwned);
@@ -180,6 +178,20 @@ public class Player : MonoBehaviour {
         }
     }
 
+    void UpdatePlayerInfo(int buildingType) {
+        PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
+        if (buildingType == 0) {
+            PlayerInfo.amountOfFactories++;
+            FactoryProduction.Addvalues();
+        }
+        else if (buildingType == 4) {
+            PlayerInfo.amountOfHouses++;
+        }
+        else if (buildingType == 5) {
+            PlayerInfo.amountOfHouses += 3;
+        }
+    }
+
     //Selecting stage where it determites which building is selected ( also makes the temp building for visualization ) 
     public void SelectBuilding(int type) {
   		Destroy(tempBuilding);
@@ -193,5 +205,6 @@ public class Player : MonoBehaviour {
     public void TempBuilding() {
         tempBuilding = Instantiate(tempBuilding, new Vector3(0, 0, 0), Quaternion.identity);
     }
+
 
 }
