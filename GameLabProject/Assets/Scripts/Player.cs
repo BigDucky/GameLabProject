@@ -153,8 +153,10 @@ public class Player : MonoBehaviour {
         if (TutorialManager.inTutorial) {
             TutorialManager.TutorialLevelUp();
         }
-        UpdatePlayerInfo(buildingType);
-
+        else {
+            UpdatePlayerInfo(buildingType);
+        }
+       
         //0.105f = heigth fix
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
             GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
@@ -186,9 +188,12 @@ public class Player : MonoBehaviour {
         }
         else if (buildingType == 4) {
             PlayerInfo.amountOfHouses++;
+            HouseHappiness.AddValues();
         }
         else if (buildingType == 5) {
             PlayerInfo.amountOfHouses += 3;
+            HouseHappiness.AddValues();
+
         }
     }
 

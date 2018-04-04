@@ -15,6 +15,8 @@ public class PlayerInfo : MonoBehaviour {
     public static float totalProductionPerTimeF;
     public static float totalWaste;
     public static float recyclableWaste;
+    public static float totalIndividualHappiness;
+
 
     public static float wasteIndex;
     public static float polutionIndex;
@@ -29,34 +31,20 @@ public class PlayerInfo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		totalMoney = Player.playerInfo.startMoney;
-        totalCircularity = Player.playerInfo.recycable;
+        //totalCircularity = Player.playerInfo.;
         totalPopulation = Player.playerInfo.population;
         totalHappiness = Player.playerInfo.hapiness;
         totalPol = Player.playerInfo.polution;
         taxes = Player.playerInfo.taxes;
-        //TODO add the waste, Also visualize it
-
-
+        totalWaste = Player.playerInfo.waste;
+        recyclableWaste = Player.playerInfo.recycable;
+        totalIndividualHappiness = Player.playerInfo.hapiness;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		UpdateValues ();
-        Debug.Log("wasteIndex " + wasteIndex);
-        Debug.Log("polutionIndex " + polutionIndex);
-        Debug.Log("taxIndex " + taxIndex);
-
-
-        Debug.Log("total Money "+ totalMoney);
-        Debug.Log("total Circularity "+ totalCircularity);
-        Debug.Log("total population "+ totalPopulation);
-        Debug.Log("total Happiness " + totalHappiness);
-        Debug.Log("total Polution " + totalPol);
-        Debug.Log("total ProductionPerTimeX " + totalProductionPerTimeF);
-        Debug.Log("total Waste " + totalWaste);
-        Debug.Log("total RecycableWaste " + recyclableWaste);
-        Debug.Log("total Factories " + amountOfFactories);
-        Debug.Log("total Houses " + amountOfHouses);
+        Debug.Log(totalIndividualHappiness);
     }
 
     void UpdateValues(){
