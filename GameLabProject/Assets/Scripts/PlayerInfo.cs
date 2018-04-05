@@ -38,13 +38,14 @@ public class PlayerInfo : MonoBehaviour {
         taxes = Player.playerInfo.taxes;
         totalWaste = Player.playerInfo.waste;
         recyclableWaste = Player.playerInfo.recycable;
-        totalIndividualHappiness = Player.playerInfo.hapiness;
+        amountOfHouses = Player.playerInfo.houses;
+        totalIndividualHappiness = Player.playerInfo.hapiness* Player.playerInfo.houses;
+        amountOfFactories = Player.playerInfo.factory;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		UpdateValues ();
-        Debug.Log(totalIndividualHappiness);
     }
 
     void UpdateValues(){

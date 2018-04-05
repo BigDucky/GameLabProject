@@ -6,12 +6,14 @@ public class HouseHappiness : MonoBehaviour {
     BuildingData houseSettings;
 
     public static float individualHappiness;
+    public static float popIncrease;
 
 
     // Use this for initialization
 
     void Start () {
         houseSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
+        popIncrease = houseSettings.houseCap;
         HouseIndiviualHappiness();
     }
 
@@ -21,15 +23,12 @@ public class HouseHappiness : MonoBehaviour {
 	}
 
     void HouseIndiviualHappiness() {
-        Debug.Log("Waste Index " + PlayerInfo.wasteIndex);
-        Debug.Log("polution Index " + PlayerInfo.polutionIndex);
-        Debug.Log("taxin Index " + PlayerInfo.taxes);
-        Debug.Log(" TotalCirc  " + PlayerInfo.totalCircularity);
         individualHappiness = 100 - (PlayerInfo.wasteIndex + PlayerInfo.polutionIndex + PlayerInfo.taxIndex) + PlayerInfo.totalCircularity;
     }
 
     public static void AddValues() {
         PlayerInfo.totalIndividualHappiness = PlayerInfo.totalIndividualHappiness + individualHappiness;
+        PlayerInfo.totalPopulation+= popIncrease;
     }
 
 }

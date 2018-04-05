@@ -150,13 +150,13 @@ public class Player : MonoBehaviour {
 
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-        if (TutorialManager.inTutorial) {
+        if (TutorialManager.inTutorial == true) {
             TutorialManager.TutorialLevelUp();
         }
         else {
             UpdatePlayerInfo(buildingType);
         }
-       
+
         //0.105f = heigth fix
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
             GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
@@ -182,18 +182,27 @@ public class Player : MonoBehaviour {
 
     void UpdatePlayerInfo(int buildingType) {
         PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
-        if (buildingType == 0) {
-            PlayerInfo.amountOfFactories++;
-            FactoryProduction.Addvalues();
-        }
-        else if (buildingType == 4) {
-            PlayerInfo.amountOfHouses++;
-            HouseHappiness.AddValues();
-        }
-        else if (buildingType == 5) {
-            PlayerInfo.amountOfHouses += 3;
-            HouseHappiness.AddValues();
 
+        switch (buildingType) {
+
+            case 0:
+                PlayerInfo.amountOfFactories++;
+                FactoryProduction.Addvalues();
+                Debug.Log("X");
+                break;
+
+            case 3:
+                PlayerInfo.amountOfHouses++;
+                HouseHappiness.AddValues();
+                Debug.Log("X");
+                break;
+            case 4:
+                PlayerInfo.amountOfHouses += 3;
+                HouseHappiness.AddValues();
+                Debug.Log("X");
+                break;
+            default:
+                break;
         }
     }
 

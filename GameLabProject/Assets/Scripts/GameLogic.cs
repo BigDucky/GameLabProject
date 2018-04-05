@@ -12,5 +12,7 @@ public class GameLogic : ScriptableObject {
     public float recycable;
     public float polution;
     public float waste;
+    public int factory;
+    public int houses;
     public List<GameObject> Obuildings = new List<GameObject>();
 }
