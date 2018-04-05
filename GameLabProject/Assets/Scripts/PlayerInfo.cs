@@ -30,27 +30,24 @@ public class PlayerInfo : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		totalMoney = Player.playerInfo.startMoney;
-        //totalCircularity = Player.playerInfo.;
-        totalPopulation = Player.playerInfo.population;
+
+        StartGameSettings();
+
+	}
+
+    void StartGameSettings() {
+        totalMoney = Player.playerInfo.startMoney;
+        totalPopulation = Player.playerInfo.population; 
         totalHappiness = Player.playerInfo.hapiness;
         totalPol = Player.playerInfo.polution;
         taxes = Player.playerInfo.taxes;
         totalWaste = Player.playerInfo.waste;
         recyclableWaste = Player.playerInfo.recycable;
         amountOfHouses = Player.playerInfo.houses;
-        totalIndividualHappiness = Player.playerInfo.hapiness* Player.playerInfo.houses;
+        totalIndividualHappiness = Player.playerInfo.hapiness * amountOfHouses;
         amountOfFactories = Player.playerInfo.factory;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		UpdateValues ();
     }
-
-    void UpdateValues(){
-		//totalMoney = totalMoney + totalIncome*Time.deltaTime* gamelogic.timeSpeed;
-	}
+	// Update is called once per frame
 
 	public static void  UpdateMoneyCost(float cost){
 		totalMoney = totalMoney - cost;

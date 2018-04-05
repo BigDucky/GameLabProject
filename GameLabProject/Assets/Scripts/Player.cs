@@ -188,18 +188,15 @@ public class Player : MonoBehaviour {
             case 0:
                 PlayerInfo.amountOfFactories++;
                 FactoryProduction.Addvalues();
-                Debug.Log("X");
                 break;
 
             case 3:
                 PlayerInfo.amountOfHouses++;
                 HouseHappiness.AddValues();
-                Debug.Log("X");
                 break;
             case 4:
                 PlayerInfo.amountOfHouses += 3;
                 HouseHappiness.AddValues();
-                Debug.Log("X");
                 break;
             default:
                 break;

@@ -23,7 +23,8 @@ public class HouseHappiness : MonoBehaviour {
 	}
 
     void HouseIndiviualHappiness() {
-        individualHappiness = 100 - (PlayerInfo.wasteIndex + PlayerInfo.polutionIndex + PlayerInfo.taxIndex) + PlayerInfo.totalCircularity;
+        individualHappiness = (100 - ((PlayerInfo.wasteIndex + PlayerInfo.polutionIndex + PlayerInfo.taxIndex) + PlayerInfo.totalCircularity)) * (houseSettings.houseCap/5);
+        Debug.Log("Individual Happ"+System.Math.Round(individualHappiness));
     }
 
     public static void AddValues() {

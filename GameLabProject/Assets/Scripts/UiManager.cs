@@ -50,7 +50,7 @@ public class UiManager : MonoBehaviour {
         totalPolTxt.text = "" + PlayerInfo.totalPol;
         circularity.text = "" + PlayerInfo.totalCircularity + " %";
         population.text = "" + PlayerInfo.totalPopulation;
-        happiness.text = "" + PlayerInfo.totalHappiness + " %";
+        happiness.text = "" + System.Math.Round(PlayerInfo.totalHappiness) + " %";
         taxes.text = "" + PlayerInfo.taxes + " %";
     }
 

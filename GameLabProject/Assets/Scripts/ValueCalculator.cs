@@ -14,9 +14,16 @@ public class ValueCalculator : MonoBehaviour {
 	void Update () {
         PlayerInfo.totalCircularity = (PlayerInfo.recyclableWaste / PlayerInfo.totalWaste) * 100 ; //*100 = precentage
         PlayerInfo.wasteIndex = 10 / PlayerInfo.totalWaste;
-        PlayerInfo.polutionIndex = (PlayerInfo.totalPol / 2)/100;
+        PlayerInfo.polutionIndex = (PlayerInfo.totalPol / 2)* 10;
         PlayerInfo.taxIndex = (PlayerInfo.wasteIndex + PlayerInfo.polutionIndex) / 2 * PlayerInfo.taxes / 100;
-        PlayerInfo.totalHappiness = PlayerInfo.totalIndividualHappiness / PlayerInfo.amountOfHouses;
+        PlayerInfo.totalHappiness = (PlayerInfo.totalIndividualHappiness / PlayerInfo.amountOfHouses) - PlayerInfo.polutionIndex;
+        Debug.Log("Pol Index"+PlayerInfo.polutionIndex);
+        MoneyIncome();
+    }
+
+    void MoneyIncome() {
 
     }
+
+
 }
