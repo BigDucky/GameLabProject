@@ -99,7 +99,7 @@ public class Player : MonoBehaviour {
 
 	void UpdateGrid(int buildingType){
 		PlaceBuilding(buildingType);
-        TileManager.NewDisabledTiles(hitColliders,tileManager.disabledTile);
+        TileManager.NewDisabledTiles(hitColliders,tileManager.disabledTile,buildingType);
         Destroy(tempBuilding);
         currentRotation = 0;
         rotated = false;

@@ -23,7 +23,7 @@ MonoBehaviour:
   houses: 5
   Obuildings:
   - {fileID: 1835443167609966, guid: 8a760770b8e672c4f9ba3649d711fa29, type: 2}
-  - {fileID: 1449715379252672, guid: 4f1b99e7ff06b0f4bab2922157f00c28, type: 2}
+  - {fileID: 1878036468878926, guid: e8e3ec8c7d1f378408b8a8f984ec7f03, type: 2}
   - {fileID: 1659757340457182, guid: c3f82e82595b0424cb007004e483c483, type: 2}
   - {fileID: 1117341790895792, guid: 2f22b0d3a180a8444ae7423e28cbabb0, type: 2}
   - {fileID: 1850471599463958, guid: 04c8141cc16b5f24e924e64a77631cea, type: 2}

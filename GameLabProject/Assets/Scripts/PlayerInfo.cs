@@ -27,6 +27,8 @@ public class PlayerInfo : MonoBehaviour {
     public static int amountOfFactories;
     public static int amountOfHouses;
 
+    public static float gameTime;
+
 
 	// Use this for initialization
 	void Start () {

@@ -18,6 +18,7 @@ public class ValueCalculator : MonoBehaviour {
         PlayerInfo.taxIndex = (PlayerInfo.wasteIndex + PlayerInfo.polutionIndex) / 2 * PlayerInfo.taxes / 100;
         PlayerInfo.totalHappiness = (PlayerInfo.totalIndividualHappiness / PlayerInfo.amountOfHouses) - PlayerInfo.polutionIndex;
         Debug.Log("Pol Index"+PlayerInfo.polutionIndex);
+
         MoneyIncome();
     }
 

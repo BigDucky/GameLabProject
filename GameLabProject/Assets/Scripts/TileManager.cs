@@ -11,6 +11,7 @@ public class TileManager : MonoBehaviour {
     public int mapLength, mapWidth;
     public Material tileMaterial;
     public Material disabledTile;
+    public Material transparenttile;
 
     private float height = 0.105f;
 
@@ -48,7 +49,7 @@ public class TileManager : MonoBehaviour {
         }
     }
 
-    public static void NewDisabledTiles(Collider[] hitcollider, Material disabled) {
+    public static void NewDisabledTiles(Collider[] hitcollider, Material disabled, int buildingType) {
         for (int i = 0; i < hitcollider.Length; i++) {
             if (hitcollider[i].gameObject.tag == "Tile") {
                 GameObject disabledTile = new GameObject();
@@ -59,7 +60,7 @@ public class TileManager : MonoBehaviour {
         for (int j = 0; j < TileManager.tileList.Count; j++) {
             for (int k = 0; k < disabledTilesList.Count; k++) {
                 if (tileList[j].name == disabledTilesList[k].name) {
-                    tileList[j].GetComponent<Renderer>().material = disabled;
+                     tileList[j].GetComponent<Renderer>().material = disabled;                 
                 }
             }
         }
