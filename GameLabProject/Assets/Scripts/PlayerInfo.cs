@@ -48,6 +48,7 @@ public class PlayerInfo : MonoBehaviour {
         amountOfHouses = Player.playerInfo.houses;
         totalIndividualHappiness = Player.playerInfo.hapiness * amountOfHouses;
         amountOfFactories = Player.playerInfo.factory;
+        totalProductionPerTimeF = Player.playerInfo.totalProductionTimeSpeed;
     }
 	// Update is called once per frame
 

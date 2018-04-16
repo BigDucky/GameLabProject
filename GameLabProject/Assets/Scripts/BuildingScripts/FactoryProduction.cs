@@ -32,6 +32,7 @@ public class FactoryProduction : MonoBehaviour {
         PlayerInfo.totalPol += polution;
         PlayerInfo.totalWaste += waste;
         PlayerInfo.recyclableWaste += recycableWaste;
+        PlayerInfo.totalProductionPerTimeF += productionPerTimeFrame;
     }
 
 }

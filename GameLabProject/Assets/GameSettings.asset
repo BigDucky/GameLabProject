@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   timeSpeed: 0.1
-  startMoney: 20000
+  startMoney: 10000
   hapiness: 50
   population: 40
   taxes: 40
@@ -21,9 +21,10 @@ MonoBehaviour:
   waste: 5
   factory: 1
   houses: 5
+  totalProductionTimeSpeed: 20
   Obuildings:
   - {fileID: 1835443167609966, guid: 8a760770b8e672c4f9ba3649d711fa29, type: 2}
-  - {fileID: 1878036468878926, guid: e8e3ec8c7d1f378408b8a8f984ec7f03, type: 2}
+  - {fileID: 1248363755323808, guid: 167f31dede2e2604b9932824a0bc934b, type: 2}
   - {fileID: 1659757340457182, guid: c3f82e82595b0424cb007004e483c483, type: 2}
   - {fileID: 1117341790895792, guid: 2f22b0d3a180a8444ae7423e28cbabb0, type: 2}
   - {fileID: 1850471599463958, guid: 04c8141cc16b5f24e924e64a77631cea, type: 2}

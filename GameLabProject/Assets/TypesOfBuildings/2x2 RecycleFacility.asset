@@ -17,7 +17,7 @@ MonoBehaviour:
   facility: 1
   width: 2
   length: 2
-  buildingCost: 0
+  buildingCost: 4000
   F_Employess: 0
   F_AOE: 0
   production: 0

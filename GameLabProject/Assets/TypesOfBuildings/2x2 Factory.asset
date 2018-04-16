@@ -17,13 +17,13 @@ MonoBehaviour:
   facility: 0
   width: 2
   length: 2
-  buildingCost: 1000
+  buildingCost: 3000
   F_Employess: 0
   F_AOE: 2
   production: 10
   polution: 3
   totalWaste: 5
-  recyclableWaste: 3
+  recyclableWaste: 1
   houseCap: 0
   G_Cap: 0
   G_AOE: 0

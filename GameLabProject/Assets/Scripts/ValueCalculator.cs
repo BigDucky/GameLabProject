@@ -3,28 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ValueCalculator : MonoBehaviour {
-    
+    private IEnumerator coroutine;
+    private bool yes = true;
 
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        PlayerInfo.totalCircularity = (PlayerInfo.recyclableWaste / PlayerInfo.totalWaste) * 100 ; //*100 = precentage
+    private int timesPassedBy;
+
+    // Use this for initialization
+    void Start () {
+
+    }
+
+    // Update is called once per frame
+    void Update() {
+        PlayerInfo.totalCircularity = (PlayerInfo.recyclableWaste / PlayerInfo.totalWaste) * 100; //*100 = precentage
         PlayerInfo.wasteIndex = 10 / PlayerInfo.totalWaste;
-        PlayerInfo.polutionIndex = (PlayerInfo.totalPol / 2)* 10;
+        PlayerInfo.polutionIndex = (PlayerInfo.totalPol / 2) * 10;
         PlayerInfo.taxIndex = (PlayerInfo.wasteIndex + PlayerInfo.polutionIndex) / 2 * PlayerInfo.taxes / 100;
-        PlayerInfo.totalHappiness = (PlayerInfo.totalIndividualHappiness / PlayerInfo.amountOfHouses) - PlayerInfo.polutionIndex;
-        Debug.Log("Pol Index"+PlayerInfo.polutionIndex);
+        PlayerInfo.totalHappiness =(Mathf.Clamp((PlayerInfo.totalIndividualHappiness / PlayerInfo.amountOfHouses) - PlayerInfo.polutionIndex,0, 100));
+        Debug.Log(PlayerInfo.totalMoney);
 
-        MoneyIncome();
+        if (!TutorialManager.inTutorial && yes== true) {
+            InvokeRepeating("MoneyIncome", 0, 2.5f);
+            yes = false;
+            timesPassedBy++;
+            if(timesPassedBy == 5) {
+                timesPassedBy = 0;
+                PlayerInfo.totalMoney = PlayerInfo.totalMoney + (PlayerInfo.totalPopulation * 100) * PlayerInfo.taxes;
+            }
+        }
     }
 
     void MoneyIncome() {
-
+        PlayerInfo.totalMoney= PlayerInfo.totalMoney + PlayerInfo.totalProductionPerTimeF;
     }
-
 
 }
