@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour {
 
 	public Camera mainCamera;
 	[Range (0, 10)]
-	public float speed = 3f;
+	public float speed = 5f;
 
 	float xAxisValue = Input.GetAxisRaw("Horizontal");
 	float zAxisValue = Input.GetAxisRaw("Vertical");
@@ -23,19 +23,19 @@ public class CameraController : MonoBehaviour {
 
 	void Update()
 	{
-		if(Input.GetKey(KeyCode.RightArrow))
+		if(Input.GetKey(KeyCode.D))
 		{
 			transform.Translate(new Vector3(speed * Time.deltaTime,0,0));
 		}
-		if(Input.GetKey(KeyCode.LeftArrow))
+		if(Input.GetKey(KeyCode.A))
 		{
 			transform.Translate(new Vector3(-speed * Time.deltaTime,0,0));
 		}
-		if(Input.GetKey(KeyCode.DownArrow))
+		if(Input.GetKey(KeyCode.S))
 		{
 			transform.Translate(new Vector3(0,-speed * Time.deltaTime,0));
 		}
-		if(Input.GetKey(KeyCode.UpArrow))
+		if(Input.GetKey(KeyCode.W))
 		{
 			transform.Translate(new Vector3(0,speed * Time.deltaTime,0));
 		}
@@ -44,11 +44,18 @@ public class CameraController : MonoBehaviour {
 
 		mainCamera.transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
 
-		if (Input.GetKeyDown ("r")) {
-			StartCoroutine (RotateMe (Vector3.up * 90, 1f));
+		if (Input.GetKey ("r")) {
+			StartCoroutine (RotateMe (Vector3.up * 30, 0.5f));
 		}
-		if (Input.GetKeyDown ("q")) {
-			StartCoroutine (RotateMe (Vector3.up * -90, 1f));
+		if (Input.GetKey ("q")) {
+			StartCoroutine (RotateMe (Vector3.up * -30, 0.5f));
 		}
+
+        if ( Input.GetAxis("Mouse ScrollWheel") > 0f) {
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z+ 0.2f);
+        }
+        else if ( Input.GetAxis("Mouse ScrollWheel")< 0) {
+            transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z -0.2f);
+        }
 	}
 }
