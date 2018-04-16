@@ -7,11 +7,18 @@ public class CameraController : MonoBehaviour {
 	public Camera mainCamera;
 	[Range (0, 10)]
 	public float speed = 5f;
+    float xAxisValue;
+    float zAxisValue;
 
-	float xAxisValue = Input.GetAxisRaw("Horizontal");
-	float zAxisValue = Input.GetAxisRaw("Vertical");
+    private void Start() {
+         xAxisValue = Input.GetAxisRaw("Horizontal");
+         zAxisValue = Input.GetAxisRaw("Vertical");
+    }
 
-	IEnumerator RotateMe(Vector3 byAngles, float inTime)
+
+
+
+    IEnumerator RotateMe(Vector3 byAngles, float inTime)
 	{
 		var fromAngle = transform.rotation;
 		var toAngle = Quaternion.Euler (transform.eulerAngles + byAngles);
