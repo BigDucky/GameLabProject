@@ -343,12 +343,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f603d15c22518440a8fb41c417344e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildPanel: {fileID: 0}
+  dialogUI: {fileID: 0}
   buildCanvas: {fileID: 0}
   UIinterface: {fileID: 0}
   mainCanvas: {fileID: 1855507388}
   pauseCanvas: {fileID: 388042384}
-  totalMonetTxt: {fileID: 0}
+  totalMoneyTxt: {fileID: 0}
   totalPolTxt: {fileID: 0}
+  circularity: {fileID: 0}
+  population: {fileID: 0}
+  happiness: {fileID: 0}
+  taxes: {fileID: 0}
 --- !u!1 &569284118
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +367,7 @@ GameObject:
   - component: {fileID: 569284121}
   - component: {fileID: 569284120}
   - component: {fileID: 569284119}
+  - component: {fileID: 569284124}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -438,6 +445,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569284124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569284118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1507110d9c0624a49bb1a77ebcfb6990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &732793477 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224548236885306144, guid: 6f022ef1da5500441824820bf290ca96,
