@@ -7,6 +7,9 @@ public class CameraController : MonoBehaviour {
 	public Camera mainCamera;
 	[Range (0, 10)]
 	public float speed = 5f;
+	[Range (0, 360)]
+	public int turnAngle = 90;
+
     float xAxisValue;
     float zAxisValue;
 
@@ -51,11 +54,11 @@ public class CameraController : MonoBehaviour {
 
 		mainCamera.transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
 
-		if (Input.GetKey ("r")) {
-			StartCoroutine (RotateMe (Vector3.up * 30, 0.5f));
+		if (Input.GetKeyDown ("r")) {
+			StartCoroutine (RotateMe (Vector3.up * turnAngle, 0.7f));
 		}
-		if (Input.GetKey ("q")) {
-			StartCoroutine (RotateMe (Vector3.up * -30, 0.5f));
+		if (Input.GetKeyDown ("q")) {
+			StartCoroutine (RotateMe (Vector3.up * -(turnAngle), 0.7f));
 		}
 
         if ( Input.GetAxis("Mouse ScrollWheel") > 0f) {
