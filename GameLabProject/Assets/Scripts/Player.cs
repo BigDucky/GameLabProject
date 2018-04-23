@@ -30,6 +30,8 @@ public class Player : MonoBehaviour {
     public float currentRotation;
     private bool rotated = false;
 
+    public static bool deletingStage;
+
     // Use this for initialization
     void Start () {
         buildingList = gameLogic.Obuildings;
@@ -71,6 +73,11 @@ public class Player : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.E)){
             RotateBuilding();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPlacing) {
+            Debug.Log("Pressed ESC");
+            Destroy(tempBuilding);
+            isPlacing = false;
         }
         else {
            // if (buildingData.even) {
