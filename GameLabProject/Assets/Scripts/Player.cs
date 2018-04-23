@@ -89,7 +89,9 @@ public class Player : MonoBehaviour {
         }       
     }
 
-
+    public void DeleteBuilding() {
+        deletingStage = true;
+    }
 
     void RotateBuilding() {
         if(isPlacing) {
