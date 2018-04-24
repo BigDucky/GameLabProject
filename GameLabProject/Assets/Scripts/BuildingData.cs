@@ -5,14 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BuildingData", menuName = "Data")]
 public class BuildingData : ScriptableObject {
 
-    [HideInInspector]
-    public bool factory;
-    [HideInInspector]
-    public bool garbage;
-    [HideInInspector]
-    public bool housing;
-    [HideInInspector]
-    public bool facility;
 
     [Range (0,5)]
     public int width;
@@ -21,33 +13,17 @@ public class BuildingData : ScriptableObject {
     public float buildingCost;
 
     //Factory Propperties F = FACTORY
-    [HideInInspector]
-    public float F_Employess;
-    [HideInInspector]
-    public float F_AOE;
-    [HideInInspector]
     public float production;
-    [HideInInspector]
-    public float polution;
-    [HideInInspector]
-    public float totalWaste;
-    [HideInInspector]
-    public float recyclableWaste;
 
-    //Housing Properties
-    [HideInInspector]
-    public float houseCap;
+    public float wasteProduction;
+
+    public float recyclableWasteProduction;
 
     //Garbage Properties
-    [HideInInspector]
     public float G_Cap;
-    [HideInInspector]
-    public float G_AOE;
-    
-    //Facility Poperties FA = FACILITY
-    [HideInInspector]
-    public float FA_Employees;
 
+    //Facility Poperties FA = FACILITY
+    public float recycleFactor;
 
 
     [HideInInspector]

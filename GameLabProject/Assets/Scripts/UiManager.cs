@@ -21,9 +21,7 @@ public class UiManager : MonoBehaviour {
     public Text totalMoneyTxt;
     public Text totalPolTxt;
     public Text circularity;
-    public Text population;
-    public Text happiness;
-    public Text taxes;
+    public Text rawMaterialTxt;
 
     void Start() {
 
@@ -46,18 +44,16 @@ public class UiManager : MonoBehaviour {
     }
 
     void UpdateText() {
-        totalMoneyTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
-        totalPolTxt.text = "" + PlayerInfo.totalPol;
-        circularity.text = "" + PlayerInfo.totalCircularity + " %";
-        population.text = "" + PlayerInfo.totalPopulation;
-        happiness.text = "" + System.Math.Round(PlayerInfo.totalHappiness) + " %";
-        taxes.text = "" + PlayerInfo.taxes + " %";
+         totalMoneyTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
+         totalPolTxt.text = "" + PlayerInfo.totalWaste ;
+         circularity.text = "" + PlayerInfo.circularity;
+        rawMaterialTxt.text = "" + PlayerInfo.totalRawMat;
     }
 
     public void OpenCanvas(Canvas toBeOpenedCanvas) {
-        if(TutorialManager.tutorialStep == 0) {
-            TutorialManager.TutorialLevelUp();
-        }
+       /// if(TutorialManager.tutorialStep == 0) {
+       //     TutorialManager.TutorialLevelUp();
+      //  }
         if(toBeOpenedCanvas.gameObject.activeSelf == true) {
             toBeOpenedCanvas.gameObject.SetActive(false);
         }

@@ -159,12 +159,12 @@ public class Player : MonoBehaviour {
 
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-        if (TutorialManager.inTutorial == true) {
-            TutorialManager.TutorialLevelUp();
-        }
-        else {
-            UpdatePlayerInfo(buildingType);
-        }
+         if (TutorialManager.inTutorial == true) {
+             TutorialManager.TutorialLevelUp();
+         }
+
+         UpdatePlayerInfo(buildingType);
+
 
         //0.105f = heigth fix
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
@@ -190,26 +190,29 @@ public class Player : MonoBehaviour {
     }
 
     void UpdatePlayerInfo(int buildingType) {
-        PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
+        if(!TutorialManager.inTutorial) {
+            PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
 
-        switch (buildingType) {
+            switch (buildingType) {
 
-            case 0:
-                PlayerInfo.amountOfFactories++;
-                FactoryProduction.Addvalues();
-                break;
+                case 0:
+                    PlayerInfo.amountOfFactories++;
+                    FactoryProduction.AddValues();
+                    break;
 
-            case 3:
-                PlayerInfo.amountOfHouses++;
-                HouseHappiness.AddValues();
-                break;
-            case 4:
-                PlayerInfo.amountOfHouses += 3;
-                HouseHappiness.AddValues();
-                break;
-            default:
-                break;
+                case 1:
+                    PlayerInfo.amountOfRecycleFactories++;          
+                    break;
+                case 2:
+                    PlayerInfo.amountOfGarbageDisposal++;
+                    GarbageDisposal.AddValues();
+
+                    break;
+                default:
+                    break;
+            }
         }
+
     }
 
     //Selecting stage where it determites which building is selected ( also makes the temp building for visualization ) 

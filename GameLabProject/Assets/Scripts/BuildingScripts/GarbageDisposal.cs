@@ -22,14 +22,13 @@ public class GarbageDisposal : MonoBehaviour {
         wasteCap = garbageDisposalSettings.G_Cap;
         garbageHeap = this.gameObject.transform.GetChild(7);
         differenceHeight = maxHeapHeight - minHeapHeight;
-        Debug.Log(garbageHeap.gameObject.name);
         garbageHeightPosition = garbageHeap.transform.position.y;
        
     }
 	
 	// Update is called once per frame
 	void Update () {
-        newWaste =Mathf.RoundToInt( PlayerInfo.totalWaste);
+        newWaste =Mathf.RoundToInt( PlayerInfo.totalWaste / PlayerInfo.amountOfGarbageDisposal);
     
         if(newWaste > currentWaste) {
             int diffe = newWaste - currentWaste;
@@ -42,7 +41,11 @@ public class GarbageDisposal : MonoBehaviour {
        
         garbageHeap.transform.position = new Vector3 (garbageHeap.position.x, garbageHeightPosition, garbageHeap.position.z);
 
-        currentWaste = Mathf.Clamp (newWaste,0,50);
+        currentWaste = Mathf.Clamp (newWaste,0,100);
 
+    }
+
+    public static void AddValues() {
+        PlayerInfo.totalWasteCap += wasteCap;
     }
 }

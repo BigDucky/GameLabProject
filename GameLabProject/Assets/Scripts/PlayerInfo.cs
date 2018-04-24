@@ -4,51 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour {
+    public static float circularity;
 
     public static float totalMoney;
-	public static float totalPol;
-    public static float totalCircularity;
-    public static float totalPopulation;
-    public static float totalHappiness;
-    public static float taxes;
-
-    public static float totalProductionPerTimeF;
     public static float totalWaste;
-    public static float recyclableWaste;
-    public static float totalIndividualHappiness;
+    public static float totalRecycleWaste;
+    public static float totalRawMat;
+    public static float totalRawMatUsed;
 
+    public static float totalWasteCap;
 
-    public static float wasteIndex;
-    public static float polutionIndex;
-    public static float taxIndex;
-    public static float aoeIndex = 5;
+    public static float amountOfFactories;
+    public static float amountOfRecycleFactories;
+    public static float amountOfGarbageDisposal;
 
-
-    public static int amountOfFactories;
-    public static int amountOfHouses;
-
-    public static float gameTime;
-
-
-	// Use this for initialization
-	void Start () {
-
+    // Use this for initialization
+    void Start () {
         StartGameSettings();
-
 	}
 
     void StartGameSettings() {
-        totalMoney = Player.playerInfo.startMoney;
-        totalPopulation = Player.playerInfo.population; 
-        totalHappiness = Player.playerInfo.hapiness;
-        totalPol = Player.playerInfo.polution;
-        taxes = Player.playerInfo.taxes;
-        totalWaste = Player.playerInfo.waste;
-        recyclableWaste = Player.playerInfo.recycable;
-        amountOfHouses = Player.playerInfo.houses;
-        totalIndividualHappiness = Player.playerInfo.hapiness * amountOfHouses;
-        amountOfFactories = Player.playerInfo.factory;
-        totalProductionPerTimeF = Player.playerInfo.totalProductionTimeSpeed;
+        totalMoney = Player.playerInfo.totalMoney;
+        totalWaste = Player.playerInfo.totalWaste;
+        totalRecycleWaste = Player.playerInfo.totalRecycleWaste;
+        totalRawMat = Player.playerInfo.RawMaterialReserve;
+        totalRawMatUsed = Player.playerInfo.totalRawMatUsed;
+
+        amountOfFactories = 1;
+        amountOfGarbageDisposal = 1;
+        amountOfRecycleFactories = 1;
     }
 	// Update is called once per frame
 

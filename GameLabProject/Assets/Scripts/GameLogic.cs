@@ -4,16 +4,11 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSettings",menuName = "Settings")]
 public class GameLogic : ScriptableObject {
-    public float timeSpeed;
-	public float startMoney;
-    public float hapiness;
-    public float population;
-    public float taxes;
-    public float recycable;
-    public float polution;
-    public float waste;
-    public int factory;
-    public int houses;
-    public float totalProductionTimeSpeed;
+    public float timeSpeedInSeconds;
+    public int RawMaterialReserve;
+    public float totalMoney;
+    public float totalWaste;
+    public float totalRecycleWaste;
+    public float totalRawMatUsed;
     public List<GameObject> Obuildings = new List<GameObject>();
 }

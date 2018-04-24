@@ -15,6 +15,7 @@ public class TutorialManager : MonoBehaviour {
         TutorialSetup();
 
     }
+    
     // Update is called once per frame
     void Update () {
         switch (tutorialStep) {
@@ -32,15 +33,6 @@ public class TutorialManager : MonoBehaviour {
                 Step3();
                 break;
             case 4:
-                Step4();
-                break;
-            case 5:
-                Step5();
-                break;
-            case 6:
-                Step6();
-                break;
-            case 7:
                 EndTutorial();
                 inTutorial = false;
                 break;
@@ -53,7 +45,12 @@ public class TutorialManager : MonoBehaviour {
             if (Input.GetMouseButtonDown(0)) {
                 UiManager.dialogUII.gameObject.SetActive(false);
                 gameStart = true;
-                
+            }
+        }
+
+        if (tutorialStep == 0) {
+            if (Input.GetMouseButtonDown(0)) {
+                TutorialLevelUp();
             }
         }
 
@@ -96,23 +93,5 @@ public class TutorialManager : MonoBehaviour {
         UiManager.DisableAllButtons();
         UiManager.ChangeText(dialogData.text[3]);
         UiManager.EnableButtons(2);
-    }
-
-    void Step4() {
-        UiManager.DisableAllButtons();
-        UiManager.EnableButtons(3);
-        UiManager.ChangeText(dialogData.text[4]);
-    }
-
-    void Step5() {
-        UiManager.DisableAllButtons();
-        UiManager.EnableButtons(3);
-        UiManager.ChangeText(dialogData.text[5]);
-    }
-
-    void Step6() {
-        UiManager.DisableAllButtons();
-        UiManager.EnableButtons(4);
-        UiManager.ChangeText(dialogData.text[6]);
     }
 }
