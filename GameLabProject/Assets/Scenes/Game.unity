@@ -1973,9 +1973,6 @@ MonoBehaviour:
   totalMoneyTxt: {fileID: 991754011}
   totalPolTxt: {fileID: 968553232}
   circularity: {fileID: 677752609}
-  population: {fileID: 162607203}
-  happiness: {fileID: 1057299079}
-  taxes: {fileID: 78677990}
 --- !u!4 &713053657
 Transform:
   m_ObjectHideFlags: 0
@@ -3201,6 +3198,9 @@ MonoBehaviour:
   mainCamera: {fileID: 1166118385}
   speed: 5.01
   turnAngle: 90
+  turnSpeedHorizontal: 0.8
+  turnSpeedVertical: 0.8
+  cameraRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &1166118388
 MonoBehaviour:
   m_ObjectHideFlags: 0
