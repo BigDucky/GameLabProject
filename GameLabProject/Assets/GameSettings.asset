@@ -11,17 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b0a6222f848fd46a6d8f45147f0862, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  timeSpeed: 0.1
-  startMoney: 10000
-  hapiness: 50
-  population: 40
-  taxes: 40
-  recycable: 1
-  polution: 3
-  waste: 5
-  factory: 1
-  houses: 5
-  totalProductionTimeSpeed: 20
+  timeSpeedInSeconds: 60
+  RawMaterialReserve: 10000
+  totalMoney: 20000
+  totalWaste: 25
+  totalRecycleWaste: 25
+  totalRawMatUsed: 100
   Obuildings:
   - {fileID: 1835443167609966, guid: 8a760770b8e672c4f9ba3649d711fa29, type: 2}
   - {fileID: 1248363755323808, guid: 167f31dede2e2604b9932824a0bc934b, type: 2}
