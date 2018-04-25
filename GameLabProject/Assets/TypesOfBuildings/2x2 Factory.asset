@@ -11,14 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1b7f32b65508d458cab40671e9c60d, type: 3}
   m_Name: 2x2 Factory
   m_EditorClassIdentifier: 
+  factory: 1
+  garbage: 0
+  housing: 0
+  facility: 0
   width: 2
   length: 2
   buildingCost: 3000
-  production: 100
-  wasteProduction: 25
-  recyclableWasteProduction: 25
+  F_Employess: 0
+  F_AOE: 2
+  production: 10
+  polution: 3
+  totalWaste: 5
+  recyclableWaste: 1
+  houseCap: 0
   G_Cap: 0
-  recycleFactor: 0
+  G_AOE: 0
+  FA_Employees: 0
   placementFixX: 0.5
   placementFixY: 0.5
   even: 1

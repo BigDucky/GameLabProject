@@ -11,14 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1b7f32b65508d458cab40671e9c60d, type: 3}
   m_Name: 3x3 Garbage
   m_EditorClassIdentifier: 
+  factory: 0
+  garbage: 1
+  housing: 0
+  facility: 0
   width: 3
   length: 3
   buildingCost: 2000
+  F_Employess: 0
+  F_AOE: 0
   production: 0
-  wasteProduction: 0
-  recyclableWasteProduction: 0
-  G_Cap: 100
-  recycleFactor: 0
+  polution: 5
+  totalWaste: 0
+  recyclableWaste: 0
+  houseCap: 0
+  G_Cap: 50
+  G_AOE: 1
+  FA_Employees: 0
   placementFixX: 0
   placementFixY: 0
   even: 0
