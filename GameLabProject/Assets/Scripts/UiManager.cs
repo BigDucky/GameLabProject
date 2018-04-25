@@ -21,7 +21,7 @@ public class UiManager : MonoBehaviour {
     public Text totalMoneyTxt;
     public Text totalPolTxt;
     public Text circularity;
-//    public Text rawMaterialTxt;
+    public Text rawMaterialTxt;
 
     void Start() {
 
@@ -47,7 +47,7 @@ public class UiManager : MonoBehaviour {
          totalMoneyTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
          totalPolTxt.text = "" + PlayerInfo.totalWaste ;
          circularity.text = "" + PlayerInfo.circularity;
-//         rawMaterialTxt.text = "" + PlayerInfo.totalRawMat;
+         rawMaterialTxt.text = "" + PlayerInfo.totalRawMat;
     }
 
     public void OpenCanvas(Canvas toBeOpenedCanvas) {
