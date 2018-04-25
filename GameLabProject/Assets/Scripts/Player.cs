@@ -30,6 +30,8 @@ public class Player : MonoBehaviour {
     public float currentRotation;
     private bool rotated = false;
 
+    public static bool deletingStage;
+
     // Use this for initialization
     void Start () {
         buildingList = gameLogic.Obuildings;
@@ -72,6 +74,11 @@ public class Player : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.E)){
             RotateBuilding();
         }
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPlacing) {
+            Debug.Log("Pressed ESC");
+            Destroy(tempBuilding);
+            isPlacing = false;
+        }
         else {
            // if (buildingData.even) {
                 MoveTempBuilding(/*hit,*/buildingData.even);
@@ -82,7 +89,9 @@ public class Player : MonoBehaviour {
         }       
     }
 
-
+    public void DeleteBuilding() {
+        deletingStage = true;
+    }
 
     void RotateBuilding() {
         if(isPlacing) {
@@ -150,12 +159,12 @@ public class Player : MonoBehaviour {
 
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-        if (TutorialManager.inTutorial == true) {
-            TutorialManager.TutorialLevelUp();
-        }
-        else {
-            UpdatePlayerInfo(buildingType);
-        }
+         if (TutorialManager.inTutorial == true) {
+             TutorialManager.TutorialLevelUp();
+         }
+
+         UpdatePlayerInfo(buildingType);
+
 
         //0.105f = heigth fix
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
@@ -181,26 +190,29 @@ public class Player : MonoBehaviour {
     }
 
     void UpdatePlayerInfo(int buildingType) {
-        PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
+        if(!TutorialManager.inTutorial) {
+            PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
 
-        switch (buildingType) {
+            switch (buildingType) {
 
-            case 0:
-                PlayerInfo.amountOfFactories++;
-                FactoryProduction.Addvalues();
-                break;
+                case 0:
+                    PlayerInfo.amountOfFactories++;
+                    FactoryProduction.AddValues();
+                    break;
 
-            case 3:
-                PlayerInfo.amountOfHouses++;
-                HouseHappiness.AddValues();
-                break;
-            case 4:
-                PlayerInfo.amountOfHouses += 3;
-                HouseHappiness.AddValues();
-                break;
-            default:
-                break;
+                case 1:
+                    PlayerInfo.amountOfRecycleFactories++;          
+                    break;
+                case 2:
+                    PlayerInfo.amountOfGarbageDisposal++;
+                    GarbageDisposal.AddValues();
+
+                    break;
+                default:
+                    break;
+            }
         }
+
     }
 
     //Selecting stage where it determites which building is selected ( also makes the temp building for visualization ) 

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR 
@@ -46,8 +46,6 @@ public class OverrideGUI : Editor {
 
 
     public void DisplayFactorySettings() {
-		data.F_Employess = EditorGUILayout.FloatField("Employees Needed", data.F_Employess);
-        data.F_AOE = EditorGUILayout.FloatField("Area of Effect",data.F_AOE);
         data.production = EditorGUILayout.FloatField("Production",data.production);
         data.polution = EditorGUILayout.FloatField("Polution",data.polution);
         data.totalWaste = EditorGUILayout.FloatField("TotalWaste",data.totalWaste);
@@ -67,5 +65,5 @@ public class OverrideGUI : Editor {
         data.FA_Employees = EditorGUILayout.FloatField("Employees Needed", data.FA_Employees);
     }
 
-}
-#endif
+}*/
+//#endif

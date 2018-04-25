@@ -13,17 +13,4 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    public void Production() {
-
-    }
-
-    public void GarbagePile() {
-
-    }
-
-    public void Happiness() {
-
-    }
-
 }

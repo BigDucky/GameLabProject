@@ -5,34 +5,25 @@ using UnityEngine;
 public class FactoryProduction : MonoBehaviour {
 
     BuildingData factorySettings;
-    float timeFactor;
-    public static float productionPerTimeFrame;
-    public static float polution;
-    public static float waste;
-    public static float recycableWaste;
+    public static float addedWaste;
+    public static float recycleWaste;
+    public static float production;
 
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start() {
         factorySettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
-        timeFactor = Player.playerInfo.timeSpeed;
-        polution = factorySettings.polution;
-        waste = factorySettings.totalWaste;
-        recycableWaste = factorySettings.recyclableWaste;
-        ProductionPerTimeFrame();
+        addedWaste = factorySettings.wasteProduction;
+        recycleWaste = factorySettings.recyclableWasteProduction;
+        production = factorySettings.production;
+
     }
 
-    void ProductionPerTimeFrame() {
-       productionPerTimeFrame = (factorySettings.production * timeFactor) * (40 / 4);
-    }
-
-
-    public static void  Addvalues() {
-        PlayerInfo.totalProductionPerTimeF += productionPerTimeFrame;
-        PlayerInfo.totalPol += polution;
-        PlayerInfo.totalWaste += waste;
-        PlayerInfo.recyclableWaste += recycableWaste;
-        PlayerInfo.totalProductionPerTimeF += productionPerTimeFrame;
+    public static void AddValues() {
+        PlayerInfo.totalWaste += addedWaste;
+        PlayerInfo.totalRecycleWaste += recycleWaste;
+        PlayerInfo.totalRawMatUsed += production;
     }
 
 }
