@@ -227,10 +227,10 @@ public class Player : MonoBehaviour {
                     FactoryProduction.AddValues();
                     break;
 
-                case 1:
+                case 2:
                     PlayerInfo.amountOfRecycleFactories++;          
                     break;
-                case 2:
+                case 1:
                     PlayerInfo.amountOfGarbageDisposal++;
                     GarbageDisposal.AddValues();
 

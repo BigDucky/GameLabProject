@@ -24,13 +24,14 @@ public class ValueCalculator : MonoBehaviour {
                 RawMatUpdate();
             }
         }
+        Debug.Log(PlayerInfo.totalRawMat);
     }
 
     void MoneyIncome() {
         PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
     }
     void RawMatUpdate() {
-        PlayerInfo.totalRawMat = PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed;
+        PlayerInfo.totalRawMat = (PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed) + PlayerInfo.circularity;
     }
 
 }
