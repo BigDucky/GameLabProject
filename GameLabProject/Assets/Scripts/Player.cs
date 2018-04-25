@@ -56,6 +56,7 @@ public class Player : MonoBehaviour {
         }
         else {
             grabbed = false;
+            grabbedObject = null;
         }
         MoveObject();
     }
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour {
             Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray2, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
-                Vector3 newPos = new Vector3(hit.collider.transform.position.x, 0, hit.collider.transform.position.z);
+                Vector3 newPos = new Vector3(hit.collider.transform.position.x, 1, hit.collider.transform.position.z);
                 grabbedObject.transform.position = Vector3.Lerp(grabbedObject.transform.position,newPos,0.2f);
             }
         }

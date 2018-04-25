@@ -24,7 +24,6 @@ public class ValueCalculator : MonoBehaviour {
                 RawMatUpdate();
             }
         }
-        Debug.Log(PlayerInfo.totalRawMat);
     }
 
     void MoneyIncome() {

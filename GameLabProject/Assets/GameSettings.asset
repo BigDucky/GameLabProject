@@ -18,7 +18,7 @@ MonoBehaviour:
   totalRecycleWaste: 25
   totalRawMatUsed: 100
   Obuildings:
-  - {fileID: 1835443167609966, guid: 8a760770b8e672c4f9ba3649d711fa29, type: 2}
+  - {fileID: 1816779998591296, guid: e480aa7a58214364db8b8ed634312194, type: 2}
   - {fileID: 1248363755323808, guid: 167f31dede2e2604b9932824a0bc934b, type: 2}
   - {fileID: 1659757340457182, guid: c3f82e82595b0424cb007004e483c483, type: 2}
   - {fileID: 1117341790895792, guid: 2f22b0d3a180a8444ae7423e28cbabb0, type: 2}

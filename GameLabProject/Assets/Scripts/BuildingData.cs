@@ -19,6 +19,10 @@ public class BuildingData : ScriptableObject {
 
     public float recyclableWasteProduction;
 
+    public GameObject product;
+    public GameObject nonRecycleWaste;
+    public GameObject recycleWaste;
+
     //Garbage Properties
     public float G_Cap;
 
