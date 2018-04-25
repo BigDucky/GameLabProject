@@ -16,6 +16,8 @@ public class ValueCalculator : MonoBehaviour {
     void Update() {
 
         PlayerInfo.circularity = PlayerInfo.totalRecycleWaste * RecycleProcess.recycleFactor;
+
+
         if (!TutorialManager.inTutorial) {
             timesPassedBy++;
             if(timesPassedBy == 600) {
@@ -24,14 +26,13 @@ public class ValueCalculator : MonoBehaviour {
                 RawMatUpdate();
             }
         }
-        Debug.Log(PlayerInfo.totalRawMat);
     }
 
     void MoneyIncome() {
         PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
     }
     void RawMatUpdate() {
-        PlayerInfo.totalRawMat = (PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed) + PlayerInfo.circularity;
+        PlayerInfo.totalRawMat = PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed;
     }
 
 }
