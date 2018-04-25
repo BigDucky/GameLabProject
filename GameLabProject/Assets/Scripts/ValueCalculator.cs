@@ -34,7 +34,7 @@ public class ValueCalculator : MonoBehaviour {
     }
 
     void MoneyIncome() {
-        PlayerInfo.totalMoney= PlayerInfo.totalMoney + PlayerInfo.totalProductionPerTimeF;
+        PlayerInfo.totalMoney= PlayerInfo.totalMoney + PlayerInfo.totalProductionPerTimeF*10;
     }
 
 }

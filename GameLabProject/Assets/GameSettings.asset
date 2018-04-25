@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   timeSpeed: 0.1
-  startMoney: 10000
+  startMoney: 20000
   hapiness: 50
   population: 40
   taxes: 40
