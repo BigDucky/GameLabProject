@@ -29,10 +29,14 @@ public class ValueCalculator : MonoBehaviour {
     }
 
     void MoneyIncome() {
+<<<<<<< HEAD
+        PlayerInfo.totalMoney= PlayerInfo.totalMoney + PlayerInfo.totalProductionPerTimeF*10;
+=======
         PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
     }
     void RawMatUpdate() {
         PlayerInfo.totalRawMat = PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed;
+>>>>>>> 1609ac5c0d617d1801d43ed3c80f580f99733b85
     }
 
 }
