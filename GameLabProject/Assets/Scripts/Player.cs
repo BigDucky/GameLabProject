@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
     private bool rotated = false;
 
     public static bool deletingStage;
+    public GameObject grabbedObject;
+    bool grabbed;
 
     // Use this for initialization
     void Start () {
@@ -44,7 +46,31 @@ public class Player : MonoBehaviour {
         if(isPlacing) {
             PlayerInteractions(BuildingType);// waiting for player to do something
         }
-	}
+        else if (Input.GetMouseButton(0)) {
+            RaycastHit hitted;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Object"))) {
+                grabbed = true;
+                grabbedObject = hitted.collider.gameObject;
+            }
+        }
+        else {
+            grabbed = false;
+        }
+        MoveObject();
+    }
+
+    void MoveObject() {
+         if (grabbed) {
+            RaycastHit hit;
+            Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray2, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
+                Vector3 newPos = new Vector3(hit.collider.transform.position.x, 0, hit.collider.transform.position.z);
+                grabbedObject.transform.position = Vector3.Lerp(grabbedObject.transform.position,newPos,0.2f);
+            }
+        }
+    }
 
     /// <summary>
     /// Checks which tile is clicked and places thje building on the riht pos
@@ -53,25 +79,25 @@ public class Player : MonoBehaviour {
 	void PlayerInteractions(int buildingType) {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray,out hit, 100f,1 << LayerMask.NameToLayer("Tile"))) {
+            if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
                 //Debug.Log("Tile Selected = " + hit.collider.name);
-                if(hit.collider.tag != "Tile") {
+                if (hit.collider.tag != "Tile") {
                     //Invalid 
                     //Message that it is not on a tile                
                 }
-                else {                  
+                else {
                     BuildCheck();
-                    if(!canBuild) {
+                    if (!canBuild) {
                         Invoke("BuildingTimer", 1f);
                         testlight.color = Color.red;
                     }
                     else {
-						UpdateGrid (buildingType);                      
+                        UpdateGrid(buildingType);
                     }
                 }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.E)){
+        else if (Input.GetKeyDown(KeyCode.E)) {
             RotateBuilding();
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && isPlacing) {
@@ -79,13 +105,14 @@ public class Player : MonoBehaviour {
             Destroy(tempBuilding);
             isPlacing = false;
         }
+
         else {
-           // if (buildingData.even) {
-                MoveTempBuilding(/*hit,*/buildingData.even);
-          //  }
-         //   else {
-              //  MoveTempBuilding(hit, buildingData.even);
-          //  }
+            // if (buildingData.even) {
+            MoveTempBuilding(/*hit,*/buildingData.even);
+            //  }
+            //   else {
+            //  MoveTempBuilding(hit, buildingData.even);
+            //  }
         }       
     }
 

@@ -16,9 +16,6 @@ public class ValueCalculator : MonoBehaviour {
     void Update() {
 
         PlayerInfo.circularity = PlayerInfo.totalRecycleWaste * RecycleProcess.recycleFactor;
-        Debug.Log(PlayerInfo.totalRecycleWaste + "DAFUQ " + RecycleProcess.recycleFactor);
-
-
         if (!TutorialManager.inTutorial) {
             timesPassedBy++;
             if(timesPassedBy == 600) {
