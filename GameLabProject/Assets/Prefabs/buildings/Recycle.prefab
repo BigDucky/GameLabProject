@@ -38,7 +38,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4550234238577282}
   - component: {fileID: 114349731880413028}
+<<<<<<< HEAD
   - component: {fileID: 114675156734562490}
+=======
+  - component: {fileID: 114363200670772654}
+>>>>>>> 05d388d3ef641ff9f12e7cd0a7586a5beb4fb1be
   m_Layer: 0
   m_Name: Recycle
   m_TagString: Untagged
@@ -149,7 +153,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: 
   buildData: {fileID: 11400000, guid: 07ebc955e40b12248ab2672f230af9eb, type: 2}
+<<<<<<< HEAD
 --- !u!114 &114675156734562490
+=======
+--- !u!114 &114363200670772654
+>>>>>>> 05d388d3ef641ff9f12e7cd0a7586a5beb4fb1be
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
