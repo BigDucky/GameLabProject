@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33901091120234100}
   - component: {fileID: 23919790465747874}
   - component: {fileID: 95766808672909590}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: power_plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,9 +39,9 @@ GameObject:
   - component: {fileID: 4550234238577282}
   - component: {fileID: 114349731880413028}
   - component: {fileID: 114363200670772654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Recycle
-  m_TagString: Untagged
+  m_TagString: Recycle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

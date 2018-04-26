@@ -18,9 +18,9 @@ MonoBehaviour:
   wasteProduction: 25
   recyclableWasteProduction: 25
   product: {fileID: 1918646700273710, guid: cb32b26006b512a41b7bd7cabbbcab43, type: 2}
-  nonRecycleWaste: {fileID: 1918646700273710, guid: cb32b26006b512a41b7bd7cabbbcab43,
+  nonRecycleWaste: {fileID: 1918646700273710, guid: 138d1dd6e05f65144b02b5eff3f786a8,
     type: 2}
-  recycleWaste: {fileID: 1918646700273710, guid: cb32b26006b512a41b7bd7cabbbcab43,
+  recycleWaste: {fileID: 1918646700273710, guid: 3e6dd0064243db743a72e117ae177c1e,
     type: 2}
   G_Cap: 0
   recycleFactor: 0

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4012769601980686}
   - component: {fileID: 33866674345281648}
   - component: {fileID: 23615720144264064}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Detailmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4853989624976912}
   - component: {fileID: 33734959753677994}
   - component: {fileID: 23089685112950428}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Concretemesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,9 +55,9 @@ GameObject:
   - component: {fileID: 4846503604967902}
   - component: {fileID: 114324020054632376}
   - component: {fileID: 114292774147022524}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Garbage heap_factory
-  m_TagString: Untagged
+  m_TagString: Garbage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4547256876007894}
   - component: {fileID: 198497675791966722}
   - component: {fileID: 199955652586421018}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4710573300343366}
   - component: {fileID: 33050918525526274}
   - component: {fileID: 23200362003745064}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trashmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4661370252097484}
   - component: {fileID: 33070644843124856}
   - component: {fileID: 23093470793784184}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fencemesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4887928628143000}
   - component: {fileID: 33188501828183958}
   - component: {fileID: 23334845795403818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ventsmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4371093232230132}
   - component: {fileID: 33644133007135148}
   - component: {fileID: 23252802221642174}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoofBBmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4840521736504002}
   - component: {fileID: 33587155686607322}
   - component: {fileID: 23479664921057500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wallmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 4646885978784322}
   - component: {fileID: 33078504938110006}
   - component: {fileID: 23448641773470450}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoofBWmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4588631732017174}
   - component: {fileID: 33838561709224742}
   - component: {fileID: 23055681252181194}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BrickBmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 4897241985612610}
   - component: {fileID: 33665052924917400}
   - component: {fileID: 23455417221935034}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteYmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

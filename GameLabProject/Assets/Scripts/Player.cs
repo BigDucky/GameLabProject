@@ -54,23 +54,35 @@ public class Player : MonoBehaviour {
                 grabbedObject = hitted.collider.gameObject;
             }
         }
+        else if (Input.GetMouseButtonUp(0) && grabbed) {
+            PlaceObject();
+        }
         else {
             grabbed = false;
             grabbedObject = null;
         }
-        MoveObject();
+        if(grabbedObject!= null) {
+            MoveObject();
+        }
+
+
     }
 
     void MoveObject() {
-         if (grabbed) {
+        if (grabbed) {
             RaycastHit hit;
             Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray2, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
-                Vector3 newPos = new Vector3(hit.collider.transform.position.x, 1, hit.collider.transform.position.z);
-                grabbedObject.transform.position = Vector3.Lerp(grabbedObject.transform.position,newPos,0.2f);
+                Vector3 newPos = new Vector3(hit.collider.transform.position.x, 0.5f, hit.collider.transform.position.z);
+                grabbedObject.transform.position = Vector3.Lerp(grabbedObject.transform.position, newPos, 0.2f);               
             }
+
         }
+    }
+
+    void PlaceObject() {
+        grabbedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     /// <summary>
