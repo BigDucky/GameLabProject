@@ -17,7 +17,10 @@ MonoBehaviour:
   production: 0
   wasteProduction: 0
   recyclableWasteProduction: 0
-  G_Cap: 100
+  product: {fileID: 0}
+  nonRecycleWaste: {fileID: 0}
+  recycleWaste: {fileID: 0}
+  G_Cap: 150
   recycleFactor: 0
   placementFixX: 0
   placementFixY: 0
