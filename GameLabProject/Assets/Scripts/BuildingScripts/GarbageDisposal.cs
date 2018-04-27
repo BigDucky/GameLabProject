@@ -6,8 +6,8 @@ public class GarbageDisposal : MonoBehaviour {
 
     BuildingData garbageDisposalSettings;
     public static float wasteCap;
-    public int newWaste;
-    public int currentWaste;
+    public float newWaste;
+    public float currentWaste;
     Transform garbageHeap;
     float maxHeapHeight = 0.017f;
     float minHeapHeight = -0.34f;
@@ -31,21 +31,24 @@ public class GarbageDisposal : MonoBehaviour {
         newWaste =Mathf.RoundToInt( PlayerInfo.totalWaste / PlayerInfo.amountOfGarbageDisposal);
     
         if(newWaste > currentWaste) {
-            int diffe = newWaste - currentWaste;
+            float diffe = newWaste - currentWaste;
             garbageHeightPosition = garbageHeap.position.y + (differenceHeight / wasteCap) * diffe;
         }
         if(newWaste < currentWaste) {
-            int diffe = currentWaste - newWaste;
+            float diffe = currentWaste - newWaste;
             garbageHeightPosition = garbageHeap.position.y - (differenceHeight / wasteCap) * diffe;
         }
        
         garbageHeap.transform.position = new Vector3 (garbageHeap.position.x, garbageHeightPosition, garbageHeap.position.z);
 
         currentWaste = Mathf.Clamp (newWaste,0,100);
-
     }
 
     public static void AddValues() {
         PlayerInfo.totalWasteCap += wasteCap;
+    } 
+
+    public void addWaste(int amount) {
+        newWaste += amount;
     }
 }

@@ -52,6 +52,7 @@ public class Player : MonoBehaviour {
             if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Object"))) {
                 grabbed = true;
                 grabbedObject = hitted.collider.gameObject;
+                grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
         else if (Input.GetMouseButtonUp(0) && grabbed) {
@@ -72,17 +73,17 @@ public class Player : MonoBehaviour {
         if (grabbed) {
             RaycastHit hit;
             Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
-
             if (Physics.Raycast(ray2, out hit, 100f, 1 << LayerMask.NameToLayer("Tile"))) {
                 Vector3 newPos = new Vector3(hit.collider.transform.position.x, 0.5f, hit.collider.transform.position.z);
                 grabbedObject.transform.position = Vector3.Lerp(grabbedObject.transform.position, newPos, 0.2f);               
             }
-
         }
     }
 
     void PlaceObject() {
-        grabbedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        if (grabbedObject.gameObject.GetComponent<Rigidbody>()) {
+            grabbedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 
     /// <summary>

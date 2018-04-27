@@ -12,6 +12,8 @@ public class PlayerInfo : MonoBehaviour {
     public static float totalRawMat;
     public static float totalRawMatUsed;
 
+    public static float totalWasteInProduction;
+
     public static float totalWasteCap;
 
     public static float amountOfFactories;

@@ -11,5 +11,17 @@ public class MaterialCollision : MonoBehaviour {
             Debug.Log("asd");
             collision.gameObject.GetComponent<FactoryProduction>().materialInPlace = true;
         }
+        else if (this.gameObject.tag == "Garbage" &&  collision.gameObject.tag == "Garbage") {
+            if(PlayerInfo.totalWaste < PlayerInfo.totalWasteCap) {
+                PlayerInfo.totalWaste += FactoryProduction.addedWaste;
+                Destroy(this.gameObject);
+            }
+            else {
+                //Indicate it cant happen
+            }
+
+        }
+
+
     }
 }

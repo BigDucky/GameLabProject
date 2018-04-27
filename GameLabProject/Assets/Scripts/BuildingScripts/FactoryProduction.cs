@@ -21,7 +21,6 @@ public class FactoryProduction : MonoBehaviour {
         addedWaste = factorySettings.wasteProduction;
         recycleWaste = factorySettings.recyclableWasteProduction;
         production = factorySettings.production;
-
     }
 
     private void Update() {
@@ -38,7 +37,6 @@ public class FactoryProduction : MonoBehaviour {
                     }
                 }
             }
-
         }
     }
 
