@@ -37,7 +37,7 @@ public class GarbageDisposal : MonoBehaviour {
         if(newWaste < currentWaste) {
             float diffe = currentWaste - newWaste;
             garbageHeightPosition = garbageHeap.position.y - (differenceHeight / wasteCap) * diffe;
-        }
+        }      
        
         garbageHeap.transform.position = new Vector3 (garbageHeap.position.x, garbageHeightPosition, garbageHeap.position.z);
 

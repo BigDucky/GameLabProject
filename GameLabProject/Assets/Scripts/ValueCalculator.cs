@@ -16,21 +16,21 @@ public class ValueCalculator : MonoBehaviour {
     void Update() {
 
         PlayerInfo.circularity = PlayerInfo.totalRecycleWaste * RecycleProcess.recycleFactor;
-        if (!TutorialManager.inTutorial) {
-            timesPassedBy++;
-            if(timesPassedBy == 600) {
-                timesPassedBy = 0;
-                MoneyIncome();
-                RawMatUpdate();
-            }
-        }
-    }
+        /* if (!TutorialManager.inTutorial) {
+             timesPassedBy++;
+             if(timesPassedBy == 600) {
+                 timesPassedBy = 0;
+                 MoneyIncome();
+                 RawMatUpdate();
+             }
+         }
+     }
 
-    void MoneyIncome() {
-        PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
+     void MoneyIncome() {
+         PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
+     }
+     void RawMatUpdate() {
+         PlayerInfo.totalRawMat = (PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed) + PlayerInfo.circularity;
+     }*/
     }
-    void RawMatUpdate() {
-        PlayerInfo.totalRawMat = (PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed) + PlayerInfo.circularity;
-    }
-
 }

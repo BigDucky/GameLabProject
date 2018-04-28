@@ -6,10 +6,6 @@ using UnityEngine;
 public class BuildingData : ScriptableObject {
 
 
-    public GameObject product;
-    public GameObject nonRecycleWaste;
-    public GameObject recycleWaste;
-
     [HideInInspector]
     public bool factory;
     [HideInInspector]
@@ -26,15 +22,22 @@ public class BuildingData : ScriptableObject {
     public float buildingCost;
 
 
-
     //Factory Propperties F = FACTORY
+    [HideInInspector]
+    public GameObject product;
+    [HideInInspector]
+    public GameObject nonRecycleWaste;
+    [HideInInspector]
+    public GameObject recycleWaste;
+
     [HideInInspector]
     public float production;
     [HideInInspector]
     public float wasteProduction;
     [HideInInspector]
     public float recyclableWasteProduction;
-
+    [HideInInspector]
+    public float productionSpeed;
 
     //Garbage Properties
     [HideInInspector]
@@ -43,10 +46,20 @@ public class BuildingData : ScriptableObject {
     //Facility Poperties
     [HideInInspector]
     public float recycleFactor;
+    [HideInInspector]
+    public float recycleSpeed;
+    [HideInInspector]
+    public GameObject newRawMaterial;
 
     //Mine Properties
     [HideInInspector]
+    public GameObject rawMaterial;
+
+    [HideInInspector]
     public float mineTime;
+
+
+
 
     [HideInInspector]
     public float placementFixX;

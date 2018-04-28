@@ -9,6 +9,7 @@ public class FactoryProduction : MonoBehaviour {
     public static float recycleWaste;
     public static float production;
 
+    public bool processing;
  
     private int timePassed;
     public bool materialInPlace;
@@ -26,14 +27,16 @@ public class FactoryProduction : MonoBehaviour {
     private void Update() {
         if (!TutorialManager.inTutorial) {
             if(materialInPlace) {
+                processing = true;
                 timePassed++;
-                if (timePassed == 300) {
+                if (timePassed == factorySettings.productionSpeed) {
                     timePassed = 0;
                     if (materialInPlace) {
                         ProduceWaste();
                         ProduceMoney();
                         ProduceRecycleWaste();
                         materialInPlace = false;
+                        processing = false;
                     }
                 }
             }
@@ -44,11 +47,15 @@ public class FactoryProduction : MonoBehaviour {
         GameObject money = Instantiate(factorySettings.product);
         money.transform.position = this.transform.position;
         money.transform.position = new Vector3(money.transform.position.x, 2, money.transform.position.z);
+
+        PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
     }
     void ProduceWaste() {
         GameObject nonRecycleWaste = Instantiate(factorySettings.nonRecycleWaste);
         nonRecycleWaste.transform.position = this.transform.position;
         nonRecycleWaste.transform.position = new Vector3(nonRecycleWaste.transform.position.x *1.1f, 2, nonRecycleWaste.transform.position.z);
+
+        PlayerInfo.totalRawMat = (PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed) + PlayerInfo.circularity;
     }
 
     void ProduceRecycleWaste() {

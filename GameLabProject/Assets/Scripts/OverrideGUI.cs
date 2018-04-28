@@ -47,16 +47,24 @@ public class OverrideGUI : Editor {
 
     public void DisplayRecycleSettings() {
         data.recycleFactor = EditorGUILayout.FloatField("RecycleFactor", data.recycleFactor);
+        data.recycleSpeed = EditorGUILayout.FloatField("RecycleSpeed", data.recycleSpeed);
+        data.newRawMaterial = (GameObject)EditorGUILayout.ObjectField("RecycledWaste", data.newRawMaterial, typeof(GameObject), false);
     }
 
     public void DisplayFactorySettings() {
         data.production = EditorGUILayout.FloatField("Production",data.production);
         data.wasteProduction = EditorGUILayout.FloatField("WasetProduction",data.wasteProduction);
         data.recyclableWasteProduction = EditorGUILayout.FloatField("RecycableWasteProduction",data.recyclableWasteProduction);
+        data.productionSpeed = EditorGUILayout.FloatField("ProductionSpeed", data.productionSpeed);
+
+        data.product = (GameObject)EditorGUILayout.ObjectField("Product", data.product, typeof(GameObject), false);
+        data.recycleWaste = (GameObject)EditorGUILayout.ObjectField("RecycableWaste", data.recycleWaste, typeof(GameObject), false);
+        data.nonRecycleWaste = (GameObject)EditorGUILayout.ObjectField("NonRecycable", data.nonRecycleWaste, typeof(GameObject), false);
     }
 
     public void DisplayMineSettings() {
         data.mineTime = EditorGUILayout.FloatField("Mine Time", data.mineTime);
+        data.rawMaterial = (GameObject)EditorGUILayout.ObjectField("RawMaterial", data.rawMaterial, typeof(GameObject), false);
     }
 
     public void DisplayGarbageSettings() {
