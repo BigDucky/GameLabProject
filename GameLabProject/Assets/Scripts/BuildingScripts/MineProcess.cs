@@ -14,12 +14,13 @@ public class MineProcess : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (!TutorialManager.inTutorial) {
-            timePassed++;
             if(on) {
+                timePassed++;
                 if (timePassed == mineData.mineTime) {
                     timePassed = 0;
                     ProduceRawMaterial();
                     on = false;
+                    PlayerInfo.totalRawMat -= PlayerInfo.totalRawMatUsed;
                 }
             }
         }
@@ -29,5 +30,6 @@ public class MineProcess : MonoBehaviour {
         GameObject rawMaterial = Instantiate(mineData.rawMaterial);
         rawMaterial.transform.position = this.transform.position;
         rawMaterial.transform.position = new Vector3(rawMaterial.transform.position.x, 2, rawMaterial.transform.position.z);
+
     }
 }

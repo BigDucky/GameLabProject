@@ -50,9 +50,16 @@ public class Player : MonoBehaviour {
             RaycastHit hitted;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Object"))) {
-                grabbed = true;
                 grabbedObject = hitted.collider.gameObject;
-                grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                if (grabbedObject.gameObject.tag == "ClickAble" && grabbedObject != null) {
+
+                    PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
+                    Destroy(grabbedObject);
+                }
+                else {
+                    grabbed = true;
+                    grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                }
             }
         }
         else if (Input.GetMouseButtonUp(0) && grabbed) {

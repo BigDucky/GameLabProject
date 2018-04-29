@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MaterialCollision : MonoBehaviour {
 
+    public bool clickedOn;
+
     public void OnCollisionEnter (Collision collision) {
         if (this.gameObject.tag == "Factory" && collision.gameObject.tag == "Factory") {
             if(collision.gameObject.GetComponent<FactoryProduction>().processing == false) {
@@ -29,6 +31,9 @@ public class MaterialCollision : MonoBehaviour {
                 collision.gameObject.GetComponent<RecycleProcess>().materialInPlace = true;
 
             }
+        }
+        else if (clickedOn) {
+
         }
 
 

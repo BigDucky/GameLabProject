@@ -9,6 +9,7 @@ TagManager:
   - Garbage
   - Recycle
   - Mine
+  - ClickAble
   layers:
   - Default
   - TransparentFX
