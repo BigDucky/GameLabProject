@@ -19,6 +19,7 @@ public class BuildingData : ScriptableObject {
     public int width;
     [Range (0,5)]
     public int length;
+
     public float buildingCost;
 
 

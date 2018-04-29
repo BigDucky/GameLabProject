@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Object"))) {
                 grabbedObject = hitted.collider.gameObject;
-                if (grabbedObject.gameObject.tag == "ClickAble" && grabbedObject != null) {
+                if (grabbedObject.gameObject.tag == "ClickAble") {
 
                     PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
                     Destroy(grabbedObject);

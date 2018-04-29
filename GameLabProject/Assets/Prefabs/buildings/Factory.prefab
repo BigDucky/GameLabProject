@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: b7f8ca74fcdb1ea4289dca848585ce1a, type: 2}
+  buildData: {fileID: 11400000, guid: f08a65f80a7db3643bfc9f7d5b38a8db, type: 2}
 --- !u!114 &114832338428472256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,4 +173,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af17ad3b78681dc4e89253a895a02322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  processing: 0
   materialInPlace: 0

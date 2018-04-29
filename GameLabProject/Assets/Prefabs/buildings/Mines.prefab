@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea98158d1168673478ae9f3c37163ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  on: 0
 --- !u!114 &114925641858520692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,4 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: e222ea59e65cfb942977ca2311b76871, type: 2}
+  buildData: {fileID: 11400000, guid: ea02e1838fd496b499887502c0a5e400, type: 2}
