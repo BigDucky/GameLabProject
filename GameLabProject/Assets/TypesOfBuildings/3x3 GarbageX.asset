@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Name: 3x3 GarbageX
   m_EditorClassIdentifier: 
   factory: 0
-  garbage: 0
+  garbage: 1
   recycle: 0
   mine: 0
-  width: 0
-  length: 0
-  buildingCost: 0
+  width: 3
+  length: 3
+  buildingCost: 3000
   product: {fileID: 0}
   nonRecycleWaste: {fileID: 0}
   recycleWaste: {fileID: 0}
@@ -25,7 +25,7 @@ MonoBehaviour:
   wasteProduction: 0
   recyclableWasteProduction: 0
   productionSpeed: 0
-  G_Cap: 0
+  G_Cap: 100
   recycleFactor: 0
   recycleSpeed: 0
   newRawMaterial: {fileID: 0}
