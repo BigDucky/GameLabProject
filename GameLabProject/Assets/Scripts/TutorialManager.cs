@@ -9,38 +9,47 @@ public class TutorialManager : MonoBehaviour {
 
     public static bool inTutorial = true;
     public static bool gameStart = false;
+    public static bool levelUP;
+
 
 	// Use this for initialization
 	void Start () {
         TutorialSetup();
 
+
     }
     
     // Update is called once per frame
     void Update () {
-        switch (tutorialStep) {
+        if(levelUP) {
+            switch (tutorialStep) {
 
-            case 0:
-                TutorialSetup();
-                break;
-            case 1:
-                Step1();
-                break;
-            case 2:
-                Step2();
-                break;
-            case 3:
-                Step3();
-                break;
-            case 4:
-                EndTutorial();
-                inTutorial = false;
-                break;
+                case 0:
+                    TutorialSetup();
+                    levelUP = false;
+                    break;
+                case 1:
+                    Step1();
+                    levelUP = false;
+                    break;
+                case 2:
+                    Step2();
+                    levelUP = false;
+                    break;
+                case 3:
+                    Step3();
+                    levelUP = false;
+                    break;
+                case 4:
+                    EndTutorial();
+                    inTutorial = false;
+                    levelUP = false;
+                    break;
 
-            default:
-                break;
-        }
-
+                default:
+                    break;
+            }
+        }      
         if (inTutorial == false && gameStart == false) {
             if (Input.GetMouseButtonDown(0)) {
                 UiManager.dialogUII.gameObject.SetActive(false);
@@ -76,6 +85,7 @@ public class TutorialManager : MonoBehaviour {
 
     public static void TutorialLevelUp() {
         tutorialStep++;
+        levelUP = true;
     }
 
     void Step1() {

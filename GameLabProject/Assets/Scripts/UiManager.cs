@@ -23,7 +23,11 @@ public class UiManager : MonoBehaviour {
     public Text circularity;
     public Text rawMaterialTxt;
 
+    public static string fullTxt;
+    public static bool startTxt;
+
     void Start() {
+
 
         for (int i = 0; i < buildPanel.transform.childCount; i++) {
             allButtons.Add(buildPanel.transform.GetChild(i));
@@ -36,7 +40,12 @@ public class UiManager : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
-        UpdateText();       
+        UpdateText();
+
+        if (startTxt) {
+            StartCoroutine(TypeWriterFFX.ShowTXt(dialogTxt.GetComponent<Text>(), fullTxt));
+            startTxt = false;
+        }
     }
 
     public void DisableCurrentCanvas(Canvas currentCanvas) {
@@ -73,7 +82,10 @@ public class UiManager : MonoBehaviour {
     }
 
     public static void ChangeText(string text) {
-        dialogTxt.GetComponent<Text>().text = text;
+        // dialogTxt.GetComponent<Text>().text = text;
+        fullTxt = text;
+        startTxt = true;
+       
     }
 
     public static void CloseDialog() {
