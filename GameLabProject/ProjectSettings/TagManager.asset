@@ -10,6 +10,8 @@ TagManager:
   - Recycle
   - Mine
   - ClickAble
+  - Money
+  - RawMaterial
   layers:
   - Default
   - TransparentFX

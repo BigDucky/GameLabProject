@@ -46,21 +46,23 @@ public class Player : MonoBehaviour {
         if(isPlacing) {
             PlayerInteractions(BuildingType);// waiting for player to do something
         }
-        else if (Input.GetMouseButton(0)) {
+
+        ObjectPlacement();
+
+        if (Input.GetMouseButtonDown(0)) {
             RaycastHit hitted;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Object"))) {
-                grabbedObject = hitted.collider.gameObject;
-                if (grabbedObject.gameObject.tag == "ClickAble") {
-
-                    PlayerInfo.totalMoney = PlayerInfo.totalMoney + PlayerInfo.totalRawMatUsed * 10;
-                    Destroy(grabbedObject);
-                }
-                else {
-                    grabbed = true;
-                    grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
-                }
+            if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Building"))) {
+                Debug.Log(hitted.collider.gameObject.tag);
             }
+
+        }
+
+
+    }
+    void ObjectPlacement() { 
+        if (Input.GetMouseButtonDown(0)) {
+            SelectObject();
         }
         else if (Input.GetMouseButtonUp(0) && grabbed) {
             PlaceObject();
@@ -69,11 +71,32 @@ public class Player : MonoBehaviour {
             grabbed = false;
             grabbedObject = null;
         }
-        if(grabbedObject!= null) {
+        if (grabbedObject != null) {
             MoveObject();
         }
+    }
+    
 
+    void SelectObject() {
+        RaycastHit hitted;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Object"))) {
+            grabbedObject = hitted.collider.gameObject;
+            if (grabbedObject.gameObject.tag == "Money") {
 
+                PlayerInfo.totalMoney += PlayerInfo.totalRawMatUsed * 10;
+                Destroy(grabbedObject);
+            }
+
+            else if ( grabbedObject.gameObject.tag == "RawMaterial") {
+                PlayerInfo.totalRawMat += FactoryProduction.recycleWaste * RecycleProcess.recycleFactor;
+                Destroy(grabbedObject);
+            }
+            else {
+                grabbed = true;
+                grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
     }
 
     void MoveObject() {

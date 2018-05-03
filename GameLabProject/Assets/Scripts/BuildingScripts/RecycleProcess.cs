@@ -40,6 +40,6 @@ public class RecycleProcess : MonoBehaviour {
         newRawMat.transform.position = this.transform.position;
         newRawMat.transform.position = new Vector3(newRawMat.transform.position.x, 2, newRawMat.transform.position.z);
 
-        PlayerInfo.totalRawMat += PlayerInfo.totalRecycleWaste;
+        //PlayerInfo.totalRawMat += PlayerInfo.totalRecycleWaste;
     }
 }

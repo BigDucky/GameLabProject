@@ -18,7 +18,7 @@ public class TypeWriterFFX : MonoBehaviour {
 		
 	}
 
-    public static IEnumerator ShowTXt(Text text, string fullTxt) {
+    public static IEnumerator ShowTXt(Text text, string fullTxt ) {
         for (int i = 0; i < fullTxt.Length; i++) {
             currentTxt = fullTxt.Substring(0, i);
             text.text = currentTxt;

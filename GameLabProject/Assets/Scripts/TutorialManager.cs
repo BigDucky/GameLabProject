@@ -15,8 +15,6 @@ public class TutorialManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         TutorialSetup();
-
-
     }
     
     // Update is called once per frame
