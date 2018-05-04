@@ -55,8 +55,16 @@ public class Player : MonoBehaviour {
             if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Building"))) {
                 Debug.Log(hitted.collider.gameObject.tag);
             }
-
         }
+
+        //Highlight stuff
+        /*RaycastHit buildingHit;
+        Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray2, out buildingHit, 100f, 1 << LayerMask.NameToLayer("Building"))) {
+           Transform buildingTransform = buildingHit.collider.gameObject.GetComponent<Transform>();
+           Transform halo =  buildingTransform.GetChild(1);
+            halo.gameObject.SetActive(true);
+        }*/
 
 
     }
