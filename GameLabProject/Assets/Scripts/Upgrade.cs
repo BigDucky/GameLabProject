@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour {
 
+    int currentUpgrade = 0;
     public List<BuildingData> upgrades = new List<BuildingData>();
+    public GameObject toBeUpgraded;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +19,7 @@ public class Upgrade : MonoBehaviour {
 	}
 
     public void LevelUpBuilding() {
-
+        currentUpgrade++;
+        toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgrades[currentUpgrade];
     }
 }
