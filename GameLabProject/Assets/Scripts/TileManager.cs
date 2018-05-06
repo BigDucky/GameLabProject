@@ -7,9 +7,9 @@ using UnityEditor;
 
 public class TileManager : MonoBehaviour {
 
+    public List<Material> tileSetMaterial = new List<Material>();
     public GameObject tilePrefab;
     public int mapLength, mapWidth;
-    public Material tileMaterial;
     public Material disabledTile;
     public Material transparenttile;
 
@@ -35,17 +35,18 @@ public class TileManager : MonoBehaviour {
     /// <summary>
     /// Gives it the propper name and adds them to the list + material
     /// </summary>
-    void TileSetup(Material material, string name,int widthNR,int lengthNR,GameObject tile) {
+    void TileSetup(string name,int widthNR,int lengthNR,GameObject tile) {
         tile.name = "tileNR=" + "W:" + widthNR + "L:"+ lengthNR;
         tileList.Add(tile);
         tile.transform.SetParent(mapPos);
         tile.tag = "Tile";
         tile.layer = 8;
-        if(tileMaterial == null) {
+        if(tileSetMaterial == null) {
             Debug.Log("No Material Inserted (Default Material is Applied)");
         }
         else {
-            tile.gameObject.GetComponent<Renderer>().material = material;
+            int randomizer = Random.Range(0, 3);
+            tile.gameObject.GetComponent<Renderer>().material = tileSetMaterial[randomizer];
         }
     }
 
@@ -77,7 +78,7 @@ public class TileManager : MonoBehaviour {
             for (int i = 0; i < mapWidth; i++) {
                 for (int j = 0; j < mapLength; j++) {
                     GameObject tileNr = Instantiate(tilePrefab, new Vector3(mapPos.position.x + 1 * j, -height, mapPos.position.z + 1 * i), Quaternion.identity,this.transform.parent);
-                    TileSetup(tileMaterial, "tileNR", i, j, tileNr);
+                    TileSetup("tileNR", i, j, tileNr);
                 }
             }
         }

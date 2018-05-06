@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef1b7f32b65508d458cab40671e9c60d, type: 3}
-  m_Name: 3x3 RecycleFacility
+  m_Name: 3x3 RecycleFacility LEVEL 5
   m_EditorClassIdentifier: 
   factory: 0
   garbage: 0
@@ -17,7 +17,7 @@ MonoBehaviour:
   mine: 0
   width: 3
   length: 3
-  buildingCost: 4000
+  buildingCost: 0
   product: {fileID: 0}
   nonRecycleWaste: {fileID: 0}
   recycleWaste: {fileID: 0}
@@ -26,7 +26,7 @@ MonoBehaviour:
   recyclableWasteProduction: 0
   productionSpeed: 0
   G_Cap: 0
-  recycleFactor: 0.5
+  recycleFactor: 1
   recycleSpeed: 300
   newRawMaterial: {fileID: 1918646700273710, guid: a8fe614153f30ad45af433e49979d082,
     type: 2}

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33634163512527280}
   - component: {fileID: 23097273394261180}
   - component: {fileID: 95542493692478412}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MineObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4172295716342104}
   - component: {fileID: 114925641858520692}
   - component: {fileID: 114359950430622264}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
