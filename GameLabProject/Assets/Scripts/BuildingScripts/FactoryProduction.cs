@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FactoryProduction : MonoBehaviour {
 
@@ -14,6 +15,14 @@ public class FactoryProduction : MonoBehaviour {
     private int timePassed;
     public bool materialInPlace;
 
+	public Slider progressBar;
+
+	/*public float barDisplay; //current progress
+	public Vector2 pos = new Vector2(20,40);
+	public Vector2 size = new Vector2(60,20);
+	public Texture2D emptyTex;
+	public Texture2D fullTex;
+	*/
 
 
     // Use this for initialization
@@ -22,6 +31,7 @@ public class FactoryProduction : MonoBehaviour {
         addedWaste = factorySettings.wasteProduction;
         recycleWaste = factorySettings.recyclableWasteProduction;
         production = factorySettings.production;
+		progressBar.value = 0;
     }
 
     private void Update() {
@@ -37,6 +47,10 @@ public class FactoryProduction : MonoBehaviour {
                         ProduceRecycleWaste();
                         materialInPlace = false;
                         processing = false;
+						ProgressBarCalculator ();
+
+						// OnGUI ();
+						//barDisplay = Time.time*0.05f;
                     }
                 }
             }
@@ -68,4 +82,27 @@ public class FactoryProduction : MonoBehaviour {
         PlayerInfo.totalRawMatUsed += production;
     }
 
+	public void ProgressBarCalculator(){
+		progressBar.value += timePassed;
+
+	}
+
+
+	/*
+
+	public void OnGUI() {
+		//draw the background:
+		//pos = new Vector2 (this.transform.position.x, this.transform.position.y);
+
+
+		GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
+		GUI.Box(new Rect(0,0, size.x, size.y), emptyTex);
+
+		//draw the filled-in part:
+		GUI.BeginGroup(new Rect(0,0, size.x * barDisplay, size.y));
+		GUI.Box(new Rect(0,0, size.x, size.y), fullTex);
+		GUI.EndGroup();
+		GUI.EndGroup();
+	}
+	*/
 }

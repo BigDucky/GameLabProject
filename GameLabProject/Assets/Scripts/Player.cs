@@ -61,7 +61,7 @@ public class Player : MonoBehaviour {
 
     }
     void ObjectPlacement() { 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButton(0)) {
             SelectObject();
         }
         else if (Input.GetMouseButtonUp(0) && grabbed) {
