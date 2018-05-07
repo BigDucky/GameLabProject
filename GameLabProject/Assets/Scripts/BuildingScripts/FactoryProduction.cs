@@ -36,10 +36,10 @@ public class FactoryProduction : MonoBehaviour {
     }
 
     private void Update() {
-		if (Input.GetKey("C")) {
+		/*if (Input.GetKey("C")) {
 			ProgressBarCalculator ();
 			Debug.Log ("pressed C");
-		}
+		}*/
 
 		Debug.Log ("FactoryProduction script is running");
 
@@ -50,7 +50,7 @@ public class FactoryProduction : MonoBehaviour {
                 timePassed++;
                 if (timePassed == factorySettings.productionSpeed) {
                     timePassed = 0;
-                    if (materialInPlace) {
+                    //if (materialInPlace) {
                         ProduceWaste();
                         ProduceMoney();
                         ProduceRecycleWaste();
@@ -60,7 +60,7 @@ public class FactoryProduction : MonoBehaviour {
 
 						// OnGUI ();
 						//barDisplay = Time.time*0.05f;
-                    }
+                   // }
                 }
             }
         }
