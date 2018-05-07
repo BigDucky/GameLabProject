@@ -113,7 +113,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -134,7 +133,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -205,6 +203,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   processing: 0
   materialInPlace: 0
+  progressBar: {fileID: 114858444149932530, guid: 3e7d6cdb7e9762047a35ba938822ad9c,
+    type: 2}
+  progressCanvas: {fileID: 223345444295889978, guid: 3e7d6cdb7e9762047a35ba938822ad9c,
+    type: 2}
 --- !u!122 &122250101629777676
 Halo:
   m_ObjectHideFlags: 1

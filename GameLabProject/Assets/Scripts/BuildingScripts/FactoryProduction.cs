@@ -16,6 +16,7 @@ public class FactoryProduction : MonoBehaviour {
     public bool materialInPlace;
 
 	public Slider progressBar;
+	public Canvas progressCanvas;
 
 	/*public float barDisplay; //current progress
 	public Vector2 pos = new Vector2(20,40);
@@ -35,6 +36,14 @@ public class FactoryProduction : MonoBehaviour {
     }
 
     private void Update() {
+		if (Input.GetKey("C")) {
+			ProgressBarCalculator ();
+			Debug.Log ("pressed C");
+		}
+
+		Debug.Log ("FactoryProduction script is running");
+
+
         if (!TutorialManager.inTutorial) {
             if(materialInPlace) {
                 processing = true;
