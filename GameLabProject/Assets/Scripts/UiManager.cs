@@ -37,6 +37,7 @@ public class UiManager : MonoBehaviour {
         dialogUII = dialogUI;
         //pauseCanvas.gameObject.SetActive(false);
         buildCanvas.gameObject.SetActive(false);
+
     }
     // Update is called once per frame
     void Update() {
@@ -54,7 +55,8 @@ public class UiManager : MonoBehaviour {
 
     void UpdateText() {
          totalMoneyTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
-         totalPolTxt.text = "" + PlayerInfo.totalWaste ;
+         totalPolTxt.text = "" + PlayerInfo.totalWaste  + "/" + PlayerInfo.totalWasteCap;
+        Debug.Log(PlayerInfo.totalWasteCap);
          circularity.text = "" + PlayerInfo.circularity;
          rawMaterialTxt.text = "" + PlayerInfo.totalRawMat;
     }

@@ -15,13 +15,13 @@ public class MaterialCollision : MonoBehaviour {
             }         
         }
         else if (this.gameObject.tag == "Garbage" &&  collision.gameObject.tag == "Garbage") {
-            if(PlayerInfo.totalWaste > PlayerInfo.totalWasteCap) {
+            if(PlayerInfo.totalWaste < PlayerInfo.totalWasteCap) {
                 PlayerInfo.totalWaste += FactoryProduction.addedWaste;
                 Destroy(this.gameObject);
             }
-            else {
+            //else {
                 //Indicate it cant happen
-            }
+          //  }
 
         }
         else if(this.gameObject.tag == "Recycle" && collision.gameObject.tag == "Recycle") {
