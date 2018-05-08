@@ -12,6 +12,7 @@ TagManager:
   - ClickAble
   - Money
   - RawMaterial
+  - House
   layers:
   - Default
   - TransparentFX

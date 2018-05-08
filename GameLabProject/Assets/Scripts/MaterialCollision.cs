@@ -16,7 +16,7 @@ public class MaterialCollision : MonoBehaviour {
         }
         else if (this.gameObject.tag == "Garbage" &&  collision.gameObject.tag == "Garbage") {
             if(PlayerInfo.totalWaste < PlayerInfo.totalWasteCap) {
-                PlayerInfo.totalWaste += FactoryProduction.addedWaste;
+                PlayerInfo.totalWaste += this.gameObject.GetComponent<MaterialInfoContainer>().productWaste;
                 Destroy(this.gameObject);
             }
             //else {
@@ -28,9 +28,14 @@ public class MaterialCollision : MonoBehaviour {
             if(collision.gameObject.GetComponent<RecycleProcess>().processing == false) {
                 this.GetComponent<Rigidbody>().isKinematic = false;
                 Destroy(this.gameObject);
+                collision.gameObject.GetComponent<RecycleProcess>().totalRecycleMat = this.GetComponent<MaterialInfoContainer>().productRecycle;
                 collision.gameObject.GetComponent<RecycleProcess>().materialInPlace = true;
 
             }
+        }
+        else if (this.gameObject.tag == "Money" && collision.gameObject.tag == "Money") {
+            //if(collision.gameObject.GetComponent<>)
+            Destroy(this.gameObject);
         }
         else if (clickedOn) {
 

@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: 07ebc955e40b12248ab2672f230af9eb, type: 2}
+  buildData: {fileID: 11400000, guid: 4912332fce864f84895c5d5a80bbe893, type: 2}
 --- !u!114 &114363200670772654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,3 +175,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialInPlace: 0
   processing: 0
+  totalRecycleMat: 0

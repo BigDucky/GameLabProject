@@ -70,19 +70,26 @@ public class FactoryProduction : MonoBehaviour {
         GameObject money = Instantiate(factorySettings.product);
         money.transform.position = this.transform.position;
         money.transform.position = new Vector3(money.transform.position.x, 2, money.transform.position.z);
+        MaterialInfoContainer script = money.AddComponent<MaterialInfoContainer>();
+        script.moneyGain = factorySettings.moneyFactory;
+        script.totalMaterial= factorySettings.production * (factorySettings.efficientcyPercentage/100);
+
 
     }
     void ProduceWaste() {
         GameObject nonRecycleWaste = Instantiate(factorySettings.nonRecycleWaste);
         nonRecycleWaste.transform.position = this.transform.position;
         nonRecycleWaste.transform.position = new Vector3(nonRecycleWaste.transform.position.x *1.1f, 2, nonRecycleWaste.transform.position.z);
-       // PlayerInfo.totalRawMat = (PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed) + PlayerInfo.circularity;
+        nonRecycleWaste.AddComponent<MaterialInfoContainer>().productWaste = factorySettings.wasteProduction;
+
+        // PlayerInfo.totalRawMat = (PlayerInfo.totalRawMat - PlayerInfo.totalRawMatUsed) + PlayerInfo.circularity;
     }
 
     void ProduceRecycleWaste() {
         GameObject recycleWaste = Instantiate(factorySettings.recycleWaste);
         recycleWaste.transform.position = this.transform.position;
         recycleWaste.transform.position = new Vector3(recycleWaste.transform.position.x  *0.9f, 2, recycleWaste.transform.position.z);
+        recycleWaste.AddComponent<MaterialInfoContainer>().productRecycle = factorySettings.recyclableWasteProduction;
     }
 
     public static void AddValues() {

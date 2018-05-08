@@ -11,6 +11,8 @@ public class RecycleProcess : MonoBehaviour {
     public bool materialInPlace;
     public bool processing;
 
+    public float totalRecycleMat;
+
 
     // Use this for initialization
     void Start () {
@@ -39,6 +41,7 @@ public class RecycleProcess : MonoBehaviour {
         GameObject newRawMat = Instantiate(recycleData.newRawMaterial);
         newRawMat.transform.position = this.transform.position;
         newRawMat.transform.position = new Vector3(newRawMat.transform.position.x, 2, newRawMat.transform.position.z);
+        newRawMat.AddComponent<MaterialInfoContainer>().ratMatGain = totalRecycleMat * (recycleData.recycleFactor / 100);
 
         //PlayerInfo.totalRawMat += PlayerInfo.totalRecycleWaste;
     }

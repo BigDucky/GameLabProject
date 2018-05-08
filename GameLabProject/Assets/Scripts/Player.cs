@@ -90,14 +90,8 @@ public class Player : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Object"))) {
             grabbedObject = hitted.collider.gameObject;
-            if (grabbedObject.gameObject.tag == "Money") {
-
-                PlayerInfo.totalMoney += PlayerInfo.totalRawMatUsed * 10;
-                Destroy(grabbedObject);
-            }
-
-            else if ( grabbedObject.gameObject.tag == "RawMaterial") {
-                PlayerInfo.totalRawMat += FactoryProduction.recycleWaste * RecycleProcess.recycleFactor;
+            if ( grabbedObject.gameObject.tag == "RawMaterial") {
+                PlayerInfo.totalRawMat += grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().ratMatGain;
                 Destroy(grabbedObject);
             }
             else {

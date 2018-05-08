@@ -14,6 +14,8 @@ public class BuildingData : ScriptableObject {
     public bool recycle;
     [HideInInspector]
     public bool mine;
+    [HideInInspector]
+    public bool house;
 
     [Range (0,5)]
     public int width;
@@ -32,6 +34,8 @@ public class BuildingData : ScriptableObject {
     public GameObject recycleWaste;
 
     [HideInInspector]
+    public float moneyFactory;
+    [HideInInspector]
     public float production;
     [HideInInspector]
     public float wasteProduction;
@@ -39,6 +43,8 @@ public class BuildingData : ScriptableObject {
     public float recyclableWasteProduction;
     [HideInInspector]
     public float productionSpeed;
+    [HideInInspector]
+    public float efficientcyPercentage;
 
     //Garbage Properties
     [HideInInspector]
@@ -51,13 +57,22 @@ public class BuildingData : ScriptableObject {
     public float recycleSpeed;
     [HideInInspector]
     public GameObject newRawMaterial;
+    [HideInInspector]
+    public GameObject recycleGarbage;
 
     //Mine Properties
     [HideInInspector]
     public GameObject rawMaterial;
-
     [HideInInspector]
     public float mineTime;
+
+    //House Properties
+    [HideInInspector]
+    public GameObject productWaste;
+    [HideInInspector]
+    public GameObject productRecycleWaste;
+    [HideInInspector]
+    public float collectTime;
 
 
 
