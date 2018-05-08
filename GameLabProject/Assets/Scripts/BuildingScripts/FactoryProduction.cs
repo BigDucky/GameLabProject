@@ -36,9 +36,10 @@ public class FactoryProduction : MonoBehaviour {
     }
 
     private void Update() {
+		Debug.Log ("Script is running");
+
         if (!TutorialManager.inTutorial) {
             if(materialInPlace) {
-//				ProgressBar ();
                 processing = true;
                 timePassed++;
                 if (timePassed == factorySettings.productionSpeed) {
@@ -49,10 +50,21 @@ public class FactoryProduction : MonoBehaviour {
                         ProduceRecycleWaste();
                         materialInPlace = false;
                         processing = false;
+						ProgressBarCalculator ();
+
+						// OnGUI ();
+						//barDisplay = Time.time*0.05f;
+                   // }
                 }
             }
         }
-   }
+
+		if (Input.GetKey("up")) {
+			ProgressBarCalculator ();
+			Debug.Log ("Slider should go up");
+		}
+
+    }
 
     void ProduceMoney() {
         GameObject money = Instantiate(factorySettings.product);
@@ -86,12 +98,27 @@ public class FactoryProduction : MonoBehaviour {
         PlayerInfo.totalRawMatUsed += production;
     }
 
-	/*void ProgressBar(){
-		Canvas canvas =this.gameObject.AddComponent<Canvas>();
-		canvas = progressCanvas;
-		GameObject progressBar1 = Instantiate (progressBar,canvas.transform) as GameObject;
-		progressBar1.transform.position = this.transform.position;
-		progressBar1.transform.position = new Vector3 (progressBar1.transform.position.x, 1, progressBar1.transform.position.z);
+	public void ProgressBarCalculator(){
+		progressBar.value += 0.1f;
 
-	}*/
+	}
+
+
+	/*
+
+	public void OnGUI() {
+		//draw the background:
+		//pos = new Vector2 (this.transform.position.x, this.transform.position.y);
+
+
+		GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
+		GUI.Box(new Rect(0,0, size.x, size.y), emptyTex);
+
+		//draw the filled-in part:
+		GUI.BeginGroup(new Rect(0,0, size.x * barDisplay, size.y));
+		GUI.Box(new Rect(0,0, size.x, size.y), fullTex);
+		GUI.EndGroup();
+		GUI.EndGroup();
+	}
+	*/
 }
