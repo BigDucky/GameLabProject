@@ -36,13 +36,7 @@ public class FactoryProduction : MonoBehaviour {
     }
 
     private void Update() {
-		/*if (Input.GetKey("C")) {
-			ProgressBarCalculator ();
-			Debug.Log ("pressed C");
-		}*/
-
-		Debug.Log ("FactoryProduction script is running");
-
+		Debug.Log ("Script is running");
 
         if (!TutorialManager.inTutorial) {
             if(materialInPlace) {
@@ -64,6 +58,12 @@ public class FactoryProduction : MonoBehaviour {
                 }
             }
         }
+
+		if (Input.GetKey("up")) {
+			ProgressBarCalculator ();
+			Debug.Log ("Slider should go up");
+		}
+
     }
 
     void ProduceMoney() {
@@ -92,7 +92,7 @@ public class FactoryProduction : MonoBehaviour {
     }
 
 	public void ProgressBarCalculator(){
-		progressBar.value += timePassed;
+		progressBar.value += 0.1f;
 
 	}
 
