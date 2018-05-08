@@ -1,50 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseScript : MonoBehaviour {
 
-	bool isPause = false;
+	public static bool isPause = false;
+	public GameObject mainUI;
+	public GameObject pauseMenuUI;
 	public Button pauseButton;
 
 	void Update(){
+		if (Input.GetKeyDown (KeyCode.Escape))
+		{
+			if (isPause)
+			{
+				Resume ();
+			} else
+			{
+				Pause ();
+			}
 		
-		Debug.Log (isPause);
-
 		}
+	}
 
-	public void PauseGame(){
+	public void Resume(){
+		pauseMenuUI.SetActive (false);
+		mainUI.SetActive (true);
+		Time.timeScale = 1f;
+		isPause = false;
+	}
 
-		if (isPause) {
-			Time.timeScale = 1;
-			Debug.Log("Paused!");
-			isPause = !isPause;
+	void Pause(){
+		mainUI.SetActive (false);
+		pauseMenuUI.SetActive (true);
+		Time.timeScale = 0f;
+		isPause = true;
+	}
+
+	public void LoadMenu(){
+		Time.timeScale = 1f;
+		SceneManager.LoadScene ("Menu");
+	}
+
+	public void OnClick(){
+		if (isPause)
+		{
+			Resume ();
+		} else
+		{
+			Pause ();
 		}
-		else if (!isPause){
-			Time.timeScale = 0;
-			Debug.Log("Unpaused!");
-			isPause = !isPause;
-
-		}
-			
-		//if(Input.GetButtonDown(KeyCode(pauseButton)))
-	//	{ 
-			/*//if (isPause = false)
-			{
-				
-				Time.timeScale = 0;
-				// Display pause menu/screen
-				Debug.Log("Paused!");
-			isPause =! isPause;
-		} else if(isPause)
-			{
-			isPause =! isPause;
-				
-				Time.timeScale = 1;
-				// Disable pause menu/screen
-				Debug.Log("Unpaused!");
-			}*/
-		//}
 	}
 }
