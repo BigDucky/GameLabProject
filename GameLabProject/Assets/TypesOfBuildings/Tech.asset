@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1b7f32b65508d458cab40671e9c60d, type: 3}
+  m_Name: Tech
+  m_EditorClassIdentifier: 
+  factory: 0
+  garbage: 0
+  recycle: 0
+  mine: 0
+  house: 0
+  tech: 0
+  width: 0
+  length: 0
+  buildingCost: 0
+  product: {fileID: 0}
+  nonRecycleWaste: {fileID: 0}
+  recycleWaste: {fileID: 0}
+  moneyFactory: 0
+  production: 0
+  wasteProduction: 0
+  recyclableWasteProduction: 0
+  productionSpeed: 0
+  efficientcyPercentage: 0
+  G_Cap: 0
+  recycleFactor: 0
+  recycleSpeed: 0
+  newRawMaterial: {fileID: 0}
+  recycleGarbage: {fileID: 0}
+  rawMaterial: {fileID: 0}
+  mineTime: 0
+  productWaste: {fileID: 0}
+  productRecycleWaste: {fileID: 0}
+  collectTime: 0
+  techPercentage: 0
+  placementFixX: 0
+  placementFixY: 0
+  even: 0

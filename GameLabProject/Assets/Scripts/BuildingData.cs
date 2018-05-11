@@ -16,6 +16,8 @@ public class BuildingData : ScriptableObject {
     public bool mine;
     [HideInInspector]
     public bool house;
+    [HideInInspector]
+    public bool tech;
 
     [Range (0,5)]
     public int width;
@@ -74,8 +76,9 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public float collectTime;
 
-
-
+    //Tech Poperties
+    [HideInInspector]
+    public float techPercentage;
 
     [HideInInspector]
     public float placementFixX;

@@ -27,6 +27,7 @@ public class OverrideGUI : Editor {
 		data.garbage = GUILayout.Toggle(data.garbage, "Garbage");
 		data.mine = GUILayout.Toggle (data.mine, "Mine");
         data.house = GUILayout.Toggle(data.house, "House");
+        data.tech = GUILayout.Toggle(data.tech, "Tech");
 
         Display();
     }
@@ -46,6 +47,9 @@ public class OverrideGUI : Editor {
         }
         else if(data.house == true) {
             DisplayHouseSettings();
+        }
+        else if(data.tech == true) {
+            DisplayTechSettings();
         }
     }
 
@@ -82,6 +86,10 @@ public class OverrideGUI : Editor {
         data.productWaste = (GameObject)EditorGUILayout.ObjectField("ProductWase", data.productWaste, typeof(GameObject), false);
         data.productRecycleWaste = (GameObject)EditorGUILayout.ObjectField("ProductRecycable", data.productRecycleWaste, typeof(GameObject), false);
         data.collectTime = EditorGUILayout.FloatField("collectTIme", data.collectTime);
+    }
+
+    public void DisplayTechSettings() {
+        data.techPercentage = EditorGUILayout.FloatField("TechPercentage", data.techPercentage);
     }
 
 
