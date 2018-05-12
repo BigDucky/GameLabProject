@@ -18,6 +18,8 @@ public class FactoryProduction : MonoBehaviour {
 	public Slider progressBar;
 	public Canvas progressCanvas;
 
+    public GameObject sliderCanvas;
+
 	/*public float barDisplay; //current progress
 	public Vector2 pos = new Vector2(20,40);
 	public Vector2 size = new Vector2(60,20);
@@ -33,6 +35,9 @@ public class FactoryProduction : MonoBehaviour {
         recycleWaste = factorySettings.recyclableWasteProduction;
         production = factorySettings.production;
 		progressBar.value = 0;
+       
+
+
     }
 
     private void Update() {
@@ -40,21 +45,25 @@ public class FactoryProduction : MonoBehaviour {
 
         if (!TutorialManager.inTutorial) {
             if(materialInPlace) {
+
                 processing = true;
                 timePassed++;
+                ProgressionBar();
                 if (timePassed == factorySettings.productionSpeed) {
                     timePassed = 0;
                     //if (materialInPlace) {
-                        ProduceWaste();
+                    sliderCanvas.gameObject.SetActive(false);
+                    ProduceWaste();
                         ProduceMoney();
                         ProduceRecycleWaste();
                         materialInPlace = false;
                         processing = false;
 						ProgressBarCalculator ();
+                    sliderCanvas.GetComponent<Slider>().value = 0;
 
-						// OnGUI ();
-						//barDisplay = Time.time*0.05f;
-                   // }
+                    // OnGUI ();
+                    //barDisplay = Time.time*0.05f;
+                    // }
                 }
             }
         }
@@ -97,8 +106,13 @@ public class FactoryProduction : MonoBehaviour {
         PlayerInfo.totalRecycleWaste += recycleWaste;
         PlayerInfo.totalRawMatUsed += production;
     }
+    void ProgressionBar() {
+        sliderCanvas.GetComponent<Slider>().maxValue = factorySettings.productionSpeed;
+        sliderCanvas.SetActive(true);
+        sliderCanvas.GetComponent<Slider>().value = timePassed;
+    }
 
-	public void ProgressBarCalculator(){
+    public void ProgressBarCalculator(){
 		progressBar.value += 0.1f;
 
 	}
