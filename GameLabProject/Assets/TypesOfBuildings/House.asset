@@ -16,6 +16,7 @@ MonoBehaviour:
   recycle: 0
   mine: 0
   house: 1
+  tech: 0
   width: 1
   length: 1
   buildingCost: 2000
@@ -39,7 +40,9 @@ MonoBehaviour:
     type: 2}
   productRecycleWaste: {fileID: 1918646700273710, guid: 3e6dd0064243db743a72e117ae177c1e,
     type: 2}
+  money: {fileID: 1918646700273710, guid: 31c5269db28b57f41b68579dbb8bb49c, type: 2}
   collectTime: 300
+  techPercentage: 0
   placementFixX: 0
   placementFixY: 0
   even: 0

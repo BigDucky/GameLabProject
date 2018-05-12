@@ -85,6 +85,7 @@ public class OverrideGUI : Editor {
     public void DisplayHouseSettings() {
         data.productWaste = (GameObject)EditorGUILayout.ObjectField("ProductWase", data.productWaste, typeof(GameObject), false);
         data.productRecycleWaste = (GameObject)EditorGUILayout.ObjectField("ProductRecycable", data.productRecycleWaste, typeof(GameObject), false);
+        data.money = (GameObject)EditorGUILayout.ObjectField("'Product", data.money, typeof(GameObject), false);
         data.collectTime = EditorGUILayout.FloatField("collectTIme", data.collectTime);
     }
 

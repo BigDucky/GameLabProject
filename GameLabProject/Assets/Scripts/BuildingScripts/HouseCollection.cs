@@ -23,13 +23,13 @@ public class HouseCollection : MonoBehaviour {
         if (!TutorialManager.inTutorial) {
             if (materialInPlace) {
                 timePassed++;
-                Debug.Log("Total Product"+ totalMatToProcess);
                 processing = true;
                 if (timePassed == houseSettings.collectTime) {
                     techSettings = GameObject.FindGameObjectWithTag("Tech");
                     timePassed = 0;
                     ProduceWaste();
                     ProduceRecycle();
+                    ProduceMoney();
                     materialInPlace = false;
                     processing = false;
                 }
@@ -55,11 +55,10 @@ public class HouseCollection : MonoBehaviour {
     }
 
     void ProduceMoney() {
-        GameObject money = Instantiate(houseSettings.product);
+        GameObject money = Instantiate(houseSettings.money);
         money.transform.position = this.transform.position;
         money.transform.position = new Vector3(money.transform.position.x, 2, money.transform.position.z);
-        MaterialInfoContainer script = money.AddComponent<MaterialInfoContainer>();
-        script.moneyGain = houseSettings.moneyFactory;
+        money.AddComponent<MaterialInfoContainer>().moneyGain = moneyFactor;
         //ADD MONEY 
     }
 }

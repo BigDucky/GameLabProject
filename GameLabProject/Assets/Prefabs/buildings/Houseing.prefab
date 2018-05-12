@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65197181612331898}
   m_Layer: 0
   m_Name: Houseing
-  m_TagString: Money
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: 803d69baf4d48f141a3a1f0796b9472e, type: 2}
+  buildData: {fileID: 11400000, guid: 24012c96e1a1a69438d8f0698eb16843, type: 2}
 --- !u!222 &222542959876668964
 CanvasRenderer:
   m_ObjectHideFlags: 1

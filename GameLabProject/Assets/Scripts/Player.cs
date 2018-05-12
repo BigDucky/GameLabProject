@@ -94,6 +94,11 @@ public class Player : MonoBehaviour {
                 PlayerInfo.totalRawMat += grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().ratMatGain;
                 Destroy(grabbedObject);
             }
+            else if(grabbedObject.gameObject.tag == "Money") {
+                PlayerInfo.totalMoney += grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().moneyGain + 1000;
+                Debug.Log("MoneyGain " + grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().moneyGain + 1000);
+                Destroy(grabbedObject);
+            }
             else {
                 grabbed = true;
                 grabbedObject.GetComponent<Rigidbody>().isKinematic = true;

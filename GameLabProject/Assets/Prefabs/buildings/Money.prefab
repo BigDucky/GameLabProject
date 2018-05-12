@@ -23,10 +23,9 @@ GameObject:
   - component: {fileID: 65110788892921692}
   - component: {fileID: 23699394803283940}
   - component: {fileID: 54846099295361992}
-  - component: {fileID: 114665718241346202}
   m_Layer: 9
-  m_Name: Object
-  m_TagString: Product
+  m_Name: Money
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: db2bf50888953a648a9cda11702e200d, type: 2}
+  - {fileID: 2100000, guid: a797152bba750ec428dc290e87137fb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,15 +111,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114665718241346202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918646700273710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c68df4bbab203347a202db3470e472e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickedOn: 0

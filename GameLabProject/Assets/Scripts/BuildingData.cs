@@ -74,6 +74,8 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public GameObject productRecycleWaste;
     [HideInInspector]
+    public GameObject money;
+    [HideInInspector]
     public float collectTime;
 
     //Tech Poperties

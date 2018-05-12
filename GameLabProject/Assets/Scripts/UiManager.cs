@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,8 @@ public class UiManager : MonoBehaviour {
     public static string fullTxt;
     public static bool startTxt;
 
+    Coroutine co;
+
     void Start() {
 
 
@@ -44,8 +47,17 @@ public class UiManager : MonoBehaviour {
         UpdateText();
 
         if (startTxt) {
-            StartCoroutine(TypeWriterFFX.ShowTXt(dialogTxt.GetComponent<Text>(), fullTxt));
-            startTxt = false;
+            if(co != null) {
+
+                StopCoroutine(co);
+                co = StartCoroutine(TypeWriterFFX.ShowTXt(dialogTxt.GetComponent<Text>(), fullTxt));
+                startTxt = false;
+            }
+            else {
+                co = StartCoroutine(TypeWriterFFX.ShowTXt(dialogTxt.GetComponent<Text>(), fullTxt));
+                startTxt = false;
+            }
+
         }
     }
 
@@ -83,7 +95,7 @@ public class UiManager : MonoBehaviour {
     }
 
     public static void ChangeText(string text) {
-        // dialogTxt.GetComponent<Text>().text = text;
+        // dialogTxt.GetComponent<Text>().text = text;       
         fullTxt = text;
         startTxt = true;
        
