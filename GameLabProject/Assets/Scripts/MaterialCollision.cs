@@ -38,6 +38,9 @@ public class MaterialCollision : MonoBehaviour {
             if (collision.gameObject.GetComponent<HouseCollection>().processing == false) {            
                 this.GetComponent<Rigidbody>().isKinematic = false;
                 collision.gameObject.GetComponent<HouseCollection>().totalMatToProcess = this.GetComponent<MaterialInfoContainer>().totalMaterial;
+                Debug.Log("1" + collision.gameObject.GetComponent<HouseCollection>().totalMatToProcess);
+                Debug.Log("2" + this.GetComponent<MaterialInfoContainer>().totalMaterial);
+
                 collision.gameObject.GetComponent<HouseCollection>().moneyFactor = this.GetComponent<MaterialInfoContainer>().moneyGain;
                 collision.gameObject.GetComponent<HouseCollection>().materialInPlace = true;
                 Destroy(this.gameObject);

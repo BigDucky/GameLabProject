@@ -16,7 +16,7 @@ MonoBehaviour:
   recycle: 0
   mine: 0
   house: 0
-  tech: 0
+  tech: 1
   width: 0
   length: 0
   buildingCost: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   productWaste: {fileID: 0}
   productRecycleWaste: {fileID: 0}
   collectTime: 0
-  techPercentage: 0
+  techPercentage: 50
   placementFixX: 0
   placementFixY: 0
   even: 0

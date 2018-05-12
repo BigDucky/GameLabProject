@@ -23,6 +23,7 @@ public class HouseCollection : MonoBehaviour {
         if (!TutorialManager.inTutorial) {
             if (materialInPlace) {
                 timePassed++;
+                Debug.Log("Total Product"+ totalMatToProcess);
                 processing = true;
                 if (timePassed == houseSettings.collectTime) {
                     techSettings = GameObject.FindGameObjectWithTag("Tech");
@@ -41,7 +42,8 @@ public class HouseCollection : MonoBehaviour {
         waste.gameObject.transform.position = this.transform.position;
         waste.transform.position = new Vector3(waste.transform.position.x  *0.9f, 2, waste.transform.position.z);
         float wastePercentage = techSettings.GetComponent<BuildingInfo>().buildData.techPercentage;
-        waste.AddComponent<MaterialInfoContainer>().productWaste = totalMatToProcess * (1 - (wastePercentage / 100));
+        waste.AddComponent<MaterialInfoContainer>();
+        waste.GetComponent<MaterialInfoContainer>().productWaste = totalMatToProcess * (1 - (wastePercentage / 100));
     }
 
     void ProduceRecycle() {
