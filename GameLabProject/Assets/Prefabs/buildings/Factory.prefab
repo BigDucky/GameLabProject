@@ -96,7 +96,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1530889214030168
 GameObject:
   m_ObjectHideFlags: 1
@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1533044992664586
 GameObject:
   m_ObjectHideFlags: 1
@@ -137,8 +137,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4501401619581762}
   - component: {fileID: 114354990759684136}
-  - component: {fileID: 114832338428472256}
   - component: {fileID: 65763079604631458}
+  - component: {fileID: 114810934069710830}
   m_Layer: 10
   m_Name: Factory
   m_TagString: Factory
@@ -157,7 +157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4501401619581762}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4501401619581762
 Transform:
@@ -169,9 +169,9 @@ Transform:
   m_LocalPosition: {x: 4, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 224709351962510288}
   - {fileID: 4511690460367740}
   - {fileID: 4401131036204632}
-  - {fileID: 224709351962510288}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -186,7 +186,7 @@ Transform:
   m_LocalScale: {x: 0.81, y: 1, z: 0.8}
   m_Children: []
   m_Father: {fileID: 4501401619581762}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23327472213511970
 MeshRenderer:
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: b25978599b7a4f545a9cafde832d6ec2, type: 2}
+  buildData: {fileID: 11400000, guid: d47be11d92b2de842a9ccf89c024b861, type: 2}
 --- !u!114 &114555837148604038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114832338428472256
+--- !u!114 &114810934069710830
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -402,14 +402,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1816779998591296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af17ad3b78681dc4e89253a895a02322, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f3f51867cd05cb4e8157d546bc290d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  processing: 0
   materialInPlace: 0
-  progressBar: {fileID: 0}
-  progressCanvas: {fileID: 0}
-  sliderCanvas: {fileID: 1530889214030168}
+  processing: 0
+  totalRecycleMat: 0
+  totalMatToProcess: 0
+  moneyFactor: 0
+  techSettings: {fileID: 0}
 --- !u!114 &114848555581643744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,7 +542,7 @@ RectTransform:
   m_Children:
   - {fileID: 224721414505853204}
   m_Father: {fileID: 4501401619581762}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

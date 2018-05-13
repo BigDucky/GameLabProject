@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: 2fe9ddf6279c2854c84f0e0246a76ec3, type: 2}
+  buildData: {fileID: 0}
 --- !u!114 &114863404481934100
 MonoBehaviour:
   m_ObjectHideFlags: 1

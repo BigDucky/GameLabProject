@@ -9,29 +9,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef1b7f32b65508d458cab40671e9c60d, type: 3}
-  m_Name: 3x3 MineX
+  m_Name: Mine
   m_EditorClassIdentifier: 
   factory: 0
   garbage: 0
   recycle: 0
   mine: 1
+  house: 0
+  tech: 0
   width: 3
   length: 3
   buildingCost: 2000
+  collectTime: 300
   product: {fileID: 0}
   nonRecycleWaste: {fileID: 0}
   recycleWaste: {fileID: 0}
+  moneyFactory: 0
   production: 0
   wasteProduction: 0
   recyclableWasteProduction: 0
-  productionSpeed: 0
+  efficientcyPercentage: 0
   G_Cap: 0
   recycleFactor: 0
-  recycleSpeed: 0
   newRawMaterial: {fileID: 0}
+  recycleGarbage: {fileID: 0}
   rawMaterial: {fileID: 1918646700273710, guid: b9f9d7fc3114ff842b8abc2327fd3a33,
     type: 2}
-  mineTime: 300
+  productWaste: {fileID: 0}
+  productRecycleWaste: {fileID: 0}
+  money: {fileID: 0}
+  techPercentage: 0
   placementFixX: 0
   placementFixY: 0
   even: 0

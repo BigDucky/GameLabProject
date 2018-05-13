@@ -25,7 +25,7 @@ public class BuildingData : ScriptableObject {
     public int length;
 
     public float buildingCost;
-
+    public float collectTime;
 
     //Factory Propperties F = FACTORY
     [HideInInspector]
@@ -44,8 +44,6 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public float recyclableWasteProduction;
     [HideInInspector]
-    public float productionSpeed;
-    [HideInInspector]
     public float efficientcyPercentage;
 
     //Garbage Properties
@@ -56,8 +54,6 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public float recycleFactor;
     [HideInInspector]
-    public float recycleSpeed;
-    [HideInInspector]
     public GameObject newRawMaterial;
     [HideInInspector]
     public GameObject recycleGarbage;
@@ -65,8 +61,6 @@ public class BuildingData : ScriptableObject {
     //Mine Properties
     [HideInInspector]
     public GameObject rawMaterial;
-    [HideInInspector]
-    public float mineTime;
 
     //House Properties
     [HideInInspector]
@@ -75,8 +69,7 @@ public class BuildingData : ScriptableObject {
     public GameObject productRecycleWaste;
     [HideInInspector]
     public GameObject money;
-    [HideInInspector]
-    public float collectTime;
+
 
     //Tech Poperties
     [HideInInspector]

@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4172295716342104}
   - component: {fileID: 114925641858520692}
-  - component: {fileID: 114359950430622264}
+  - component: {fileID: 114818070385031814}
   m_Layer: 10
   m_Name: Mines
   m_TagString: Untagged
@@ -139,8 +139,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4478674340147650}
   - {fileID: 224619561440683572}
+  - {fileID: 4478674340147650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -155,7 +155,7 @@ Transform:
   m_LocalScale: {x: 0.69, y: 1, z: 1.4}
   m_Children: []
   m_Father: {fileID: 4172295716342104}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23097273394261180
 MeshRenderer:
@@ -268,18 +268,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114359950430622264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1322923386468654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea98158d1168673478ae9f3c37163ad1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  on: 1
 --- !u!114 &114419292408273878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,6 +343,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114818070385031814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1322923386468654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3f51867cd05cb4e8157d546bc290d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialInPlace: 0
+  processing: 0
+  totalRecycleMat: 0
+  totalMatToProcess: 0
+  moneyFactor: 0
+  techSettings: {fileID: 0}
 --- !u!114 &114876390201729488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,7 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: ea02e1838fd496b499887502c0a5e400, type: 2}
+  buildData: {fileID: 11400000, guid: 4dd98e0e3ede5f546b995bc12818a13a, type: 2}
 --- !u!222 &222012161813089606
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -447,7 +452,7 @@ RectTransform:
   m_Children:
   - {fileID: 224767942622790242}
   m_Father: {fileID: 4172295716342104}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

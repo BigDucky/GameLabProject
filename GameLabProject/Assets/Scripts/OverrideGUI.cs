@@ -11,12 +11,10 @@ public class OverrideGUI : Editor {
 
     BuildingData data;
 
-    static bool showInEditor = false;
+   // static bool showInEditor = false;
 
     public void OnEnable() {
-        data = (BuildingData)target;
-  
-        
+        data = (BuildingData)target;      
     }
 
     public override void OnInspectorGUI() {
@@ -54,18 +52,18 @@ public class OverrideGUI : Editor {
     }
 
     public void DisplayRecycleSettings() {
+       // data.collectTime = EditorGUILayout.FloatField("CollectTime", data.collectTime);
         data.recycleFactor = EditorGUILayout.FloatField("RecycleFactor", data.recycleFactor);
-        data.recycleSpeed = EditorGUILayout.FloatField("RecycleSpeed", data.recycleSpeed);
         data.newRawMaterial = (GameObject)EditorGUILayout.ObjectField("NewMaterial", data.newRawMaterial, typeof(GameObject), false);
         data.recycleGarbage = (GameObject)EditorGUILayout.ObjectField("Waste", data.recycleGarbage, typeof(GameObject), false);
     }
 
     public void DisplayFactorySettings() {
+        //data.collectTime = EditorGUILayout.FloatField("CollectTime", data.collectTime);
         data.efficientcyPercentage = EditorGUILayout.FloatField("EfficientcyPercenage % ", data.efficientcyPercentage);
         data.production = EditorGUILayout.FloatField("Production",data.production);
         data.wasteProduction = EditorGUILayout.FloatField("WasetProduction",data.wasteProduction);
         data.recyclableWasteProduction = EditorGUILayout.FloatField("RecycableWasteProduction",data.recyclableWasteProduction);
-        data.productionSpeed = EditorGUILayout.FloatField("ProductionSpeed", data.productionSpeed);
         data.moneyFactory = EditorGUILayout.FloatField("MoneyFacktor", data.moneyFactory);
 
 
@@ -75,7 +73,7 @@ public class OverrideGUI : Editor {
     }
 
     public void DisplayMineSettings() {
-        data.mineTime = EditorGUILayout.FloatField("Mine Time", data.mineTime);
+       // data.collectTime = EditorGUILayout.FloatField("CollectTime", data.collectTime);
         data.rawMaterial = (GameObject)EditorGUILayout.ObjectField("RawMaterial", data.rawMaterial, typeof(GameObject), false);
     }
 
@@ -83,10 +81,10 @@ public class OverrideGUI : Editor {
         data.G_Cap = EditorGUILayout.FloatField("Garbage Cappacity", data.G_Cap);
     }
     public void DisplayHouseSettings() {
+       // data.collectTime = EditorGUILayout.FloatField("CollectTime", data.collectTime);
         data.productWaste = (GameObject)EditorGUILayout.ObjectField("ProductWase", data.productWaste, typeof(GameObject), false);
         data.productRecycleWaste = (GameObject)EditorGUILayout.ObjectField("ProductRecycable", data.productRecycleWaste, typeof(GameObject), false);
         data.money = (GameObject)EditorGUILayout.ObjectField("'Product", data.money, typeof(GameObject), false);
-        data.collectTime = EditorGUILayout.FloatField("collectTIme", data.collectTime);
     }
 
     public void DisplayTechSettings() {

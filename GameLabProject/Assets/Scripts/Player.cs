@@ -272,12 +272,6 @@ public class Player : MonoBehaviour {
             PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
 
             switch (buildingType) {
-
-                case 0:
-                    PlayerInfo.amountOfFactories++;
-                    FactoryProduction.AddValues();
-                    break;
-
                 case 2:
                     PlayerInfo.amountOfRecycleFactories++;          
                     break;

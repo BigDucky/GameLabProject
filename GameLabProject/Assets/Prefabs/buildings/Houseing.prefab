@@ -37,8 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4761941838159644}
   - component: {fileID: 114900727495951736}
-  - component: {fileID: 114408155340848224}
   - component: {fileID: 65197181612331898}
+  - component: {fileID: 114132442184206334}
   m_Layer: 0
   m_Name: Houseing
   m_TagString: Product
@@ -246,6 +246,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114132442184206334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1117341790895792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3f51867cd05cb4e8157d546bc290d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialInPlace: 0
+  processing: 0
+  totalRecycleMat: 0
+  totalMatToProcess: 0
+  moneyFactor: 0
+  techSettings: {fileID: 0}
 --- !u!114 &114165924457335830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,22 +375,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114408155340848224
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1117341790895792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f42651dbf7a6954babdf23f9155e105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialInPlace: 0
-  processing: 0
-  totalMatToProcess: 0
-  moneyFactor: 0
-  techSettings: {fileID: 0}
 --- !u!114 &114900727495951736
 MonoBehaviour:
   m_ObjectHideFlags: 1

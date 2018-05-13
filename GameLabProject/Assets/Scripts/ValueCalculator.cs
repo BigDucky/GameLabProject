@@ -15,7 +15,7 @@ public class ValueCalculator : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        PlayerInfo.circularity = PlayerInfo.totalRecycleWaste * RecycleProcess.recycleFactor;
+        //PlayerInfo.circularity = PlayerInfo.totalRecycleWaste * RecycleProcess.recycleFactor;
         /* if (!TutorialManager.inTutorial) {
              timesPassedBy++;
              if(timesPassedBy == 600) {

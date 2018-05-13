@@ -105,8 +105,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4550234238577282}
   - component: {fileID: 114349731880413028}
-  - component: {fileID: 114363200670772654}
   - component: {fileID: 65972646641687032}
+  - component: {fileID: 114868940133185730}
   m_Layer: 10
   m_Name: Recycle
   m_TagString: Recycle
@@ -141,7 +141,7 @@ Transform:
   m_LocalScale: {x: 0.34, y: 1, z: 0.48}
   m_Children: []
   m_Father: {fileID: 4550234238577282}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4550234238577282
 Transform:
@@ -153,8 +153,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4518866854945816}
   - {fileID: 224330091845056046}
+  - {fileID: 4518866854945816}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -321,20 +321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: 
   buildData: {fileID: 11400000, guid: 4912332fce864f84895c5d5a80bbe893, type: 2}
---- !u!114 &114363200670772654
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1659757340457182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e48b93bad04fbfb4dbd4e13f4fd37bb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialInPlace: 0
-  processing: 0
-  totalRecycleMat: 0
 --- !u!114 &114711393321211342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,6 +369,23 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114868940133185730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659757340457182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3f51867cd05cb4e8157d546bc290d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialInPlace: 0
+  processing: 0
+  totalRecycleMat: 0
+  totalMatToProcess: 0
+  moneyFactor: 0
+  techSettings: {fileID: 0}
 --- !u!114 &114917935850324970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -463,7 +466,7 @@ RectTransform:
   m_Children:
   - {fileID: 224034705004177112}
   m_Father: {fileID: 4550234238577282}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

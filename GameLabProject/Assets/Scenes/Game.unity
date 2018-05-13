@@ -398,11 +398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2872fea77b345f043bdfe37d9d19823d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barDisplay: 0
-  pos: {x: 20, y: 40}
-  size: {x: 60, y: 20}
-  emptyTex: {fileID: 2800000, guid: 824a427d8a0b5584a8737612e998bab2, type: 3}
-  fullTex: {fileID: 2800000, guid: 37092dfd56fb0e84fae11577142e0a6d, type: 3}
+  progressBar: {fileID: 0}
+  sliderCanvas: {fileID: 0}
 --- !u!114 &72461542
 MonoBehaviour:
   m_ObjectHideFlags: 0
