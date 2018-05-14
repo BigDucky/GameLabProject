@@ -117,16 +117,13 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // makes it possible to actually let the grabbed object interact with the building ( whenever its kinematic it ignores everything ) 
     void PlaceObject() {
         if (grabbedObject.gameObject.GetComponent<Rigidbody>()) {
             grabbedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
-    /// <summary>
-    /// Checks which tile is clicked and places thje building on the riht pos
-    /// </summary>
-    /// 
 	void PlayerInteractions(int buildingType) {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -234,7 +231,7 @@ public class Player : MonoBehaviour {
      
     }
 
-    //Instantiate the building on the mouse position
+    //Instantiate the REAL building on the mouse position
     void PlaceBuilding(int buildingType) {
          if (TutorialManager.inTutorial == true) {
              TutorialManager.TutorialLevelUp();
@@ -296,6 +293,7 @@ public class Player : MonoBehaviour {
         TempBuilding();
     }
 
+    // instantiate the temporary building to be moved.
     public void TempBuilding() {
         tempBuilding = Instantiate(tempBuilding, new Vector3(0, 0, 0), Quaternion.identity);
     }
