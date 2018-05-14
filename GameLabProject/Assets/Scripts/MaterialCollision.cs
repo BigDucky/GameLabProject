@@ -18,7 +18,7 @@ public class MaterialCollision : MonoBehaviour {
         else if (this.gameObject.tag == "Garbage" && collision.gameObject.tag == "Garbage") {
             if (PlayerInfo.totalWaste < PlayerInfo.totalWasteCap) {
                 PlayerInfo.totalWaste += this.gameObject.GetComponent<MaterialInfoContainer>().productWaste;
-                Destroy(this.gameObject);
+                Destroy(this.gameObject);Git
             }
             //else {
             //Indicate it cant happen
