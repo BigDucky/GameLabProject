@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
 
     public static bool deletingStage;
     public GameObject grabbedObject;
-    bool grabbed;
+    public static bool grabbed;
 
     // Use this for initialization
     void Start () {
@@ -151,8 +151,7 @@ public class Player : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.E)) {
             RotateBuilding();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && isPlacing) {
-            Debug.Log("Pressed ESC");
+        else if (Input.GetMouseButtonDown(1) && isPlacing) {
             Destroy(tempBuilding);
             isPlacing = false;
         }

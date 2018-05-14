@@ -31,7 +31,7 @@ public class PlayerInfo : MonoBehaviour {
         totalRecycleWaste = Player.playerInfo.totalRecycleWaste;
         totalRawMat = Player.playerInfo.RawMaterialReserve;
         totalRawMatUsed = Player.playerInfo.totalRawMatUsed;
-        PlayerInfo.totalWasteCap = 100;
+        PlayerInfo.totalWasteCap = 500;
 
         amountOfFactories = 1;
         amountOfGarbageDisposal = 1;
