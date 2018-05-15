@@ -20,7 +20,7 @@ MonoBehaviour:
   width: 3
   length: 3
   buildingCost: 1000
-  collectTime: 300
+  collectTime: 20
   product: {fileID: 0}
   nonRecycleWaste: {fileID: 0}
   recycleWaste: {fileID: 0}
