@@ -1,0 +1,2 @@
+surface area per square = 12.8m
+hight of floor = 2.5m
