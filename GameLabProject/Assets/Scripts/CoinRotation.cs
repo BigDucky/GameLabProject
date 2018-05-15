@@ -11,7 +11,6 @@ public class CoinRotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //transform.Rotate(0, 5, 0, Space.World);
-        this.gameObject.transform.Rotate(0, 1.79f, 0);
+        transform.Rotate(0, 5, 0, Space.World);
 	}
 }
