@@ -222,7 +222,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1362210722869484, guid: 0a44a6e6362f34f4db7140f172f19863, type: 2}
       propertyPath: m_Name
-      value: Start Game
+      value: Start Game Button
       objectReference: {fileID: 0}
     - target: {fileID: 114136679855640714, guid: 0a44a6e6362f34f4db7140f172f19863,
         type: 2}
@@ -231,7 +231,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1863896302586162, guid: 0a44a6e6362f34f4db7140f172f19863, type: 2}
       propertyPath: m_Name
-      value: Options
+      value: Options Button
       objectReference: {fileID: 0}
     - target: {fileID: 114804282346422794, guid: 0a44a6e6362f34f4db7140f172f19863,
         type: 2}
@@ -277,11 +277,20 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11500000, guid: a2295e13e586da6409cd8ea1001a16e1,
+        type: 3}
     - target: {fileID: 114221003081697032, guid: 0a44a6e6362f34f4db7140f172f19863,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047681043039840, guid: 0a44a6e6362f34f4db7140f172f19863, type: 2}
+      propertyPath: m_Name
+      value: StartMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958944630636934, guid: 0a44a6e6362f34f4db7140f172f19863, type: 2}
+      propertyPath: m_Name
+      value: StartMenuPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a44a6e6362f34f4db7140f172f19863, type: 2}
