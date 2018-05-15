@@ -1,2 +1,0 @@
-# GameLabProject
-Gamelab Project Prototype;
