@@ -8,15 +8,7 @@ public class TypeWriterFFX : MonoBehaviour {
     public static string fullTxt;
     public static string currentTxt = "";
 
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
-
+    // displays the full text one letter by one with a delay.
     public static IEnumerator ShowTXt(Text text, string fullTxt ) {
         for (int i = 0; i < fullTxt.Length; i++) {
             currentTxt = fullTxt.Substring(0, i);

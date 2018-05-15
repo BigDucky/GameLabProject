@@ -11,7 +11,6 @@ public class ProcessHandle : MonoBehaviour {
 
     Transform thisTransform;
 
-
     // recycle
     [HideInInspector]
     public float totalRecycleMat;
@@ -28,18 +27,24 @@ public class ProcessHandle : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        // gets the data from the scriptable objects 
         buildingSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
         thisTransform = this.gameObject.transform;
 	}
 
     // Update is called once per frame
     void Update() {
+        // begin the process whenever the player is out of tutorial
         if (!TutorialManager.inTutorial) {
+            // when the material is in place start the process
             if (materialInPlace) {
+                // displays the progress bar and begin incrementing the timer
                 ProgressBar.progressBarSettings(thisTransform, buildingSettings.collectTime);
                 ProgressBar.EnableProgressBar(thisTransform, timePassed);
                 processing = true;
-                timePassed++;                             
+                timePassed++;                    
+                // whenever the timer meets the collect time from the scriptable object produce the items and resets
+                // the bool and disables the progressbar again
                 if(timePassed > 0 && timePassed == buildingSettings.collectTime) {
                     timePassed = 0;
                     ProduceItems();
@@ -52,6 +57,7 @@ public class ProcessHandle : MonoBehaviour {
         }
     }
 
+    // checks which items to produce from the scriptable obejct that is attached
     void ProduceItems() {
         if (buildingSettings.factory) {
             FactoryItems();
