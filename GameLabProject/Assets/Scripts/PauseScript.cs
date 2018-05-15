@@ -1,4 +1,4 @@
-﻿  using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,11 +17,25 @@ public class PauseScript : MonoBehaviour {
 			if (isPause)
 			{
 				Resume ();
+				Debug.Log("Resume");
+				return;
 			} else
 			{
 				Pause ();
+				Debug.Log ("Pause");
+				return;
 			}
 		
+		}
+	}
+
+	public void OnClick(){
+		if (isPause)
+		{
+			Resume ();
+		} else
+		{
+			Pause ();
 		}
 	}
 
@@ -44,13 +58,5 @@ public class PauseScript : MonoBehaviour {
 		SceneManager.LoadScene ("Menu");
 	}
 
-	public void OnClick(){
-		if (isPause)
-		{
-			Resume ();
-		} else
-		{
-			Pause ();
-		}
-	}
+
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   width: 3
   length: 3
   buildingCost: 3000
-  collectTime: 20
+  collectTime: 300
   product: {fileID: 1918646700273710, guid: cb32b26006b512a41b7bd7cabbbcab43, type: 2}
   nonRecycleWaste: {fileID: 1918646700273710, guid: 138d1dd6e05f65144b02b5eff3f786a8,
     type: 2}
