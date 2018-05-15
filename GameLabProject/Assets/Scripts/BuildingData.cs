@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BuildingData", menuName = "Data")]
 public class BuildingData : ScriptableObject {
 
-    // CheckBoxes for the type of building 
+
     [HideInInspector]
     public bool factory;
     [HideInInspector]
@@ -19,19 +19,15 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public bool tech;
 
-    // width and height for the building
     [Range (0,5)]
     public int width;
     [Range (0,5)]
     public int length;
 
-    // overall values for every building
     public float buildingCost;
     public float collectTime;
 
-    //Factory Propperties
-
-        // GameObjects that the factory produces
+    //Factory Propperties F = FACTORY
     [HideInInspector]
     public GameObject product;
     [HideInInspector]
@@ -39,7 +35,6 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public GameObject recycleWaste;
 
-        // Values that is needed for the factory
     [HideInInspector]
     public float moneyFactory;
     [HideInInspector]
@@ -52,14 +47,10 @@ public class BuildingData : ScriptableObject {
     public float efficientcyPercentage;
 
     //Garbage Properties
-
-        // Values that is needed for the Garbage
     [HideInInspector]
     public float G_Cap;
 
     //Facility Poperties
-
-        // GameObjects that the recycle facility produces
     [HideInInspector]
     public float recycleFactor;
     [HideInInspector]
@@ -67,15 +58,11 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public GameObject recycleGarbage;
 
-    //MINE PROPERTIES
-
-        // GameObjects that the recycle mine produces
+    //Mine Properties
     [HideInInspector]
     public GameObject rawMaterial;
 
     //House Properties
-
-     // GameObjects that the house produces
     [HideInInspector]
     public GameObject productWaste;
     [HideInInspector]
@@ -84,13 +71,9 @@ public class BuildingData : ScriptableObject {
     public GameObject money;
 
 
-    //TECH PROPERTIES
-
+    //Tech Poperties
     [HideInInspector]
     public float techPercentage;
-
-
-    //PLACEMENT FIXES 
 
     [HideInInspector]
     public float placementFixX;
