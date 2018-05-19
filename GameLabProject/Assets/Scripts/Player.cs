@@ -49,13 +49,8 @@ public class Player : MonoBehaviour {
 
         ObjectPlacement();
 
-        if (Input.GetMouseButtonDown(0)) {
-            RaycastHit hitted;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Building"))) {
-                Debug.Log(hitted.collider.gameObject.tag);
-            }
-        }
+        HighlightBuilding();
+
 
         //Highlight stuff
         /*RaycastHit buildingHit;
@@ -83,7 +78,24 @@ public class Player : MonoBehaviour {
             MoveObject();
         }
     }
-    
+
+    void HighlightBuilding() {
+
+        if (Input.GetMouseButtonDown(0)) {
+            RaycastHit hitted;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Building"))) {
+                if (hitted.collider.gameObject.tag == "Factory" && !isPlacing) {
+                    BuildingData selectedData = hitted.collider.gameObject.GetComponent<BuildingInfo>().buildData;
+                    UiManager.UpdateHighlightText(selectedData, UiManager.highlightPanel);
+                    // highlight 
+
+                     //update UI 
+                }
+            }
+        }
+    }
+
 
     void SelectObject() {
         RaycastHit hitted;
@@ -158,12 +170,7 @@ public class Player : MonoBehaviour {
         }
 
         else {
-            // if (buildingData.even) {
             MoveTempBuilding(/*hit,*/buildingData.even);
-            //  }
-            //   else {
-            //  MoveTempBuilding(hit, buildingData.even);
-            //  }
         }       
     }
 

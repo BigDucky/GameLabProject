@@ -13,11 +13,7 @@ public class UiManager : MonoBehaviour {
     public GameObject dialogUI;
     public static GameObject dialogUII;
 
-
-    public Canvas buildCanvas;
-    public Canvas UIinterface;
-    public Canvas mainCanvas;
-    public Canvas pauseCanvas;
+    public static GameObject highlightPanel;
 
     public Text totalMoneyTxt;
     public Text totalPolTxt;
@@ -30,7 +26,8 @@ public class UiManager : MonoBehaviour {
     Coroutine co;
 
     void Start() {
-
+        highlightPanel = GameObject.Find("HighLightPanel");
+        highlightPanel.gameObject.SetActive(false);
 
         for (int i = 0; i < buildPanel.transform.childCount; i++) {
             allButtons.Add(buildPanel.transform.GetChild(i));
@@ -39,9 +36,9 @@ public class UiManager : MonoBehaviour {
         dialogTxt = dialogUI.transform.GetChild(0) ;
         dialogUII = dialogUI;
         //pauseCanvas.gameObject.SetActive(false);
-        buildCanvas.gameObject.SetActive(false);
 
     }
+
     // Update is called once per frame
     void Update() {
         UpdateText();
@@ -59,6 +56,14 @@ public class UiManager : MonoBehaviour {
             }
 
         }
+    }
+
+    public static void UpdateHighlightText(BuildingData buildData, GameObject highLightpanel) {
+        highLightpanel.gameObject.SetActive(true);
+        Transform text = highLightpanel.transform.Find("Stats");
+        Transform title = highLightpanel.transform.Find("Title");
+        title.GetComponent<Text>().text = buildData.name;
+        text.GetComponent<Text>().text = "Efficientcy = " + buildData.efficientcyPercentage + " waste = " + buildData.wasteProduction  + " recycleble " + buildData.recyclableWasteProduction ;
     }
 
     public void DisableCurrentCanvas(Canvas currentCanvas) {
@@ -103,6 +108,5 @@ public class UiManager : MonoBehaviour {
 
     public static void CloseDialog() {
         dialogUII.gameObject.SetActive(false);
-
     }
 }

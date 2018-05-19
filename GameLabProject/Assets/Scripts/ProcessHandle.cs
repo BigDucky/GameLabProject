@@ -11,7 +11,6 @@ public class ProcessHandle : MonoBehaviour {
 
     Transform thisTransform;
 
-
     // recycle
     [HideInInspector]
     public float totalRecycleMat;
