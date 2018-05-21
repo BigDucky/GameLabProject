@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
             RaycastHit hitted;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Building"))) {
-                if (hitted.collider.gameObject.tag == "Factory" && !isPlacing) {
+                if (!isPlacing) {
                     BuildingData selectedData = hitted.collider.gameObject.GetComponent<BuildingInfo>().buildData;
                     UiManager.UpdateHighlightText(selectedData, UiManager.highlightPanel);
                     // highlight 
@@ -244,9 +244,6 @@ public class Player : MonoBehaviour {
 
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-         if (TutorialManager.inTutorial == true) {
-             TutorialManager.TutorialLevelUp();
-         }
 
          UpdatePlayerInfo(buildingType);
 

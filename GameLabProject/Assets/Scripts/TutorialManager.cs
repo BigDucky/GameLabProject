@@ -11,6 +11,8 @@ public class TutorialManager : MonoBehaviour {
     public static bool gameStart = false;
     public static bool levelUP;
 
+    UiManager uimanager = new UiManager();
+
 
 	// Use this for initialization
 	void Start () {
@@ -27,15 +29,7 @@ public class TutorialManager : MonoBehaviour {
                     levelUP = false;
                     break;
                 case 1:
-                    Step1();
-                    levelUP = false;
-                    break;
-                case 2:
-                    Step2();
-                    levelUP = false;
-                    break;
-                case 3:
-                    Step3();
+                    //Step1();
                     levelUP = false;
                     break;
                 case 4:
@@ -55,12 +49,6 @@ public class TutorialManager : MonoBehaviour {
             }
         }
 
-        if (tutorialStep == 0) {
-            if (Input.GetMouseButtonDown(0)) {
-                TutorialLevelUp();
-            }
-        }
-
         CurrentTutorial();
     }
 
@@ -69,15 +57,15 @@ public class TutorialManager : MonoBehaviour {
     }
 
     void EndTutorial() {
-        for (int i = 0; i < 5; i++) {
-            UiManager.EnableButtons(i);
+        for (int i = 0; i < uimanager.buildOptions.Count; i++) {
+            uimanager.EnableButtons(i);
         }
         UiManager.ChangeText(dialogData.text[7]);
     }
 
     void TutorialSetup() {
         tutorialStep = 0;
-        UiManager.DisableAllButtons();
+        uimanager.DisableAllButtons();
         UiManager.ChangeText(dialogData.text[0]);      
     }
 
@@ -86,20 +74,9 @@ public class TutorialManager : MonoBehaviour {
         levelUP = true;
     }
 
-    void Step1() {
-        UiManager.EnableButtons(0);
-        UiManager.ChangeText(dialogData.text[1]);
-    }
+   // void Step1() {
+     //   UiManager.EnableButtons(0);
+    //    UiManager.ChangeText(dialogData.text[1]);
+ //   }
 
-    void Step2() {
-        UiManager.DisableAllButtons();       
-        UiManager.ChangeText(dialogData.text[2]);
-        UiManager.EnableButtons(1);
-    }
-
-    void Step3() {
-        UiManager.DisableAllButtons();
-        UiManager.ChangeText(dialogData.text[3]);
-        UiManager.EnableButtons(2);
-    }
 }

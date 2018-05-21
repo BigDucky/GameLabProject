@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class UiManager : MonoBehaviour {
 
     public GameObject buildPanel;
-    public static List<Transform> allButtons = new List<Transform>();
 
     public static Transform dialogTxt;
     public GameObject dialogUI;
     public static GameObject dialogUII;
+
+    public List<GameObject> buildOptions = new List<GameObject>();
 
     public static GameObject highlightPanel;
 
@@ -28,10 +30,6 @@ public class UiManager : MonoBehaviour {
     void Start() {
         highlightPanel = GameObject.Find("HighLightPanel");
         highlightPanel.gameObject.SetActive(false);
-
-        for (int i = 0; i < buildPanel.transform.childCount; i++) {
-            allButtons.Add(buildPanel.transform.GetChild(i));
-        }
 
         dialogTxt = dialogUI.transform.GetChild(0) ;
         dialogUII = dialogUI;
@@ -62,8 +60,9 @@ public class UiManager : MonoBehaviour {
         highLightpanel.gameObject.SetActive(true);
         Transform text = highLightpanel.transform.Find("Stats");
         Transform title = highLightpanel.transform.Find("Title");
+        string buildingName = buildData.name;
         title.GetComponent<Text>().text = buildData.name;
-        text.GetComponent<Text>().text = "Efficientcy = " + buildData.efficientcyPercentage + " waste = " + buildData.wasteProduction  + " recycleble " + buildData.recyclableWasteProduction ;
+        text.GetComponent<Text>().text = "All the buildings variables from " + buildData ;
     }
 
     public void DisableCurrentCanvas(Canvas currentCanvas) {
@@ -89,14 +88,16 @@ public class UiManager : MonoBehaviour {
         }       
     }
 
-    public static void DisableAllButtons() {
-        for (int i = 0; i <UiManager.allButtons.Count; i++) {
-            allButtons[i].gameObject.GetComponent<Button>().interactable = false;
+    public void DisableAllButtons() {
+        for (int i = 0; i <buildOptions.Count; i++) {
+            Transform button = buildOptions[i].gameObject.transform.Find("ClickPanel");
+            button.GetComponent<Button>().interactable = false;
+            Debug.Log("asdas");
         }
     }
 
-    public static void EnableButtons(int buttonInList) {
-        allButtons[buttonInList].gameObject.GetComponent<Button>().interactable = true;
+    public  void EnableButtons(int buttonInList) {
+        buildOptions[buttonInList].gameObject.GetComponent<Button>().interactable = true;
     }
 
     public static void ChangeText(string text) {

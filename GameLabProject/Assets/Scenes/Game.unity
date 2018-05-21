@@ -498,6 +498,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 465557a9765503546901a0d641216d01, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &61552898 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1570215814255894, guid: 465557a9765503546901a0d641216d01,
+    type: 2}
+  m_PrefabInternal: {fileID: 32581920}
 --- !u!1 &64929760 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1958944630636934, guid: 0a44a6e6362f34f4db7140f172f19863,
@@ -2016,6 +2021,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &565781124 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1570215814255894, guid: 465557a9765503546901a0d641216d01,
+    type: 2}
+  m_PrefabInternal: {fileID: 1711176577}
 --- !u!1 &603769145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +2581,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildPanel: {fileID: 6202084}
   dialogUI: {fileID: 1694343974}
+  buildOptions:
+  - {fileID: 61552898}
+  - {fileID: 1962649482}
+  - {fileID: 918971224}
+  - {fileID: 1880078954}
+  - {fileID: 565781124}
   totalMoneyTxt: {fileID: 86704524}
   totalPolTxt: {fileID: 968553232}
   circularity: {fileID: 677752609}
@@ -3481,6 +3497,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916722070}
+--- !u!1 &918971224 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1570215814255894, guid: 465557a9765503546901a0d641216d01,
+    type: 2}
+  m_PrefabInternal: {fileID: 930887498}
 --- !u!1 &924407452
 GameObject:
   m_ObjectHideFlags: 0
@@ -8244,6 +8265,11 @@ RectTransform:
   m_AnchoredPosition: {x: -840, y: -190}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1880078954 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1570215814255894, guid: 465557a9765503546901a0d641216d01,
+    type: 2}
+  m_PrefabInternal: {fileID: 1572001118}
 --- !u!1 &1882879757
 GameObject:
   m_ObjectHideFlags: 0
@@ -8476,6 +8502,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1948958625}
+--- !u!1 &1962649482 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1570215814255894, guid: 465557a9765503546901a0d641216d01,
+    type: 2}
+  m_PrefabInternal: {fileID: 323715227}
 --- !u!1 &1963954930
 GameObject:
   m_ObjectHideFlags: 0

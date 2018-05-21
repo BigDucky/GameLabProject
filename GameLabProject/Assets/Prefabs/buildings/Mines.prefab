@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224510775187731988}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4172295716342104}
   - component: {fileID: 114925641858520692}
   - component: {fileID: 114818070385031814}
+  - component: {fileID: 65678797356058682}
   m_Layer: 10
   m_Name: Mines
   m_TagString: Untagged
@@ -72,7 +73,7 @@ GameObject:
   - component: {fileID: 223290515560473040}
   - component: {fileID: 114625894317470420}
   - component: {fileID: 114876390201729488}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +90,7 @@ GameObject:
   - component: {fileID: 224980094546915948}
   - component: {fileID: 222286336465891392}
   - component: {fileID: 114419292408273878}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224767942622790242}
   - component: {fileID: 114060263491684818}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +123,7 @@ GameObject:
   - component: {fileID: 224794470304398940}
   - component: {fileID: 222012161813089606}
   - component: {fileID: 114670062284426106}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,6 +204,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1067706630483322}
   m_Mesh: {fileID: 4300000, guid: 2e6e9c0c0cb4b7f4bab48b071df012b0, type: 3}
+--- !u!65 &65678797356058682
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1322923386468654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.52, y: 1.5497937, z: 1}
+  m_Center: {x: -0.01, y: 0.27489686, z: 0}
 --- !u!95 &95542493692478412
 Animator:
   serializedVersion: 3
@@ -388,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: 4dd98e0e3ede5f546b995bc12818a13a, type: 2}
+  buildData: {fileID: 11400000, guid: a1e1ec383606c3e4ea71747a9150f521, type: 2}
 --- !u!222 &222012161813089606
 CanvasRenderer:
   m_ObjectHideFlags: 1
