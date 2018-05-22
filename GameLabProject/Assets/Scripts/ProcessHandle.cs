@@ -33,7 +33,7 @@ public class ProcessHandle : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (!TutorialManager.inTutorial) {
+        //if (!TutorialManager.inTutorial) {
             if (materialInPlace) {
                 if(this.gameObject.tag == "Product" && timePassed == 0) {
                     GameObject money = Instantiate(buildingSettings.money);
@@ -43,19 +43,21 @@ public class ProcessHandle : MonoBehaviour {
                     money.transform.position = new Vector3(money.transform.position.x, 2, money.transform.position.z);
                     money.AddComponent<MaterialInfoContainer>().moneyGain = moneyFactor;
                 }
-                ProgressBar.progressBarSettings(thisTransform, buildingSettings.collectTime);
-                ProgressBar.EnableProgressBar(thisTransform, timePassed);
-                processing = true;
-                timePassed++;                             
-                if(timePassed > 0 && timePassed == buildingSettings.collectTime) {
-                    timePassed = 0;
-                    ProduceItems();
-                    materialInPlace = false;
-                    processing = false;
-                    ProgressBar.DisableProgressBar(thisTransform);
-                }
-
-            }
+                    ProgressBar.progressBarSettings(thisTransform, buildingSettings.collectTime);
+                    ProgressBar.EnableProgressBar(thisTransform, timePassed);
+                    processing = true;
+                    timePassed++;
+                    if (timePassed > 0 && timePassed == buildingSettings.collectTime)
+                    {
+                        timePassed = 0;
+                        ProduceItems();
+                        materialInPlace = false;
+                        processing = false;
+                        ProgressBar.DisableProgressBar(thisTransform);
+                    }
+              
+         //   }
+                
         }
     }
 
