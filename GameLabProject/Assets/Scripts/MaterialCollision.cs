@@ -5,14 +5,17 @@ using UnityEngine;
 public class MaterialCollision : MonoBehaviour {
 
     public bool clickedOn;
+    public float moneyGain;
 
-    public void OnCollisionEnter (Collision collision) {
+    public MoneyScript moneyScript;
+
+    public void OnCollisionEnter(Collision collision) {
         if (this.gameObject.tag == "Factory" && collision.gameObject.tag == "Factory") {
             if (collision.gameObject.GetComponent<ProcessHandle>().processing == false) {
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 collision.gameObject.GetComponent<ProcessHandle>().materialInPlace = true;
                 Destroy(this.gameObject);
-                
+
             }
         }
         else if (this.gameObject.tag == "Garbage" && collision.gameObject.tag == "Garbage") {
@@ -39,19 +42,22 @@ public class MaterialCollision : MonoBehaviour {
             }
         }
         else if (this.gameObject.tag == "Product" && collision.gameObject.tag == "Product") {
-            if (collision.gameObject.GetComponent<ProcessHandle>().processing == false) {            
+            if (collision.gameObject.GetComponent<ProcessHandle>().processing == false) {
                 this.GetComponent<Rigidbody>().isKinematic = false;
                 collision.gameObject.GetComponent<ProcessHandle>().totalMatToProcess = this.GetComponent<MaterialInfoContainer>().totalMaterial;
                 collision.gameObject.GetComponent<ProcessHandle>().moneyFactor = this.GetComponent<MaterialInfoContainer>().moneyGain;
                 collision.gameObject.GetComponent<ProcessHandle>().materialInPlace = true;
+                Money(moneyGain);
                 Destroy(this.gameObject);
-                
+
             }
         }
         else if (clickedOn) {
 
         }
-
-
     }
+        public void Money(float moneyGain)
+        {
+        Debug.Log(moneyGain);
+        }
 }
