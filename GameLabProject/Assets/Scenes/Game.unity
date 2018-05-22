@@ -495,6 +495,12 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 114997366287404472, guid: 465557a9765503546901a0d641216d01,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f01697cde7c4334d9cd90639554c792,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 465557a9765503546901a0d641216d01, type: 2}
   m_IsPrefabParent: 0
@@ -1371,6 +1377,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114997366287404472, guid: 465557a9765503546901a0d641216d01,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a57a2dc92a9924439095b01fbe4a447,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 465557a9765503546901a0d641216d01, type: 2}
   m_IsPrefabParent: 0
@@ -3826,6 +3838,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114997366287404472, guid: 465557a9765503546901a0d641216d01,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e0da33dafc2ac9a4c927fb8a36a3d1b0,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 465557a9765503546901a0d641216d01, type: 2}
   m_IsPrefabParent: 0
@@ -6901,6 +6919,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114997366287404472, guid: 465557a9765503546901a0d641216d01,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9be22af5d1ca45744800c2b6e1ed19a2,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 465557a9765503546901a0d641216d01, type: 2}
   m_IsPrefabParent: 0
@@ -7815,6 +7839,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114997366287404472, guid: 465557a9765503546901a0d641216d01,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a2eb2256011d43142a09fcff1a4412cc,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 465557a9765503546901a0d641216d01, type: 2}
   m_IsPrefabParent: 0
