@@ -7,11 +7,11 @@ public class TutorialManager : MonoBehaviour {
     public static int tutorialStep;
     public TextData dialogData;
 
-    public static bool inTutorial = true;
+    public static bool inTutorial = false;
     public static bool gameStart = false;
     public static bool levelUP;
 
-    UiManager uimanager = new UiManager();
+    UiManager uimanager;
 
 
 	// Use this for initialization

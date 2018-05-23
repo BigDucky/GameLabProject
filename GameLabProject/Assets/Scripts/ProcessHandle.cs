@@ -6,6 +6,7 @@ public class ProcessHandle : MonoBehaviour {
     BuildingData buildingSettings;
 
     public bool materialInPlace;
+    [HideInInspector]
     public bool processing;
     private int timePassed;
 
@@ -29,13 +30,19 @@ public class ProcessHandle : MonoBehaviour {
     void Start () {
         buildingSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
         thisTransform = this.gameObject.transform;
+
+        if(this.gameObject.tag == "Product") {
+            techSettings = GameObject.FindGameObjectWithTag("Tech");
+            this.gameObject.GetComponent<BuildingInfo>().buildData.techPercentage = techSettings.GetComponent<BuildingInfo>().buildData.techPercentage;
+        }
 	}
 
     // Update is called once per frame
     void Update() {
         //if (!TutorialManager.inTutorial) {
             if (materialInPlace) {
-                if(this.gameObject.tag == "Product" && timePassed == 0) {
+               buildingSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
+            if (this.gameObject.tag == "Product" && timePassed == 0) {
                     GameObject money = Instantiate(buildingSettings.money);
 
                     //Settings for money
@@ -100,14 +107,23 @@ public class ProcessHandle : MonoBehaviour {
 
     void RecycleFacilityItems() {
         GameObject newRawMat = Instantiate(buildingSettings.newRawMaterial);
+        GameObject waste = Instantiate(buildingSettings.recycleGarbage);
 
+        //Settings for New Raw Material
         newRawMat.transform.position = this.transform.position;
-        newRawMat.transform.position = new Vector3(newRawMat.transform.position.x, 2, newRawMat.transform.position.z);
+        newRawMat.transform.position = new Vector3(newRawMat.transform.position.x * 1.1f,2, newRawMat.transform.position.z);
         newRawMat.AddComponent<MaterialInfoContainer>().ratMatGain = totalRecycleMat * (buildingSettings.recycleFactor / 100);
+
+        //settings for Waste
+        waste.transform.position = this.transform.position;
+        waste.transform.position = new Vector3(newRawMat.transform.position.x * 0.9f,2, newRawMat.transform.position.z);
+        waste.AddComponent<MaterialInfoContainer>().productWaste = totalRecycleMat- (totalRecycleMat * (buildingSettings.recycleFactor / 100));
     }
 
     void HouseItems() {
+
         techSettings = GameObject.FindGameObjectWithTag("Tech");
+        this.gameObject.GetComponent<BuildingInfo>().buildData.techPercentage = techSettings.GetComponent<BuildingInfo>().buildData.techPercentage;
 
         GameObject waste = Instantiate(buildingSettings.productWaste);
         GameObject recycle = Instantiate(buildingSettings.productRecycleWaste);
