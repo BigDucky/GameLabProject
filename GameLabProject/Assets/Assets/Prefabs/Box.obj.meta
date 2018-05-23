@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 14c0cdb2b7236c64881c48fe5bb8108b
-timeCreated: 1527074898
-licenseType: Free
+guid: 3c217eb3c6f569841837556cd35ef942
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
+    100000: //RootNode
+    100002: default
+    400000: //RootNode
+    400002: default
     2100000: defaultMat
     2300000: default
     3300000: default
     4300000: default
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultMat
+    second: {fileID: 2100000, guid: b68bba3d14f811b4b8fd8dfc6b9fdac5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -32,6 +35,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
