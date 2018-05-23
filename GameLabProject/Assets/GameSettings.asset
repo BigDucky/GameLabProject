@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSpeedInSeconds: 60
   RawMaterialReserve: 10000
-  totalMoney: 50000
+  totalMoney: 12000
   totalWaste: 0
   totalRecycleWaste: 25
   totalRawMatUsed: 100
