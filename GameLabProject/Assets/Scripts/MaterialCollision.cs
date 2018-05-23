@@ -37,8 +37,6 @@ public class MaterialCollision : MonoBehaviour {
                 collision.gameObject.GetComponent<ProcessHandle>().totalRecycleMat = this.GetComponent<MaterialInfoContainer>().productRecycle;
                 collision.gameObject.GetComponent<ProcessHandle>().materialInPlace = true;
                 Destroy(this.gameObject);
-
-
             }
         }
         else if (this.gameObject.tag == "Product" && collision.gameObject.tag == "Product") {
