@@ -19,18 +19,13 @@ public class BuildingData : ScriptableObject {
     [HideInInspector]
     public bool tech;
 
-
-    public int level;
-
     [Range (0,5)]
     public int width;
     [Range (0,5)]
     public int length;
 
-
     public float buildingCost;
     public float collectTime;
-
 
     //Factory Propperties F = FACTORY
     [HideInInspector]

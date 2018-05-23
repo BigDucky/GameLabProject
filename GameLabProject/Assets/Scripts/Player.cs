@@ -51,6 +51,7 @@ public class Player : MonoBehaviour {
 
         HighlightBuilding();
 
+
         //Highlight stuff
         /*RaycastHit buildingHit;
         Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour {
             if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Building"))) {
                 if (!isPlacing) {
                     BuildingData selectedData = hitted.collider.gameObject.GetComponent<BuildingInfo>().buildData;
-                    UiManager.UpdateHighlightText(selectedData, UiManager.highlightPanel, hitted.collider.gameObject);
+                    UiManager.UpdateHighlightText(selectedData, UiManager.highlightPanel);
                     // highlight 
 
                      //update UI 
@@ -106,7 +107,8 @@ public class Player : MonoBehaviour {
                 Destroy(grabbedObject);
             }
             else if(grabbedObject.gameObject.tag == "Money") {
-                PlayerInfo.totalMoney += grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().moneyGain * 1000;
+                PlayerInfo.totalMoney += grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().moneyGain + 1000;
+                Debug.Log("MoneyGain " + grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().moneyGain + 1000);
                 Destroy(grabbedObject);
             }
             else {
