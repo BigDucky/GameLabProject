@@ -103,6 +103,12 @@ public class ProcessHandle : MonoBehaviour {
         recycleWaste.transform.position = this.transform.position;
         recycleWaste.transform.position = new Vector3(recycleWaste.transform.position.x * 0.9f, 2, recycleWaste.transform.position.z);
         recycleWaste.AddComponent<MaterialInfoContainer>().productRecycle = buildingSettings.recyclableWasteProduction;
+
+        if (this.GetComponent<BuildingInfo>().buildData.efficientcyPercentage == 100) {
+            Destroy(nonRecycleWaste);
+            Destroy(recycleWaste);
+        }
+
     }
 
     void RecycleFacilityItems() {
@@ -118,6 +124,12 @@ public class ProcessHandle : MonoBehaviour {
         waste.transform.position = this.transform.position;
         waste.transform.position = new Vector3(newRawMat.transform.position.x * 0.9f,2, newRawMat.transform.position.z);
         waste.AddComponent<MaterialInfoContainer>().productWaste = totalRecycleMat- (totalRecycleMat * (buildingSettings.recycleFactor / 100));
+
+        if(waste.GetComponent<MaterialInfoContainer>().productWaste == 0) {
+            Destroy(waste);
+        }
+
+
     }
 
     void HouseItems() {
@@ -140,6 +152,10 @@ public class ProcessHandle : MonoBehaviour {
         recycle.transform.position = new Vector3(recycle.transform.position.x * 1.1f, 2, recycle.transform.position.z);
         float recyclePercentage = techSettings.GetComponent<BuildingInfo>().buildData.techPercentage;
         recycle.AddComponent<MaterialInfoContainer>().productRecycle = totalMatToProcess * (recyclePercentage / 100);
+
+        if(waste.GetComponent<MaterialInfoContainer>().productWaste == 0) {
+            Destroy(waste);
+        }
 
     }
 
