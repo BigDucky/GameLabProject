@@ -5,8 +5,6 @@ using UnityEngine;
 public class ProductAnimation : MonoBehaviour {
 
     public float maxRayDistance = 25;
-    public GameObject money2;
-
 
     private void FixedUpdate()
     {   
@@ -20,7 +18,7 @@ public class ProductAnimation : MonoBehaviour {
             {
                 if(hit.transform.gameObject.tag == "Money")
                 {
-                    Instantiate(money2, hit.transform.position, Quaternion.identity);
+                    Debug.Log("Add money to the player");
                 }
                 
             }
