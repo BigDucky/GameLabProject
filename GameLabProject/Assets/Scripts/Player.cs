@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public static GameLogic playerInfo;
 
 
-   
+    GameObject placedBuilding;
 
     private Vector3 mousPos;
     private bool canBuild = true;
@@ -255,30 +255,37 @@ public class Player : MonoBehaviour {
 
         //0.105f = heigth fix
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
-            GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
+            placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
             placedBuilding.transform.SetParent(buildingOwned);
             placedBuilding.GetComponent<Collider>().isTrigger = true;
+            Invoke("ResetIsTrigger", 1);
+
         }
         else {
             if (rotated) {
-                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixX, 
+                 placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixX, 
                 hit.transform.position.y + 0.105f,
                 hit.transform.position.z + buildingData.placementFixY), 
                 Quaternion.Euler(0, currentRotation, 0));
                 placedBuilding.transform.SetParent(buildingOwned);
                 placedBuilding.GetComponent<Collider>().isTrigger = true;
+                Invoke("ResetIsTrigger", 1);
             }
             else {
-                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixY,
+                 placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixY,
                 hit.transform.position.y + 0.105f,
                 hit.transform.position.z + buildingData.placementFixX),
                 Quaternion.Euler(0, currentRotation, 0));
                 placedBuilding.transform.SetParent(buildingOwned);
                 placedBuilding.GetComponent<Collider>().isTrigger = true;
+                Invoke("ResetIsTrigger", 1);
             }
         }
-
         
+    }
+
+    void ResetIsTrigger() {
+        placedBuilding.GetComponent<Collider>().isTrigger = false;
     }
 
     void UpdatePlayerInfo(int buildingType) {

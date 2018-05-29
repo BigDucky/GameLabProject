@@ -19,6 +19,7 @@ public class ProgressBar : MonoBehaviour {
         Transform canvas = transform.GetChild(0);
         Transform slider = canvas.GetChild(0);
         slider.GetComponent<Slider>().maxValue = maxValue;
+        canvas.transform.rotation = Quaternion.Euler(0, 0, 0);
 
     }
     public static void EnableProgressBar(Transform transform, int currentValue) {

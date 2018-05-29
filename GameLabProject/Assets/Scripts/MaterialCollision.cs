@@ -11,7 +11,6 @@ public class MaterialCollision : MonoBehaviour {
 
     public void OnCollisionEnter(Collision collision) {
         ItemCollision(collision);
-            
     }
 
     public void OnTriggerEnter(Collider other) {
@@ -19,15 +18,15 @@ public class MaterialCollision : MonoBehaviour {
     }
 
     public void RockCollision(Collider other) {
-        Debug.Log("asd");
-        if(other.gameObject.layer == 10) {
+        if(this.gameObject.tag == "Environmental"&&other.gameObject.layer == 10) {
             Destroy(this.gameObject);
-            
+            other.gameObject.GetComponent<Collider>().isTrigger = false;
         }
     }
 
     public void ItemCollision(Collision collision) {
         if (this.gameObject.tag == "Factory" && collision.gameObject.tag == "Factory") {
+            Debug.Log("äsd");
             if (collision.gameObject.GetComponent<ProcessHandle>().processing == false) {
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 collision.gameObject.GetComponent<ProcessHandle>().materialInPlace = true;

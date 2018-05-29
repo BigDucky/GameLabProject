@@ -78,6 +78,9 @@ public class UiManager : MonoBehaviour {
         if (day > diffMonths[index]) {
             time = 0;
             month++;
+            if(index == 12) {
+                index = 0;
+            }
             index++;
         }
 

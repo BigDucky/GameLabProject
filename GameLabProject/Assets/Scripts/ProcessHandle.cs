@@ -30,7 +30,6 @@ public class ProcessHandle : MonoBehaviour {
     void Start () {
         buildingSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
         thisTransform = this.gameObject.transform;
-
         if(this.gameObject.tag == "Product") {
             techSettings = GameObject.FindGameObjectWithTag("Tech");
             this.gameObject.GetComponent<BuildingInfo>().buildData.techPercentage = techSettings.GetComponent<BuildingInfo>().buildData.techPercentage;
@@ -90,7 +89,7 @@ public class ProcessHandle : MonoBehaviour {
 
         //Settings for nonRecycleWaste
         nonRecycleWaste.transform.position = this.transform.position;
-        nonRecycleWaste.transform.position = new Vector3(nonRecycleWaste.transform.position.x * 1.1f, 2, nonRecycleWaste.transform.position.z);
+        nonRecycleWaste.transform.position = new Vector3(nonRecycleWaste.transform.position.x + 2f, 2, nonRecycleWaste.transform.position.z);
         nonRecycleWaste.AddComponent<MaterialInfoContainer>().productWaste = buildingSettings.wasteProduction;
 
         //Settings for Product
@@ -101,7 +100,7 @@ public class ProcessHandle : MonoBehaviour {
 
         //Settings for Recycle Waste
         recycleWaste.transform.position = this.transform.position;
-        recycleWaste.transform.position = new Vector3(recycleWaste.transform.position.x * 0.9f, 2, recycleWaste.transform.position.z);
+        recycleWaste.transform.position = new Vector3(recycleWaste.transform.position.x - 2f, 2, recycleWaste.transform.position.z);
         recycleWaste.AddComponent<MaterialInfoContainer>().productRecycle = buildingSettings.recyclableWasteProduction;
 
         if (this.GetComponent<BuildingInfo>().buildData.efficientcyPercentage == 100) {
@@ -128,8 +127,6 @@ public class ProcessHandle : MonoBehaviour {
         if(waste.GetComponent<MaterialInfoContainer>().productWaste == 0) {
             Destroy(waste);
         }
-
-
     }
 
     void HouseItems() {
@@ -156,7 +153,6 @@ public class ProcessHandle : MonoBehaviour {
         if(waste.GetComponent<MaterialInfoContainer>().productWaste == 0) {
             Destroy(waste);
         }
-
     }
 
     void MineItems() {

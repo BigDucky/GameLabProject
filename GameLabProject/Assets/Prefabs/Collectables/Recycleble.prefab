@@ -57,7 +57,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 89468a9de687fbf4fbb2d81430cb7289, type: 2}
   m_StaticBatchInfo:
@@ -112,7 +111,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.405161, y: 2.133541, z: 1.8743324}
-  m_Center: {x: -0.70258045, y: -0.09476662, z: 0.04722786}
+  m_Center: {x: -0.04, y: -0.09476662, z: 0.04722786}
 --- !u!114 &114007355381951066
 MonoBehaviour:
   m_ObjectHideFlags: 1
