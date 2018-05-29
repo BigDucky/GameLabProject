@@ -10,6 +10,23 @@ public class MaterialCollision : MonoBehaviour {
     public MoneyScript moneyScript;
 
     public void OnCollisionEnter(Collision collision) {
+        ItemCollision(collision);
+            
+    }
+
+    public void OnTriggerEnter(Collider other) {
+        RockCollision(other);
+    }
+
+    public void RockCollision(Collider other) {
+        Debug.Log("asd");
+        if(other.gameObject.layer == 10) {
+            Destroy(this.gameObject);
+            
+        }
+    }
+
+    public void ItemCollision(Collision collision) {
         if (this.gameObject.tag == "Factory" && collision.gameObject.tag == "Factory") {
             if (collision.gameObject.GetComponent<ProcessHandle>().processing == false) {
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = false;

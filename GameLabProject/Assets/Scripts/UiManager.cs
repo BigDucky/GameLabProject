@@ -26,16 +26,15 @@ public class UiManager : MonoBehaviour {
     public static string fullTxt;
     public static bool startTxt;
 
-    public int index;
+    int index;
     public Text timer;
-    public float time;
-    public float minute;
-    public float hour;
-    public float day;
-    public int month = 1;
-    public int year = 2018;
-    public List<int> diffMonths = new List<int>();
-
+    float time;
+    float minute;
+    float hour;
+    float day;
+    int month = 1;
+    int year = 2018;
+    List<int> diffMonths = new List<int>();
 
 
     Coroutine co;

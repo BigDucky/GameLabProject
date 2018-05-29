@@ -257,6 +257,7 @@ public class Player : MonoBehaviour {
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
             GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
             placedBuilding.transform.SetParent(buildingOwned);
+            placedBuilding.GetComponent<Collider>().isTrigger = true;
         }
         else {
             if (rotated) {
@@ -265,6 +266,7 @@ public class Player : MonoBehaviour {
                 hit.transform.position.z + buildingData.placementFixY), 
                 Quaternion.Euler(0, currentRotation, 0));
                 placedBuilding.transform.SetParent(buildingOwned);
+                placedBuilding.GetComponent<Collider>().isTrigger = true;
             }
             else {
                 GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixY,
@@ -272,8 +274,11 @@ public class Player : MonoBehaviour {
                 hit.transform.position.z + buildingData.placementFixX),
                 Quaternion.Euler(0, currentRotation, 0));
                 placedBuilding.transform.SetParent(buildingOwned);
+                placedBuilding.GetComponent<Collider>().isTrigger = true;
             }
         }
+
+        
     }
 
     void UpdatePlayerInfo(int buildingType) {

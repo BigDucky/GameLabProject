@@ -9,11 +9,15 @@ public class TileManager : MonoBehaviour {
 
     public List<Material> tileSetMaterial = new List<Material>();
     public GameObject tilePrefab;
+
     public int mapLength, mapWidth;
     public Material disabledTile;
     public Material transparenttile;
 
     private float height = 0.105f;
+
+    public float maxRocksize = 30;
+    public float minRockkSize = 25;
 
 
     [HideInInspector]
@@ -23,6 +27,7 @@ public class TileManager : MonoBehaviour {
 
     public Transform mapPos;
     public Transform disabledPos;
+    public List<GameObject> totalrocks = new List<GameObject>();
 
     // Use this for initialization
     void Start () {
@@ -79,6 +84,16 @@ public class TileManager : MonoBehaviour {
                 for (int j = 0; j < mapLength; j++) {
                     GameObject tileNr = Instantiate(tilePrefab, new Vector3(mapPos.position.x + 1 * j, -height, mapPos.position.z + 1 * i), Quaternion.identity,this.transform.parent);
                     TileSetup("tileNR", i, j, tileNr);
+                    if(Random.Range(0,50) == 1) {
+                        GameObject rock = Instantiate(totalrocks[Random.Range(0, 13)], new Vector3(tileNr.transform.position.x + Random.Range(0, 1), tileNr.transform.position.y,tileNr.transform.position.z),Quaternion.Euler(Random.Range(0,360), Random.Range(0,360), Random.Range(0,360)));
+                        rock.transform.SetParent(this.gameObject.transform);
+                        rock.transform.localScale = new Vector3(Random.Range(minRockkSize,maxRocksize), Random.Range(minRockkSize, maxRocksize), Random.Range(minRockkSize, maxRocksize));
+                        rock.AddComponent<BoxCollider>();
+                        rock.AddComponent<MaterialCollision>();
+                        rock.AddComponent<Rigidbody>().isKinematic = true;
+                        rock.transform.tag = "Environmental";
+                        
+                    }
                 }
             }
         }
