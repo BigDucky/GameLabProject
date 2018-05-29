@@ -18,16 +18,8 @@ public class Player : MonoBehaviour {
     public GameLogic gameLogic;
     public static GameLogic playerInfo;
 
-    public int index;
-    public Text timer;
-    public float time;
-    public float minute;
-    public float hour;
-    public float day;
-    public int month = 1;
-    public int year = 2018;
 
-    public List<int> diffMonths = new List<int>();
+   
 
     private Vector3 mousPos;
     private bool canBuild = true;
@@ -49,14 +41,13 @@ public class Player : MonoBehaviour {
     void Start () {
         buildingList = gameLogic.Obuildings;
         playerInfo = gameLogic;
-        int[] dates = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-        diffMonths.AddRange(dates);
+       
     }
 
     // Update is called once per frame
     void Update () {
 
-        runTimer();
+        
 
         if(isPlacing) {
             PlayerInteractions(BuildingType);// waiting for player to do something
@@ -76,26 +67,6 @@ public class Player : MonoBehaviour {
         }*/
 
 
-    }
-
-    public void runTimer()
-    {
-        time += Mathf.RoundToInt(Time.deltaTime * 100);
-        day = Mathf.RoundToInt(time/24);
-        if(day > diffMonths[index])
-        {
-            time = 0;
-            month++;
-            index++;
-        }
-
-        if(month > 12)
-        {
-            year++;
-            month = 1;
-        }
-
-        timer.text = "" + day + "/" + month + "/" + year;
     }
 
     void ObjectPlacement() { 

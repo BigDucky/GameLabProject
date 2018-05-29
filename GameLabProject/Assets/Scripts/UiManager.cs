@@ -26,7 +26,18 @@ public class UiManager : MonoBehaviour {
     public static string fullTxt;
     public static bool startTxt;
 
-    
+    public int index;
+    public Text timer;
+    public float time;
+    public float minute;
+    public float hour;
+    public float day;
+    public int month = 1;
+    public int year = 2018;
+    public List<int> diffMonths = new List<int>();
+
+
+
     Coroutine co;
    
     void Start() {
@@ -37,12 +48,15 @@ public class UiManager : MonoBehaviour {
         dialogTxt = dialogUI.transform.GetChild(0) ;
         dialogUII = dialogUI;
         //pauseCanvas.gameObject.SetActive(false);
+        int[] dates = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        diffMonths.AddRange(dates);
 
     }
 
     // Update is called once per frame
     void Update() {
         UpdateText();
+        runTimer();
 
         if (startTxt) {
             if(co != null) {
@@ -57,6 +71,23 @@ public class UiManager : MonoBehaviour {
             }
 
         }
+    }
+
+    public void runTimer() {
+        time += Mathf.RoundToInt(Time.deltaTime * 100);
+        day = Mathf.RoundToInt(time / 24);
+        if (day > diffMonths[index]) {
+            time = 0;
+            month++;
+            index++;
+        }
+
+        if (month > 12) {
+            year++;
+            month = 1;
+        }
+
+        timer.text = "" + day + "/" + month + "/" + year;
     }
 
     public static void UpdateHighlightText(BuildingData buildData, GameObject highLightpanel, GameObject selectedObject) {
