@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Name: DialogData
   m_EditorClassIdentifier: 
   text:
-  - Welcome stranger, Welcome to Jabcity town, Press the build button and build your
-    first city. The first things are for free!
+  - "Welcome Mr. Mayor this is \u201CThe City\u201D, YOUR city. \u201CThe City\u201D
+    is at the precipice of disaster, because of a disaster in the world there are
+    only so much Raw Material Reserves left on this earth. Your assignment from the
+    government is to make sure that the Raw Materials they gave you DO NOT run out.
+    How do you do this? By making your economy \u201CCircular\u201D!"
   - Now press the Factory to build one to start of with!
   - Now go build the Recycling Facility, we need to reycle in the future!
   - Woah, factories produces waste, go build a garbage disposale before it lands on

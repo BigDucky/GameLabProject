@@ -11,7 +11,10 @@ public class TutorialManager : MonoBehaviour {
     public static bool gameStart = false;
     public static bool levelUP;
 
-    UiManager uimanager;
+    public static bool buildCheck;
+    public static bool buildButtonClick;
+
+    UiManager uimanager = new UiManager();
 
 
 	// Use this for initialization
@@ -65,7 +68,7 @@ public class TutorialManager : MonoBehaviour {
 
     void TutorialSetup() {
         tutorialStep = 0;
-        uimanager.DisableAllButtons();
+        UiManager.DisableAllButtons();
         UiManager.ChangeText(dialogData.text[0]);      
     }
 

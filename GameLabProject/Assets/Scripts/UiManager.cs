@@ -26,6 +26,9 @@ public class UiManager : MonoBehaviour {
     public static string fullTxt;
     public static bool startTxt;
 
+    public List<Button> totalButtons;
+    public static List<Button> StotalButtons;
+
     int index;
     public Text timer;
     float time;
@@ -43,6 +46,10 @@ public class UiManager : MonoBehaviour {
         highlightPanel = GameObject.Find("HighLightPanel");
         upgradeManager = GameObject.Find("UpgradeManager");
         highlightPanel.gameObject.SetActive(false);
+
+        for (int i = 0; i < totalButtons.Count; i++) {
+            StotalButtons[i] = totalButtons[i];
+        }
 
         dialogTxt = dialogUI.transform.GetChild(0) ;
         dialogUII = dialogUI;
@@ -73,7 +80,7 @@ public class UiManager : MonoBehaviour {
     }
 
     public void runTimer() {
-        time += Mathf.RoundToInt(Time.deltaTime * 100);
+        time += Mathf.RoundToInt(Time.deltaTime * 50);
         day = Mathf.RoundToInt(time / 24);
         if (day > diffMonths[index]) {
             time = 0;
@@ -174,12 +181,8 @@ public class UiManager : MonoBehaviour {
         }       
     }
 
-    public void DisableAllButtons() {
-        for (int i = 0; i <buildOptions.Count; i++) {
-            Transform button = buildOptions[i].gameObject.transform.Find("ClickPanel");
-            button.GetComponent<Button>().interactable = false;
-            Debug.Log("asdas");
-        }
+    public static void DisableAllButtons( ) {
+        
     }
 
     public  void EnableButtons(int buttonInList) {
