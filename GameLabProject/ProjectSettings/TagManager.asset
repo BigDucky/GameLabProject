@@ -15,6 +15,7 @@ TagManager:
   - House
   - Tech
   - Product
+  - Environmental
   layers:
   - Default
   - TransparentFX

@@ -12,13 +12,14 @@ public class ProgressBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
     public static void progressBarSettings(Transform transform, float maxValue) {
         Transform canvas = transform.GetChild(0);
         Transform slider = canvas.GetChild(0);
         slider.GetComponent<Slider>().maxValue = maxValue;
+        canvas.transform.rotation = Quaternion.Euler(0, 0, 0);
 
     }
     public static void EnableProgressBar(Transform transform, int currentValue) {

@@ -9,8 +9,9 @@ public class GarbageDisposal : MonoBehaviour {
     public float newWaste;
     public float currentWaste;
     Transform garbageHeap;
-    float maxHeapHeight = 0.017f;
-    float minHeapHeight = -0.34f;
+    Transform garbageHeapObject;
+    float maxHeapHeight = 0.37f;
+    float minHeapHeight = -3.13f;
     float differenceHeight;
     float garbageHeightPosition;
     Vector3 garbagePos;
@@ -20,28 +21,28 @@ public class GarbageDisposal : MonoBehaviour {
 	void Start () {
         garbageDisposalSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
         wasteCap = garbageDisposalSettings.G_Cap;
-        garbageHeap = this.gameObject.transform.GetChild(7);
+        garbageHeapObject = this.gameObject.transform.GetChild(0);
+        garbageHeap = garbageHeapObject.gameObject.transform.GetChild(2);
         differenceHeight = maxHeapHeight - minHeapHeight;
         garbageHeightPosition = garbageHeap.transform.position.y;
-       
     }
-	
-	// Update is called once per frame
-	void Update () {
-        newWaste =Mathf.RoundToInt( PlayerInfo.totalWaste / PlayerInfo.amountOfGarbageDisposal);
-    
-        if(newWaste > currentWaste) {
+
+    // Update is called once per frame
+    void Update () {
+        newWaste = Mathf.RoundToInt(PlayerInfo.totalWaste / PlayerInfo.amountOfGarbageDisposal);
+
+        if (newWaste > currentWaste) {
             float diffe = newWaste - currentWaste;
-            garbageHeightPosition = garbageHeap.position.y + (differenceHeight / wasteCap) * diffe;
+            garbageHeightPosition = garbageHeap.position.y + (differenceHeight / (wasteCap*10)) * diffe;
         }
         if(newWaste < currentWaste) {
             float diffe = currentWaste - newWaste;
-            garbageHeightPosition = garbageHeap.position.y - (differenceHeight / wasteCap) * diffe;
+            garbageHeightPosition = garbageHeap.position.y - (differenceHeight / (wasteCap*10)) * diffe;
         }      
        
         garbageHeap.transform.position = new Vector3 (garbageHeap.position.x, garbageHeightPosition, garbageHeap.position.z);
 
-        currentWaste = Mathf.Clamp (newWaste,0,100);
+        currentWaste = Mathf.Clamp (newWaste,0,PlayerInfo.totalWasteCap);
     }
 
     public static void AddValues() {

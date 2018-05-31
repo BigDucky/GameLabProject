@@ -3,21 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class UiManager : MonoBehaviour {
 
     public GameObject buildPanel;
-    public static List<Transform> allButtons = new List<Transform>();
 
     public static Transform dialogTxt;
     public GameObject dialogUI;
     public static GameObject dialogUII;
 
+    public List<GameObject> buildOptions;
 
-    public Canvas buildCanvas;
-    public Canvas UIinterface;
-    public Canvas mainCanvas;
-    public Canvas pauseCanvas;
+    public static GameObject highlightPanel;
+    public static GameObject upgradeManager;
 
     public Text totalMoneyTxt;
     public Text totalPolTxt;
@@ -27,24 +26,36 @@ public class UiManager : MonoBehaviour {
     public static string fullTxt;
     public static bool startTxt;
 
+    int index;
+    public Text timer;
+    float time;
+    float minute;
+    float hour;
+    float day;
+    int month = 1;
+    int year = 2018;
+    List<int> diffMonths = new List<int>();
+
+
     Coroutine co;
-
+   
     void Start() {
+        highlightPanel = GameObject.Find("HighLightPanel");
+        upgradeManager = GameObject.Find("UpgradeManager");
+        highlightPanel.gameObject.SetActive(false);
 
-
-        for (int i = 0; i < buildPanel.transform.childCount; i++) {
-            allButtons.Add(buildPanel.transform.GetChild(i));
-        }
-
-        dialogTxt = dialogUI.transform.GetChild(1);
+        dialogTxt = dialogUI.transform.GetChild(0) ;
         dialogUII = dialogUI;
         //pauseCanvas.gameObject.SetActive(false);
-        buildCanvas.gameObject.SetActive(false);
+        int[] dates = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        diffMonths.AddRange(dates);
 
     }
+
     // Update is called once per frame
     void Update() {
         UpdateText();
+        runTimer();
 
         if (startTxt) {
             if(co != null) {
@@ -61,12 +72,91 @@ public class UiManager : MonoBehaviour {
         }
     }
 
+    public void runTimer() {
+        time += Mathf.RoundToInt(Time.deltaTime * 100);
+        day = Mathf.RoundToInt(time / 24);
+        if (day > diffMonths[index]) {
+            time = 0;
+            month++;
+            if(index == 12) {
+                index = 0;
+            }
+            index++;
+        }
+
+        if (month > 12) {
+            year++;
+            month = 1;
+        }
+
+        timer.text = "" + day + "/" + month + "/" + year;
+    }
+
+    public static void UpdateHighlightText(BuildingData buildData, GameObject highLightpanel, GameObject selectedObject) {
+        
+        highLightpanel.gameObject.SetActive(true);
+        Transform text = highLightpanel.transform.Find("Stats");
+        Transform title = highLightpanel.transform.Find("Title");
+        Upgrade.currentUpgrade = buildData.level-1;
+        if (selectedObject !=null) {          
+            Upgrade.buildData = buildData;
+            Upgrade.toBeUpgraded = selectedObject;
+        }     
+        string buildingName = buildData.name;
+        title.GetComponent<Text>().text = buildData.name;
+        TextSelection(buildData, text.GetComponent<Text>());
+    }
+
+    public static void TextSelection(BuildingData buildData, Text text) {
+        UpgradeManager upgradeData = upgradeManager.GetComponent<Upgrade>().upgradeManager;
+        for (int i = 0; i < 6; i++) {
+            if (buildData.name == "Factory " + i) {
+                if (i < 5) {
+                    text.text = "Upgrade Level: " + (buildData.level + 1) + "   || Upgrade Cost:" + upgradeData.factoryUpgrades[Upgrade.currentUpgrade + 1].buildingCost + "\n" +
+                    "Efficientcy: " + buildData.efficientcyPercentage + " %" + "\n" +
+                    "Waste:" + buildData.wasteProduction + "\n" +
+                    "Recycleble Waste:" + buildData.recyclableWasteProduction + "\n" +
+                    "Money Factor:" + buildData.moneyFactory;
+                }
+                else {
+                    text.text = "Fully Upgraded";
+                }             
+            }
+            else if(buildData.name == "Garbage " + i) {
+                if (i < 5) {
+                    text.text = "Upgrade Level: " + (buildData.level + 1) + "   || Upgrade Cost:" + upgradeData.garbageUpgrades[Upgrade.currentUpgrade + 1].buildingCost + "\n" +
+                    "Garbage Capacity:" + buildData.G_Cap + "\n" +
+                    "Total Garbage Capacity:" + PlayerInfo.totalWasteCap;
+                    
+                }
+                else {
+                    text.text = "Fully Upgraded";
+                }            
+            }
+            else if(buildData.name == "House " + i) {
+                text.text = "Tech / recycle factor :" + buildData.techPercentage;
+            }
+            else if (buildData.name == "Recycle " + i) {
+                if (i < 5) {
+                    text.text = "Upgrade Level: " + (buildData.level + 1) + "   || Upgrade Cost:" + upgradeData.recycleUpgrades[Upgrade.currentUpgrade + 1].buildingCost + "\n" +
+                    "Recycleble of total :" + buildData.recycleFactor + "\n" +
+                    " Wasted: " + (100 - buildData.recycleFactor);
+
+                }
+                else {
+                    text.text = "Fully Upgraded";
+                }
+                
+            }
+        }
+    }
+
     public void DisableCurrentCanvas(Canvas currentCanvas) {
         currentCanvas.gameObject.SetActive(false);
     }
 
     void UpdateText() {
-         totalMoneyTxt.text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
+         totalMoneyTxt.GetComponent<Text>().text = "" + System.Math.Round(PlayerInfo.totalMoney);// +// PlayerInfo.totalIncome * Time.deltaTime * 0.1f, 1);
          totalPolTxt.text = "" + PlayerInfo.totalWaste  + "/" + PlayerInfo.totalWasteCap;
          circularity.text = "" + PlayerInfo.circularity;
          rawMaterialTxt.text = "" + PlayerInfo.totalRawMat;
@@ -84,14 +174,16 @@ public class UiManager : MonoBehaviour {
         }       
     }
 
-    public static void DisableAllButtons() {
-        for (int i = 0; i <UiManager.allButtons.Count; i++) {
-            allButtons[i].gameObject.GetComponent<Button>().interactable = false;
+    public void DisableAllButtons() {
+        for (int i = 0; i <buildOptions.Count; i++) {
+            Transform button = buildOptions[i].gameObject.transform.Find("ClickPanel");
+            button.GetComponent<Button>().interactable = false;
+            Debug.Log("asdas");
         }
     }
 
-    public static void EnableButtons(int buttonInList) {
-        allButtons[buttonInList].gameObject.GetComponent<Button>().interactable = true;
+    public  void EnableButtons(int buttonInList) {
+        buildOptions[buttonInList].gameObject.GetComponent<Button>().interactable = true;
     }
 
     public static void ChangeText(string text) {
@@ -103,6 +195,5 @@ public class UiManager : MonoBehaviour {
 
     public static void CloseDialog() {
         dialogUII.gameObject.SetActive(false);
-
     }
 }

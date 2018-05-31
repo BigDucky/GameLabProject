@@ -18,6 +18,9 @@ public class Player : MonoBehaviour {
     public GameLogic gameLogic;
     public static GameLogic playerInfo;
 
+
+    GameObject placedBuilding;
+
     private Vector3 mousPos;
     private bool canBuild = true;
 
@@ -28,7 +31,7 @@ public class Player : MonoBehaviour {
     public Light testlight;
 
     public float currentRotation;
-    private bool rotated = false;
+    public bool rotated = false;
 
     public static bool deletingStage;
     public GameObject grabbedObject;
@@ -38,24 +41,21 @@ public class Player : MonoBehaviour {
     void Start () {
         buildingList = gameLogic.Obuildings;
         playerInfo = gameLogic;
-	}
-	
-	// Update is called once per frame
-	void Update () {
        
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+        
+
         if(isPlacing) {
             PlayerInteractions(BuildingType);// waiting for player to do something
         }
 
         ObjectPlacement();
 
-        if (Input.GetMouseButtonDown(0)) {
-            RaycastHit hitted;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Building"))) {
-                Debug.Log(hitted.collider.gameObject.tag);
-            }
-        }
+        HighlightBuilding();
 
         //Highlight stuff
         /*RaycastHit buildingHit;
@@ -68,6 +68,7 @@ public class Player : MonoBehaviour {
 
 
     }
+
     void ObjectPlacement() { 
         if (Input.GetMouseButton(0)) {
             SelectObject();
@@ -83,7 +84,24 @@ public class Player : MonoBehaviour {
             MoveObject();
         }
     }
-    
+
+    void HighlightBuilding() {
+
+        if (Input.GetMouseButtonDown(0)) {
+            RaycastHit hitted;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hitted, 100f, 1 << LayerMask.NameToLayer("Building"))) {
+                if (!isPlacing) {
+                    BuildingData selectedData = hitted.collider.gameObject.GetComponent<BuildingInfo>().buildData;
+                    UiManager.UpdateHighlightText(selectedData, UiManager.highlightPanel, hitted.collider.gameObject);
+                    // highlight 
+
+                     //update UI 
+                }
+            }
+        }
+    }
+
 
     void SelectObject() {
         RaycastHit hitted;
@@ -95,8 +113,7 @@ public class Player : MonoBehaviour {
                 Destroy(grabbedObject);
             }
             else if(grabbedObject.gameObject.tag == "Money") {
-                PlayerInfo.totalMoney += grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().moneyGain + 1000;
-                Debug.Log("MoneyGain " + grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().moneyGain + 1000);
+                PlayerInfo.totalMoney += grabbedObject.gameObject.GetComponent<MaterialInfoContainer>().moneyGain * 1000;
                 Destroy(grabbedObject);
             }
             else {
@@ -158,12 +175,7 @@ public class Player : MonoBehaviour {
         }
 
         else {
-            // if (buildingData.even) {
             MoveTempBuilding(/*hit,*/buildingData.even);
-            //  }
-            //   else {
-            //  MoveTempBuilding(hit, buildingData.even);
-            //  }
         }       
     }
 
@@ -237,34 +249,43 @@ public class Player : MonoBehaviour {
 
     //Instantiate the building on the mouse position
     void PlaceBuilding(int buildingType) {
-         if (TutorialManager.inTutorial == true) {
-             TutorialManager.TutorialLevelUp();
-         }
 
          UpdatePlayerInfo(buildingType);
 
 
         //0.105f = heigth fix
         if (!tempBuilding.GetComponent<BuildingInfo>().buildData.even) {
-            GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
+            placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x, hit.transform.position.y + 0.105f, hit.transform.position.z), Quaternion.Euler(0, currentRotation, 0));
             placedBuilding.transform.SetParent(buildingOwned);
+            placedBuilding.GetComponent<Collider>().isTrigger = true;
+            Invoke("ResetIsTrigger", 1);
+
         }
         else {
             if (rotated) {
-                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixX, 
+                 placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixX, 
                 hit.transform.position.y + 0.105f,
                 hit.transform.position.z + buildingData.placementFixY), 
                 Quaternion.Euler(0, currentRotation, 0));
                 placedBuilding.transform.SetParent(buildingOwned);
+                placedBuilding.GetComponent<Collider>().isTrigger = true;
+                Invoke("ResetIsTrigger", 1);
             }
             else {
-                GameObject placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixY,
+                 placedBuilding = Instantiate(buildingList[buildingType], new Vector3(hit.transform.position.x + buildingData.placementFixY,
                 hit.transform.position.y + 0.105f,
                 hit.transform.position.z + buildingData.placementFixX),
                 Quaternion.Euler(0, currentRotation, 0));
                 placedBuilding.transform.SetParent(buildingOwned);
+                placedBuilding.GetComponent<Collider>().isTrigger = true;
+                Invoke("ResetIsTrigger", 1);
             }
         }
+        
+    }
+
+    void ResetIsTrigger() {
+        placedBuilding.GetComponent<Collider>().isTrigger = false;
     }
 
     void UpdatePlayerInfo(int buildingType) {

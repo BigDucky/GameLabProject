@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224824261282633890}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4070159581009558}
   - component: {fileID: 33952410191142272}
   - component: {fileID: 23507178747691568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: House_row_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 224524769161704880}
   - component: {fileID: 222192531553257208}
   - component: {fileID: 114337986204654726}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4145916560980982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: House_row_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 223571801782811024}
   - component: {fileID: 114441611666707626}
   - component: {fileID: 114698024110585202}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: SliderCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 224247853119703678}
   - component: {fileID: 222451766970486408}
   - component: {fileID: 114907756333666404}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224285081616510864}
   - component: {fileID: 114781450353696826}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 114466554845742794}
   - component: {fileID: 65694584705080682}
   - component: {fileID: 114648881107036696}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Houseing 1
   m_TagString: Product
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: 
-  buildData: {fileID: 11400000, guid: 24012c96e1a1a69438d8f0698eb16843, type: 2}
+  buildData: {fileID: 11400000, guid: 01d685ad97abcba4d993ede5271c2710, type: 2}
 --- !u!114 &114648881107036696
 MonoBehaviour:
   m_ObjectHideFlags: 1
