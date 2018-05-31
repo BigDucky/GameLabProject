@@ -27,7 +27,7 @@ public class UiManager : MonoBehaviour {
     public static bool startTxt;
 
     public List<Button> totalButtons;
-    public static List<Button> StotalButtons;
+    public Image personImage;
 
     int index;
     public Text timer;
@@ -39,6 +39,8 @@ public class UiManager : MonoBehaviour {
     int year = 2018;
     List<int> diffMonths = new List<int>();
 
+    public List<Sprite> personImages;
+
 
     Coroutine co;
    
@@ -46,10 +48,8 @@ public class UiManager : MonoBehaviour {
         highlightPanel = GameObject.Find("HighLightPanel");
         upgradeManager = GameObject.Find("UpgradeManager");
         highlightPanel.gameObject.SetActive(false);
+        
 
-        for (int i = 0; i < totalButtons.Count; i++) {
-            StotalButtons[i] = totalButtons[i];
-        }
 
         dialogTxt = dialogUI.transform.GetChild(0) ;
         dialogUII = dialogUI;
@@ -181,8 +181,15 @@ public class UiManager : MonoBehaviour {
         }       
     }
 
-    public static void DisableAllButtons( ) {
-        
+    public void EnableTalker(Sprite image) {
+        personImage.gameObject.SetActive(true);
+        personImage.GetComponent<Image>().sprite = image;
+    }
+
+    public void DisableAllButtons( ) {
+        for (int i = 0; i < totalButtons.Count; i++) {
+            totalButtons[i].interactable = false;
+        }
     }
 
     public  void EnableButtons(int buttonInList) {

@@ -93,9 +93,14 @@ public class TileManager : MonoBehaviour {
     }
 
     void SpawnTrees(GameObject tileNr) {
-        if(Random.Range(0,25) == 1) {
+        if(Random.Range(0,0) == 1) {
             GameObject tree = Instantiate(totalTrees[Random.Range(0, 3)], new Vector3(tileNr.transform.position.x + Random.Range(0, 1), tileNr.transform.position.y, tileNr.transform.position.z), Quaternion.identity);
             tree.transform.rotation = Quaternion.Euler(tree.transform.rotation.x, Random.Range(0, 360), tree.transform.rotation.z);
+            tree.transform.localScale = new Vector3(Random.Range(0.2f, 0.3f), Random.Range(0.2f, 0.3f), Random.Range(0.2f, 0.3f));
+            tree.AddComponent<BoxCollider>();
+            tree.AddComponent<MaterialCollision>();
+            tree.AddComponent<Rigidbody>().isKinematic = true;
+            tree.transform.tag = "Environmental";
         }
     }
 

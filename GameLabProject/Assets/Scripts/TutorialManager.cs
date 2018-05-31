@@ -11,15 +11,18 @@ public class TutorialManager : MonoBehaviour {
     public static bool gameStart = false;
     public static bool levelUP;
 
-    public static bool buildCheck;
     public static bool buildButtonClick;
+    public static bool click;
 
-    UiManager uimanager = new UiManager();
+    UiManager uimanager;
 
+    public List<ScriptableObject> allSteps;
+    public ScriptableObject currentStep;
 
 	// Use this for initialization
 	void Start () {
-        TutorialSetup();
+        uimanager = GameObject.Find("UIManager").GetComponent<UiManager>();
+        TutorialSetup(0);
     }
     
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class TutorialManager : MonoBehaviour {
             switch (tutorialStep) {
 
                 case 0:
-                    TutorialSetup();
+                    TutorialSetup(0);
                     levelUP = false;
                     break;
                 case 1:
@@ -51,12 +54,10 @@ public class TutorialManager : MonoBehaviour {
                 gameStart = true;
             }
         }
-
-        CurrentTutorial();
     }
 
-    public void CurrentTutorial() {
-
+    public void EnableBuildCheck() {
+        buildButtonClick = true;
     }
 
     void EndTutorial() {
@@ -66,9 +67,11 @@ public class TutorialManager : MonoBehaviour {
         UiManager.ChangeText(dialogData.text[7]);
     }
 
-    void TutorialSetup() {
-        tutorialStep = 0;
-        UiManager.DisableAllButtons();
+    void TutorialSetup(int current) {
+        tutorialStep = current;
+        uimanager.DisableAllButtons();
+        currentStep = allSteps[current];
+       // TutorialSteps step = currentSte;
         UiManager.ChangeText(dialogData.text[0]);      
     }
 
