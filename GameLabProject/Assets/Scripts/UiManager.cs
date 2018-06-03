@@ -40,6 +40,7 @@ public class UiManager : MonoBehaviour {
     List<int> diffMonths = new List<int>();
 
     public List<Sprite> personImages;
+    public List<Image> allIArrows;
 
 
     Coroutine co;
@@ -48,9 +49,7 @@ public class UiManager : MonoBehaviour {
         highlightPanel = GameObject.Find("HighLightPanel");
         upgradeManager = GameObject.Find("UpgradeManager");
         highlightPanel.gameObject.SetActive(false);
-        
-
-
+       
         dialogTxt = dialogUI.transform.GetChild(0) ;
         dialogUII = dialogUI;
         //pauseCanvas.gameObject.SetActive(false);
@@ -196,7 +195,7 @@ public class UiManager : MonoBehaviour {
         buildOptions[buttonInList].gameObject.GetComponent<Button>().interactable = true;
     }
 
-    public static void ChangeText(string text) {
+    public void ChangeText(string text) {
         // dialogTxt.GetComponent<Text>().text = text;       
         fullTxt = text;
         startTxt = true;
