@@ -22,5 +22,5 @@ public class TutorialSteps : ScriptableObject {
     [TextArea(5, 5)]
     
 
-    public string THESE_ARE_THE_ACTIONS = "CLICK -- BUILDBUTTON -- BUILD";
+    public string THESE_ARE_THE_ACTIONS = "CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD";
 }

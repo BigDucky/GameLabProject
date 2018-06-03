@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 105231c0980028c4bb70f0762d54a24b, type: 3}
-  m_Name: Step2
+  m_Name: Step5
   m_EditorClassIdentifier: 
-  ACTION: BUILDBUTTON
-  talker: {fileID: 21300000, guid: 748ee850023f7fe45ae08397775b24eb, type: 3}
+  ACTION: CLICK
+  talker: {fileID: 21300000, guid: d51ce6d78c34fcb4db875799783f2f73, type: 3}
   disableAllButtons: 0
-  text: "To start your city, build a factory which can produce certain products for
-    your populace. Build the\r\nFactory."
+  text: Congratulations, you have just built your first Factory. This building will
+    be able to produce products.
   conditionsMet: 0
   THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD

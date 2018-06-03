@@ -67,12 +67,13 @@ MonoBehaviour:
   buildButtonClick: 0
   waitingForPlayer: 0
   playerActionNeeded: 
+  selectedBuilding: 0
   allSteps:
   - {fileID: 11400000, guid: 3d8a2c640a117fb4f909a656ede72c8e, type: 2}
   - {fileID: 11400000, guid: 536994321d0231741a2176018a7abd14, type: 2}
   - {fileID: 11400000, guid: 4ee32a8c248af4f44b2c8e2f13894008, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 210d8944a570fa940a66b321c2e9d6fa, type: 2}
+  - {fileID: 11400000, guid: 2625f32883083fe4e8ce03a06b66f731, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

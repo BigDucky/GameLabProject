@@ -290,6 +290,8 @@ public class Player : MonoBehaviour {
 
     void UpdatePlayerInfo(int buildingType) {
         if(!TutorialManager.inTutorial) {
+            TutorialManager.build = true;
+            Invoke("ResetBuildTutorial", 1);
             PlayerInfo.UpdateMoneyCost(buildingData.buildingCost);
 
             switch (buildingType) {
@@ -306,6 +308,10 @@ public class Player : MonoBehaviour {
             }
         }
 
+    }
+
+    void ResetBuildTutorial() {
+        TutorialManager.build = false;
     }
 
     //Selecting stage where it determites which building is selected ( also makes the temp building for visualization ) 

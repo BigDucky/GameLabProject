@@ -12,10 +12,12 @@ public class TutorialManager : MonoBehaviour {
     public static bool levelUP;
 
     public bool buildButtonClick;
+    public static bool build;
     public static bool click;
 
     public bool waitingForPlayer;
     public string playerActionNeeded;
+    public bool selectedBuilding;
 
     UiManager uimanager;
 
@@ -33,8 +35,7 @@ public class TutorialManager : MonoBehaviour {
             nextCheckPoint(playerActionNeeded);
         }
 
-        Debug.Log(buildButtonClick);
-        Debug.Log(playerActionNeeded);
+        Debug.Log(build);
 
       /*  if (inTutorial == false && gameStart == false) {
             if (Input.GetMouseButtonDown(0)) {
@@ -49,8 +50,14 @@ public class TutorialManager : MonoBehaviour {
         Invoke("ResetBool", 1);
     }
 
+    public void EnableSelectedBuildckeck() {
+        selectedBuilding = true;
+        Invoke("ResetBool", 1);
+    }
+
     void ResetBool() {
         buildButtonClick = false;
+        selectedBuilding = false;
     }
 
     void EndTutorial() {
@@ -62,7 +69,7 @@ public class TutorialManager : MonoBehaviour {
 
     void TutorialSetup() {
         tutorialStep = 0;
-        uimanager.DisableAllButtons();
+        //uimanager.DisableAllButtons();
         uimanager.personImage.sprite = allSteps[tutorialStep].talker;
         uimanager.ChangeText(allSteps[tutorialStep].text);
         playerActionNeeded = allSteps[tutorialStep].ACTION;
@@ -80,8 +87,7 @@ public class TutorialManager : MonoBehaviour {
     void nextCheckPoint(string type) {
         switch (type) {
             case "CLICK":
-                if (Input.GetMouseButtonDown(0)) {
-                
+                if (Input.GetMouseButtonDown(0)) {               
                     waitingForPlayer = false;
                     nextTutorialStep();
                 }
@@ -93,7 +99,17 @@ public class TutorialManager : MonoBehaviour {
 
                 }
                 break;
+            case "SELECTBUILDING":
+                if (selectedBuilding) {
+                    waitingForPlayer = false;
+                    nextTutorialStep();
+                }
+                break;
             case "BUILD":
+                if (build) {
+                    waitingForPlayer = false;
+                    nextTutorialStep();
+                }
             break;
 
             default:

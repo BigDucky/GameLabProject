@@ -20,4 +20,4 @@ MonoBehaviour:
     government is to make sure that the Raw Materials they gave you DO NOT run out.
     How do you do this? By making your economy \u201CCircular\u201D!"
   conditionsMet: 0
-  THESE_ARE_THE_ACTIONS: CLICK -- BUILDBUTTON -- BUILD
+  THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
