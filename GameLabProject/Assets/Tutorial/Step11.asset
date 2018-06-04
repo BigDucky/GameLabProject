@@ -19,4 +19,4 @@ MonoBehaviour:
     in the streets. So you need to build a Garbage Disposal to put the waste into.
     (--> To the Build Button)"
   conditionsMet: 0
-  THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

@@ -18,4 +18,4 @@ MonoBehaviour:
     good thing. The Garbage Disposal has a maximum capacity of Waste that can be put
     into the Disposal. Be careful to not overburden the Garbage Disposal.
   conditionsMet: 0
-  THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

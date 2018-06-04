@@ -18,6 +18,9 @@ public class UiManager : MonoBehaviour {
     public static GameObject highlightPanel;
     public static GameObject upgradeManager;
 
+    public GameObject rawMatButton;
+    public static GameObject mine;
+
     public Text totalMoneyTxt;
     public Text totalPolTxt;
     public Text circularity;
@@ -25,6 +28,8 @@ public class UiManager : MonoBehaviour {
 
     public static string fullTxt;
     public static bool startTxt;
+
+    public static bool mineButtonEnable;
 
     public List<Button> totalButtons;
     public Image personImage;
@@ -56,6 +61,12 @@ public class UiManager : MonoBehaviour {
         int[] dates = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         diffMonths.AddRange(dates);
 
+
+
+    }
+
+    public void SetMineProperty() {
+        mine.GetComponent<ProcessHandle>().materialInPlace = true;
     }
 
     // Update is called once per frame
@@ -75,6 +86,13 @@ public class UiManager : MonoBehaviour {
                 startTxt = false;
             }
 
+        }
+
+        if (mineButtonEnable) {
+            rawMatButton.gameObject.SetActive(true);
+        }
+        else {
+            rawMatButton.gameObject.SetActive(false);
         }
     }
 
@@ -117,6 +135,7 @@ public class UiManager : MonoBehaviour {
         UpgradeManager upgradeData = upgradeManager.GetComponent<Upgrade>().upgradeManager;
         for (int i = 0; i < 6; i++) {
             if (buildData.name == "Factory " + i) {
+                mineButtonEnable = false;
                 if (i < 5) {
                     text.text = "Upgrade Level: " + (buildData.level + 1) + "   || Upgrade Cost:" + upgradeData.factoryUpgrades[Upgrade.currentUpgrade + 1].buildingCost + "\n" +
                     "Efficientcy: " + buildData.efficientcyPercentage + " %" + "\n" +
@@ -129,6 +148,7 @@ public class UiManager : MonoBehaviour {
                 }             
             }
             else if(buildData.name == "Garbage " + i) {
+                mineButtonEnable = false;
                 if (i < 5) {
                     text.text = "Upgrade Level: " + (buildData.level + 1) + "   || Upgrade Cost:" + upgradeData.garbageUpgrades[Upgrade.currentUpgrade + 1].buildingCost + "\n" +
                     "Garbage Capacity:" + buildData.G_Cap + "\n" +
@@ -143,6 +163,7 @@ public class UiManager : MonoBehaviour {
                 text.text = "Tech / recycle factor :" + buildData.techPercentage;
             }
             else if (buildData.name == "Recycle " + i) {
+                mineButtonEnable = false;
                 if (i < 5) {
                     text.text = "Upgrade Level: " + (buildData.level + 1) + "   || Upgrade Cost:" + upgradeData.recycleUpgrades[Upgrade.currentUpgrade + 1].buildingCost + "\n" +
                     "Recycleble of total :" + buildData.recycleFactor + "\n" +
@@ -153,6 +174,10 @@ public class UiManager : MonoBehaviour {
                     text.text = "Fully Upgraded";
                 }
                 
+            }
+            else if(buildData.name == "Mine 1" ) {
+                text.text = "This is the mine click on the button to produce raw material";
+                mineButtonEnable = true;
             }
         }
     }

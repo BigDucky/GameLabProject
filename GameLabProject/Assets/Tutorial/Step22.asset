@@ -18,4 +18,4 @@ MonoBehaviour:
     in \u201CThe City\u201D. This building gets a part of the waste that the other
     buildings produce and creates new raw materials from the waste."
   conditionsMet: 0
-  THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

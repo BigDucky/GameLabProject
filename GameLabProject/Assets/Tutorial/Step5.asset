@@ -17,4 +17,4 @@ MonoBehaviour:
   text: Congratulations, you have just built your first Factory. This building will
     be able to produce products.
   conditionsMet: 0
-  THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

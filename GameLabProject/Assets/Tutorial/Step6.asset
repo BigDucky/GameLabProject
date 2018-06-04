@@ -17,4 +17,4 @@ MonoBehaviour:
   text: "But lets not do that now, let\u2019s first build other buildings that can
     manage the output from the Factory."
   conditionsMet: 0
-  THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

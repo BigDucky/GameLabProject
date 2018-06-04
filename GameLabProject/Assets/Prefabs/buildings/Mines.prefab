@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 65678797356058682}
   m_Layer: 10
   m_Name: Mines
-  m_TagString: Untagged
+  m_TagString: Mine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,6 +369,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialInPlace: 0
   processing: 0
+  tips:
+  - text1
+  - text2
+  - text3
+  randomNumber: 0
+  panel: {fileID: 0}
+  tipText: {fileID: 0}
+  index: 0
   totalRecycleMat: 0
   totalMatToProcess: 0
   moneyFactor: 0

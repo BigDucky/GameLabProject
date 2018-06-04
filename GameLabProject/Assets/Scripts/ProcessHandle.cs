@@ -52,6 +52,12 @@ public class ProcessHandle : MonoBehaviour {
     }
     */
 
+
+    public void EnableProcessHandler() {
+        materialInPlace = true;
+    }
+
+
     // Update is called once per frame
     void Update() {
         //if (!TutorialManager.inTutorial) {

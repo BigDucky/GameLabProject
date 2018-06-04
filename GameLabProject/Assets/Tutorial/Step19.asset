@@ -19,4 +19,4 @@ MonoBehaviour:
     use again. To do this, you need to build a specialized facility. A recycling facility
     to be exact. (--> To the build button)"
   conditionsMet: 0
-  THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

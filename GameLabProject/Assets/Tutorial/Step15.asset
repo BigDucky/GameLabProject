@@ -18,4 +18,4 @@ MonoBehaviour:
     So you need to build a mine to create output of Raw Materials, which you will
     put into the Factory to create products. (--> To the Build button)
   conditionsMet: 0
-  THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD
