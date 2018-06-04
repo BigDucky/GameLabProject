@@ -15,6 +15,6 @@ MonoBehaviour:
   talker: {fileID: 21300000, guid: 748ee850023f7fe45ae08397775b24eb, type: 3}
   disableAllButtons: 0
   text: "To start your city, build a factory which can produce certain products for
-    your populace. Build the\r\nFactory."
+    your populace. Build the\r Factory. (--> To the Build button)"
   conditionsMet: 0
   THESE_ARE_THE_ACTIONS: CLICK ||  BUILDINGSELECT || BUILDBUTTON || BUILD
