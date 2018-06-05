@@ -10,11 +10,6 @@ public class ProcessHandle : MonoBehaviour {
     [HideInInspector]
     public bool processing;
     private int timePassed;
-    public string[] tips = { "text1", "text2", "text3" };
-    public int randomNumber;
-    public GameObject panel;
-    public Text tipText;
-    public int index;
 
     Transform thisTransform;
 
@@ -36,39 +31,18 @@ public class ProcessHandle : MonoBehaviour {
     void Start () {
         buildingSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
         thisTransform = this.gameObject.transform;
-       // StartCoroutine(Example());
         if(this.gameObject.tag == "Product") {
             techSettings = GameObject.FindGameObjectWithTag("Tech");
             this.gameObject.GetComponent<BuildingInfo>().buildData.techPercentage = techSettings.GetComponent<BuildingInfo>().buildData.techPercentage;
         }
 	}
 
-    /*
-    IEnumerator Example()
-    {
-        Debug.Log("Je oma");
-        yield return new WaitForSecondsRealtime(5);
-        Debug.Log("je oma na 5 seconden");
-    }
-    */
-
     // Update is called once per frame
     void Update() {
         //if (!TutorialManager.inTutorial) {
             if (materialInPlace) {
-               buildingSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
-            randomNumber = Random.Range(1, 50);
-            Debug.Log(randomNumber);
-            if(randomNumber == 1)
-            {
-                randomNumber = 1;
-                index = Random.Range(0, tips.Length);
-                panel.SetActive(true);
-                for (int i = 0; i < tips.Length; i++)
-                {
-                    Debug.Log("text" + i + "is" + tips[i]);
-                }
-            }
+                buildingSettings = this.gameObject.GetComponent<BuildingInfo>().buildData;
+
             if (this.gameObject.tag == "Product" && timePassed == 0) {
                     GameObject money = Instantiate(buildingSettings.money);
 

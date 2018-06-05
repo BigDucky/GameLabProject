@@ -29,14 +29,24 @@ public class UiManager : MonoBehaviour {
     public List<Button> totalButtons;
     public Image personImage;
 
-    int index;
+    public string[] tips = { "text1", "text2", "text3" };
+    int randomNumber;
+    public GameObject panel;
+    public Text tipText;
+    int index2;
+    int randomMonth;
+    int currentYear;
+    int randomTip;
+    public Boolean textGiven;
+
+    int index ;
     public Text timer;
     float time;
     float minute;
     float hour;
     float day;
-    int month = 1;
-    int year = 2018;
+    int month = 12;
+    int year = 2017;
     List<int> diffMonths = new List<int>();
 
     public List<Sprite> personImages;
@@ -55,22 +65,31 @@ public class UiManager : MonoBehaviour {
         //pauseCanvas.gameObject.SetActive(false);
         int[] dates = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         diffMonths.AddRange(dates);
+        currentYear = year;
 
     }
 
-    // Update is called once per frame
-    void Update() {
+// Update is called once per frame
+void Update() {
         UpdateText();
         runTimer();
+        startTxtEnable();
+        getTip();
+    }
 
-        if (startTxt) {
-            if(co != null) {
+    public void startTxtEnable()
+    {
+        if (startTxt)
+        {
+            if (co != null)
+            {
 
                 StopCoroutine(co);
                 co = StartCoroutine(TypeWriterFFX.ShowTXt(dialogTxt.GetComponent<Text>(), fullTxt));
                 startTxt = false;
             }
-            else {
+            else
+            {
                 co = StartCoroutine(TypeWriterFFX.ShowTXt(dialogTxt.GetComponent<Text>(), fullTxt));
                 startTxt = false;
             }
@@ -79,12 +98,14 @@ public class UiManager : MonoBehaviour {
     }
 
     public void runTimer() {
-        time += Mathf.RoundToInt(Time.deltaTime * 50);
+        time += Mathf.RoundToInt(Time.deltaTime * 250 * 1.5f);
         day = Mathf.RoundToInt(time / 24);
-        if (day > diffMonths[index]) {
+        if (day > diffMonths[index])
+
+        {
             time = 0;
             month++;
-            if(index == 12) {
+            if(index == 11) {
                 index = 0;
             }
             index++;
@@ -96,6 +117,24 @@ public class UiManager : MonoBehaviour {
         }
 
         timer.text = "" + day + "/" + month + "/" + year;
+    }
+
+    public void getTip()
+    {
+        if (currentYear != year)
+        {
+            textGiven = false;
+            if (month == 1 && textGiven == false)
+            {
+                textGiven = true;
+                currentYear++;
+                randomTip = UnityEngine.Random.Range(0, tips.Length);
+                Debug.Log("random tip : " + randomTip);
+                tipText.text = tips[randomTip];
+                Debug.Log(tipText.text);
+            }
+            currentYear = year;
+        }
     }
 
     public static void UpdateHighlightText(BuildingData buildData, GameObject highLightpanel, GameObject selectedObject) {
