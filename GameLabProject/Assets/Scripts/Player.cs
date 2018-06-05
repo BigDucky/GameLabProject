@@ -94,6 +94,10 @@ public class Player : MonoBehaviour {
                 if (!isPlacing) {
                     BuildingData selectedData = hitted.collider.gameObject.GetComponent<BuildingInfo>().buildData;
                     UiManager.UpdateHighlightText(selectedData, UiManager.highlightPanel, hitted.collider.gameObject);
+                    if(selectedData.name == "Mine 1") {
+                        UiManager.mine = hitted.collider.gameObject;
+                        
+                    }
                     // highlight 
 
                      //update UI 

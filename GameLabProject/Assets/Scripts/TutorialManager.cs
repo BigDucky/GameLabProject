@@ -35,7 +35,7 @@ public class TutorialManager : MonoBehaviour {
             nextCheckPoint(playerActionNeeded);
         }
 
-        Debug.Log(build);
+		Debug.Log ("Build click"+buildButtonClick);
 
       /*  if (inTutorial == false && gameStart == false) {
             if (Input.GetMouseButtonDown(0)) {
