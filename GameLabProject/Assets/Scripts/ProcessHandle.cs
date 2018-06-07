@@ -37,24 +37,10 @@ public class ProcessHandle : MonoBehaviour {
         }
 	}
 
-<<<<<<< HEAD
-=======
-    /*
-    IEnumerator Example()
-    {
-        Debug.Log("Je oma");
-        yield return new WaitForSecondsRealtime(5);
-        Debug.Log("je oma na 5 seconden");
-    }
-    */
-
-
     public void EnableProcessHandler() {
         materialInPlace = true;
     }
 
-
->>>>>>> 9b600f2d81c8e4faf6235c524175f87321764196
     // Update is called once per frame
     void Update() {
         //if (!TutorialManager.inTutorial) {

@@ -34,9 +34,9 @@ public class UiManager : MonoBehaviour {
     public List<Button> totalButtons;
     public Image personImage;
 
-    public string[] tips = { "text1", "text2", "text3" };
+    public List<string> tipsTXT = new List<string>();
     int randomNumber;
-    public GameObject panel;
+    public GameObject tipPanel;
     public Text tipText;
     int index2;
     int randomMonth;
@@ -56,7 +56,7 @@ public class UiManager : MonoBehaviour {
 
     public List<Sprite> personImages;
     public List<Image> allIArrows;
-
+    public TextData textData;
 
     Coroutine co;
    
@@ -72,7 +72,7 @@ public class UiManager : MonoBehaviour {
         diffMonths.AddRange(dates);
         currentYear = year;
 
-
+        tipsTXT.AddRange(textData.text);
 
     }
 
@@ -116,7 +116,7 @@ void Update() {
     }
 
     public void runTimer() {
-        time += Mathf.RoundToInt(Time.deltaTime * 250 * 1.5f);
+        time += Mathf.RoundToInt(Time.deltaTime * 80);
         day = Mathf.RoundToInt(time / 24);
         if (day > diffMonths[index])
 
@@ -146,13 +146,19 @@ void Update() {
             {
                 textGiven = true;
                 currentYear++;
-                randomTip = UnityEngine.Random.Range(0, tips.Length);
-                Debug.Log("random tip : " + randomTip);
-                tipText.text = tips[randomTip];
-                Debug.Log(tipText.text);
+                randomTip = UnityEngine.Random.Range(0, tipsTXT.Count);
+                tipText.text = tipsTXT[randomTip];
+                StartCoroutine(tipTimer());
             }
             currentYear = year;
         }
+    }
+
+    IEnumerator tipTimer()
+    {
+        tipPanel.SetActive(true);
+        yield return new WaitForSecondsRealtime(20);
+        tipPanel.SetActive(false);
     }
 
     public static void UpdateHighlightText(BuildingData buildData, GameObject highLightpanel, GameObject selectedObject) {
