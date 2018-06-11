@@ -11,6 +11,8 @@ public class Upgrade : MonoBehaviour {
     public bool clicked;
 
 
+    public int lol;
+
 	// Use this for initialization
 	void Start () {
 
@@ -18,15 +20,24 @@ public class Upgrade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        Debug.Log(currentUpgrade);
 	}
 
     public void LevelUp( ) {
         currentUpgrade++;
         LevelUpBuilding();
 
+        Debug.Log(lol);
+
+    }
+
+    public void EnableTechOption(GameObject tech) {
+        toBeUpgraded = tech;
     }
 
     public void LevelUpBuilding() {
+
         UpgradeManager upgradeData = UiManager.upgradeManager.GetComponent<Upgrade>().upgradeManager;
         switch (toBeUpgraded.gameObject.tag) {
             case "Factory":
@@ -38,6 +49,11 @@ public class Upgrade : MonoBehaviour {
             case "Garbage":
                 toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.garbageUpgrades[currentUpgrade];
                 break;
+            case "Tech":
+                toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.techUpgrades[currentUpgrade];
+                GameObject.Find("UIManager").GetComponent<UiManager>().levelTechUp();
+
+                return;
 
             default:
                 break;

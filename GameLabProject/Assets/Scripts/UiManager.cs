@@ -58,6 +58,9 @@ public class UiManager : MonoBehaviour {
     public List<Image> allIArrows;
     public TextData textData;
 
+    public List<GameObject> techButtons;
+    public int currentTechLevel;
+
     Coroutine co;
    
     void Start() {
@@ -74,6 +77,9 @@ public class UiManager : MonoBehaviour {
 
         tipsTXT.AddRange(textData.text);
 
+        currentTechLevel = 0;
+
+        EnableNextButton();
     }
 
     public void SetMineProperty() {
@@ -86,6 +92,7 @@ void Update() {
         runTimer();
         startTxtEnable();
         getTip();
+
     }
 
     public void startTxtEnable()
@@ -161,19 +168,34 @@ void Update() {
         tipPanel.SetActive(false);
     }
 
-    public static void UpdateHighlightText(BuildingData buildData, GameObject highLightpanel, GameObject selectedObject) {
-        
-        highLightpanel.gameObject.SetActive(true);
-        Transform text = highLightpanel.transform.Find("Stats");
-        Transform title = highLightpanel.transform.Find("Title");
-        Upgrade.currentUpgrade = buildData.level-1;
-        if (selectedObject !=null) {          
-            Upgrade.buildData = buildData;
-            Upgrade.toBeUpgraded = selectedObject;
-        }     
-        string buildingName = buildData.name;
-        title.GetComponent<Text>().text = buildData.name;
-        TextSelection(buildData, text.GetComponent<Text>());
+    public void levelTechUp() {
+        currentTechLevel++;
+        EnableNextButton();
+    }
+
+    public void EnableNextButton() {
+
+        for (int i = 0; i < techButtons.Count; i++) {
+            techButtons[i].GetComponent<Button>().interactable = false;
+        }
+
+        techButtons[currentTechLevel].GetComponent<Button>().interactable = true;
+    }
+
+    public static void UpdateHighlightText(BuildingData buildData, GameObject highLightpanel, GameObject selectedObject ) {
+
+
+            highLightpanel.gameObject.SetActive(true);
+            Transform text = highLightpanel.transform.Find("Stats");
+            Transform title = highLightpanel.transform.Find("Title");
+            Upgrade.currentUpgrade = buildData.level - 1;
+            if (selectedObject != null) {
+                Upgrade.buildData = buildData;
+                Upgrade.toBeUpgraded = selectedObject;
+            }
+            string buildingName = buildData.name;
+            title.GetComponent<Text>().text = buildData.name;
+            TextSelection(buildData, text.GetComponent<Text>());
     }
 
     public static void TextSelection(BuildingData buildData, Text text) {
