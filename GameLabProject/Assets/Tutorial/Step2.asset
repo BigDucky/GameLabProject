@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Step2
   m_EditorClassIdentifier: 
   ACTION: BUILDBUTTON
-  talker: {fileID: 21300000, guid: 748ee850023f7fe45ae08397775b24eb, type: 3}
+  talker: {fileID: 21300000, guid: d51ce6d78c34fcb4db875799783f2f73, type: 3}
   disableAllButtons: 0
   text: "To start your city, build a factory which can produce certain products for
     your populace. Build the\r Factory. (--> To the Build button)"
