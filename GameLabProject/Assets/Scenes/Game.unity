@@ -7488,9 +7488,10 @@ MonoBehaviour:
   - {fileID: 100000, guid: b1bdebd6ec3aff34c9c208acc26ff7e8, type: 3}
   - {fileID: 100000, guid: 59b854d8bccdec24e995ae6baec82951, type: 3}
   totalTrees:
-  - {fileID: 100004, guid: 00647fa5a7fc79248a3d59e8b97e42fe, type: 3}
-  - {fileID: 1858339568859696, guid: dc8839d0bfe9eba4ea42c70f720a08b6, type: 2}
-  - {fileID: 1866236435706936, guid: 94cbcebede4ff274e8301ad24b66fe0e, type: 2}
+  - {fileID: 1975574649833492, guid: c00503a2099b2564a9e651a8e47064f2, type: 2}
+  - {fileID: 1137515481819586, guid: dc0176efa64e7034dbcbcdae0424feff, type: 2}
+  - {fileID: 1090536198756584, guid: f243dbc5312946c44b7753a14a496be3, type: 2}
+  - {fileID: 1090536198756584, guid: f243dbc5312946c44b7753a14a496be3, type: 2}
 --- !u!4 &1218749482
 Transform:
   m_ObjectHideFlags: 0
@@ -8564,7 +8565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1495554727
 RectTransform:
   m_ObjectHideFlags: 0
