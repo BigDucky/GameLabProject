@@ -87,16 +87,17 @@ public class TileManager : MonoBehaviour {
                     TileSetup("tileNR", i, j, tileNr);
                     SpawnRocks(tileNr);
                     SpawnTrees(tileNr);
+
                 }
             }
         }
     }
 
     void SpawnTrees(GameObject tileNr) {
-        if(Random.Range(0,0) == 1) {
-            GameObject tree = Instantiate(totalTrees[Random.Range(0, 3)], new Vector3(tileNr.transform.position.x + Random.Range(0, 1), tileNr.transform.position.y, tileNr.transform.position.z), Quaternion.identity);
+        if(Random.Range(0,20) == 1) {
+            GameObject tree = Instantiate(totalTrees[Random.Range(0,3)], new Vector3(tileNr.transform.position.x + Random.Range(0, 1), tileNr.transform.position.y, tileNr.transform.position.z), Quaternion.identity);
             tree.transform.rotation = Quaternion.Euler(tree.transform.rotation.x, Random.Range(0, 360), tree.transform.rotation.z);
-            tree.transform.localScale = new Vector3(Random.Range(0.2f, 0.3f), Random.Range(0.2f, 0.3f), Random.Range(0.2f, 0.3f));
+            tree.transform.localScale = new Vector3(Random.Range(0.3f, 0.7f), Random.Range(0.3f, 0.7f), Random.Range(0.3f, 0.7f));
             tree.AddComponent<BoxCollider>();
             tree.AddComponent<MaterialCollision>();
             tree.AddComponent<Rigidbody>().isKinematic = true;
