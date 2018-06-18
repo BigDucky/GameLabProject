@@ -17,7 +17,7 @@ MonoBehaviour:
   mine: 0
   house: 0
   tech: 1
-  level: 1004000
+  level: 5
   width: 0
   length: 0
   buildingCost: 0

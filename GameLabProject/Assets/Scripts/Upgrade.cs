@@ -25,6 +25,7 @@ public class Upgrade : MonoBehaviour {
 	}
 
     public void LevelUp( ) {
+        
         currentUpgrade++;
         LevelUpBuilding();
 
@@ -41,17 +42,54 @@ public class Upgrade : MonoBehaviour {
         UpgradeManager upgradeData = UiManager.upgradeManager.GetComponent<Upgrade>().upgradeManager;
         switch (toBeUpgraded.gameObject.tag) {
             case "Factory":
-                toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.factoryUpgrades[currentUpgrade];               
+                if (PlayerInfo.totalMoney < toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData.buildingCost) {
+                    currentUpgrade--;
+                    Debug.Log("CANT UOPGEADA");
+
+                    return;
+                }
+                else {
+                    toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.factoryUpgrades[currentUpgrade];
+
+                }
                 break;
             case "Recycle":
-                toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.recycleUpgrades[currentUpgrade];
+                if (PlayerInfo.totalMoney < toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData.buildingCost) {
+                    currentUpgrade--;
+                    Debug.Log("CANT UOPGEADA");
+
+                    return;
+
+                }
+                else {
+                    toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.recycleUpgrades[currentUpgrade];
+
+                }
                 break;
             case "Garbage":
-                toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.garbageUpgrades[currentUpgrade];
-                break;
+                if (PlayerInfo.totalMoney < toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData.buildingCost) {
+                    currentUpgrade--;
+                    Debug.Log("CANT UOPGEADA");
+
+                    return;
+                }
+                else {
+                    toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.garbageUpgrades[currentUpgrade];
+                }
+                    break;
+
             case "Tech":
-                toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.techUpgrades[currentUpgrade];
-                GameObject.Find("UIManager").GetComponent<UiManager>().levelTechUp();
+                if (PlayerInfo.totalMoney < toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData.buildingCost) {
+                    currentUpgrade--;
+                    Debug.Log("CANT UOPGEADA");
+
+                    return;
+                }
+                else {
+                    toBeUpgraded.gameObject.GetComponent<BuildingInfo>().buildData = upgradeData.techUpgrades[currentUpgrade];
+                    GameObject.Find("UIManager").GetComponent<UiManager>().levelTechUp();
+
+                }
 
                 return;
 

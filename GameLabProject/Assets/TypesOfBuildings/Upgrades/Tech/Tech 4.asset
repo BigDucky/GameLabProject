@@ -17,10 +17,10 @@ MonoBehaviour:
   mine: 0
   house: 0
   tech: 1
-  level: 560000
+  level: 4
   width: 0
   length: 0
-  buildingCost: 0
+  buildingCost: 1004000
   collectTime: 0
   product: {fileID: 0}
   nonRecycleWaste: {fileID: 0}
