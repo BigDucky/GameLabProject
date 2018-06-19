@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105231c0980028c4bb70f0762d54a24b, type: 3}
   m_Name: Step34
   m_EditorClassIdentifier: 
-  ACTION: TECHBUTTON
+  ACTION: CLICK
   talker: {fileID: 21300000, guid: d51ce6d78c34fcb4db875799783f2f73, type: 3}
   disableAllButtons: 0
   text: Click on the Lightbulb Button to open the Technologies Screen.

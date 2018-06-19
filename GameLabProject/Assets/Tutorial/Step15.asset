@@ -16,7 +16,6 @@ MonoBehaviour:
   disableAllButtons: 0
   text: But to let this cycle create anything, it needs the Raw Materials from a Mine.
     So you need to build a mine to create output of Raw Materials, which you will
-    put into the Factory to create products. Click the Buildbutton, the button above
-    the Lightbulb.
+    put into the Factory to create products. (--> To the Build button)
   conditionsMet: 0
   THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

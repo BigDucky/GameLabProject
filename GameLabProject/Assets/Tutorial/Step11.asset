@@ -17,6 +17,6 @@ MonoBehaviour:
   text: "But these Houses and Factories produce waste, and you need to be able to
     store the waste somewhere. You can\u2019t just let waste \u201Cwaste away\u201D
     in the streets. So you need to build a Garbage Disposal to put the waste into.
-    Click the Buildbutton, the button above the Lightbulb."
+    (--> To the Build Button)"
   conditionsMet: 0
   THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD
