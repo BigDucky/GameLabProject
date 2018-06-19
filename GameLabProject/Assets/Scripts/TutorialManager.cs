@@ -113,7 +113,6 @@ public class TutorialManager : MonoBehaviour {
             break;
 
             default:
-                UiManager.outOfTutorial = true;
 
                 break;
         }

@@ -61,7 +61,6 @@ public class UiManager : MonoBehaviour {
     public List<GameObject> techButtons;
     public int currentTechLevel;
 
-    public static bool outOfTutorial;
     Coroutine co;
    
     void Start() {
@@ -91,18 +90,9 @@ public class UiManager : MonoBehaviour {
 void Update() {
         UpdateText();
         runTimer();
-        if (outOfTutorial)
-        {
+        startTxtEnable();
+        getTip();
 
-            startTxtEnable();
-            getTip();
-        }
-
-    }
-
-    public void EnableBool()
-    {
-        outOfTutorial = true;
     }
 
     public void startTxtEnable()
