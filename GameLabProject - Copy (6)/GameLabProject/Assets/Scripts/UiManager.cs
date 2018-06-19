@@ -50,7 +50,7 @@ public class UiManager : MonoBehaviour {
     float minute;
     float hour;
     float day;
-    int month = 12;
+    int month = 1;
     int year = 2017;
     List<int> diffMonths = new List<int>();
 
@@ -61,6 +61,7 @@ public class UiManager : MonoBehaviour {
     public List<GameObject> techButtons;
     public int currentTechLevel;
 
+    public static bool outOfTutorial;
     Coroutine co;
    
     void Start() {
@@ -90,8 +91,13 @@ public class UiManager : MonoBehaviour {
 void Update() {
         UpdateText();
         runTimer();
-        startTxtEnable();
-        getTip();
+        if (outOfTutorial)
+        {
+            startTxtEnable();
+            getTip();
+        }
+
+
 
     }
 
@@ -288,9 +294,10 @@ void Update() {
     }
 
     public void ChangeText(string text) {
-        // dialogTxt.GetComponent<Text>().text = text;       
+        dialogTxt.GetComponent<Text>().text = text;       
         fullTxt = text;
         startTxt = true;
+        startTxtEnable();
        
     }
 

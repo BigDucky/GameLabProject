@@ -97,6 +97,7 @@ public class TutorialManager : MonoBehaviour {
         uimanager.ChangeText(allSteps[tutorialStep].text);
         playerActionNeeded = allSteps[tutorialStep].ACTION;
         waitingForPlayer = true;
+        
     }
 
     void nextTutorialStep() {
@@ -154,7 +155,8 @@ public class TutorialManager : MonoBehaviour {
 			}
 			break;
             default:
-			
+
+                UiManager.outOfTutorial = true;
 
                 break;
         }
