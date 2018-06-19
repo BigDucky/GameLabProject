@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLabProject", "GameLabProject.csproj", "{71F6DC64-86DF-D986-D137-4C3C111CA0BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLabProject.Editor", "GameLabProject.Editor.csproj", "{A85CE77F-BB49-3AF6-D91E-E4A12AEACF66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71F6DC64-86DF-D986-D137-4C3C111CA0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F6DC64-86DF-D986-D137-4C3C111CA0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F6DC64-86DF-D986-D137-4C3C111CA0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F6DC64-86DF-D986-D137-4C3C111CA0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A85CE77F-BB49-3AF6-D91E-E4A12AEACF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A85CE77F-BB49-3AF6-D91E-E4A12AEACF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A85CE77F-BB49-3AF6-D91E-E4A12AEACF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A85CE77F-BB49-3AF6-D91E-E4A12AEACF66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
