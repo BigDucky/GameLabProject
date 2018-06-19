@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105231c0980028c4bb70f0762d54a24b, type: 3}
   m_Name: Step23
   m_EditorClassIdentifier: 
-  ACTION: CLICK
+  ACTION: MINEPRODUCE
   talker: {fileID: 21300000, guid: d51ce6d78c34fcb4db875799783f2f73, type: 3}
   disableAllButtons: 0
-  text: Click the Raw Materials Production Button to get Raw Materials and start your
-    first production cycle!
+  text: Click the Raw Materials Production Button on the mine to get Raw Materials
+    and start your first production cycle!
   conditionsMet: 0
   THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

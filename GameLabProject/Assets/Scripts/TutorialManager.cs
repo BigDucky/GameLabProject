@@ -14,6 +14,9 @@ public class TutorialManager : MonoBehaviour {
     public bool buildButtonClick;
     public static bool build;
     public static bool click;
+	public bool mineProduce;
+	public bool upgradeButton;
+	public bool techButton;
 
     public bool waitingForPlayer;
     public string playerActionNeeded;
@@ -45,9 +48,21 @@ public class TutorialManager : MonoBehaviour {
         }*/
     }
 
+	public void EnableTechButton(){
+		techButton = true;
+		Invoke("ResetBool", 1);
+	
+	}
+
+	public void EnableUpgradeButton(){
+		upgradeButton = true;
+		Invoke("ResetBool", 1);
+
+	}
+
     public void EnableBuildCheck() {
         buildButtonClick = true;
-        Invoke("ResetBool", 1);
+		Invoke("ResetBool", 1);
     }
 
     public void EnableSelectedBuildckeck() {
@@ -55,9 +70,17 @@ public class TutorialManager : MonoBehaviour {
         Invoke("ResetBool", 1);
     }
 
+	public void EnableMineProduceCheck(){
+		mineProduce = true;
+		Invoke ("ResetBool", 1);
+	}
+
     void ResetBool() {
         buildButtonClick = false;
         selectedBuilding = false;
+		mineProduce = false;
+		techButton = false;
+
     }
 
     void EndTutorial() {
@@ -111,9 +134,31 @@ public class TutorialManager : MonoBehaviour {
                     nextTutorialStep();
                 }
             break;
+		case "MINEPRODUCE":
+			if (mineProduce) {
+				waitingForPlayer = false;
+				nextTutorialStep ();
+			}
+			break;
+		case "TECHBUTTON":
+			if (techButton) {
+				waitingForPlayer = false;
+				nextTutorialStep ();
+			}
+			break;
 
+		case "UPGRADEBUTTON":
+			if (upgradeButton) {
+				waitingForPlayer = false;
+				nextTutorialStep ();
+			}
+			break;
             default:
+<<<<<<< HEAD
                 UiManager.outOfTutorial = true;
+=======
+			
+>>>>>>> 9f9030e1a27bc0b978209ed4b7e5f57f0845c4cc
 
                 break;
         }
