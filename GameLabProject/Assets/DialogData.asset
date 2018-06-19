@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef886c6c464a1bc47819e9dd69b8f6bb, type: 3}
+  m_Name: DialogData
+  m_EditorClassIdentifier: 
+  text:
+  - "Welcome Mr. Mayor this is \u201CThe City\u201D, YOUR city. \u201CThe City\u201D
+    is at the precipice of disaster, because of a disaster in the world there are
+    only so much Raw Material Reserves left on this earth. Your assignment from the
+    government is to make sure that the Raw Materials they gave you DO NOT run out.
+    How do you do this? By making your economy \u201CCircular\u201D!"
+  - Now press the Factory to build one to start of with!
+  - Now go build the Recycling Facility, we need to reycle in the future!
+  - Woah, factories produces waste, go build a garbage disposale before it lands on
+    the citizens!
+  - Finally, build 2 houses to let people into your town!
+  - Very good, now build the other one!
+  - Did you know you can build blocks of houses ? Its cheaper than building one single
+    one!
+  - End Of Tutorial * Click to start building your game*
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 

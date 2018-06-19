@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105231c0980028c4bb70f0762d54a24b, type: 3}
+  m_Name: Step6
+  m_EditorClassIdentifier: 
+  ACTION: CLICK
+  talker: {fileID: 21300000, guid: d51ce6d78c34fcb4db875799783f2f73, type: 3}
+  disableAllButtons: 0
+  text: "But lets not do that now, let\u2019s first build other buildings that can
+    manage the output from the Factory."
+  conditionsMet: 0
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

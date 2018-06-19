@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105231c0980028c4bb70f0762d54a24b, type: 3}
+  m_Name: Step1
+  m_EditorClassIdentifier: 
+  ACTION: CLICK
+  talker: {fileID: 21300000, guid: d51ce6d78c34fcb4db875799783f2f73, type: 3}
+  disableAllButtons: 1
+  text: "Welcome Mr. Mayor this is \u201CThe City\u201D, YOUR city. \u201CThe City\u201D
+    is at the precipice of disaster, because of a disaster in the world there are
+    only so much Raw Material Reserves left on this earth. Your assignment from the
+    government is to make sure that the Raw Materials they gave you DO NOT run out.
+    How do you do this? By making your economy \u201CCircular\u201D!"
+  conditionsMet: 0
+  THESE_ARE_THE_ACTIONS: CLICK ||  SELECTBUILDING || BUILDBUTTON || BUILD

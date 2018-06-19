@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef886c6c464a1bc47819e9dd69b8f6bb, type: 3}
+  m_Name: DialogData
+  m_EditorClassIdentifier: 
+  text:
+  - Kalundborg Symbiosis started more than 40 years ago and is one of the most well-known
+    and well-described industrial symbioses in the world.
+  - "Through a circular subscription concept, VIGGA offers high-quality children\u2019s
+    clothes, produced under proper conditions, at an attractive price."
+  - "The Carlsberg Group is developing the world\u2019s first fully biodegradable
+    beer bottle made from wood fibre \u2013 the Green Fiber Bottle."
+  - In 2005, KMC began transforming residual potato fibres into a valuable protein-rich
+    food additive for the food industry.
+  - Realdania Byg and 3XN Architects used 300,000 old construction bricks from Gamle
+    Mursten making the Castle of Hindsgavl hotel (see picture), saving the environment
+    of 150 tons CO2.
+  - For BMW, product transformation can mean a 50% cost saving for customers buying
+    remanufactured parts, with the same quality specifications and 24-month warranty
+    as a new part, as compared to new ones.
+  - Starbucks aims to turn thousands of tons of its waste coffee grounds and food
+    into everyday products by using bacteria to generate succinic acid, which can
+    then be used in a range of products from detergents to bio-plastics and medicines.
+  - Alaska Airlines converts its unwanted airline seats to handbags and purses
+  - "Omni United has partnered with Timberland to design its tires in such a way that
+    allows it to be recycled into Timberland\u2019s footwear outsoles"
+  - Thread, a social enterprise, collects plastic waste from Haiti and repurposes
+    it into useable fabric
+  - Southwest Airlines partners with Looptworks to repurpose its used seat leather
+    into LUV Seatweekender duffle bags, shoes, soccer balls, thereby saving over 70%
+    of CO2 emissions
+  - "Founded in 2013 by Arthur Kay, bio-bean\xAE is the first company in the world
+    to industrialise the process of recycling waste coffee grounds into advanced biofuels
+    and biochemicals"
+  - Design company CHP has created a village of temporary apartments made from shipping
+    containers to provide affordable homes for 2,500 people by 2020, located in the
+    city's ports.
